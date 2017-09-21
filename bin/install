@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+install_java() {
+  local install_type=$1
+  local version=$2
+  local install_path=$3
+
+  (
+    cd $install_path
+
+    case $version in
+      jdk*) install_oracle_jdk $version ;;
+    esac
+  )
+}
+
+install_oracle_jdk() {
+  local version=$1
+
+  echo "Setting up..."
+
+  # TODO: get sources
+  local source_url=http://download.java.net/java/jdk9/archive/181/binaries/jdk-9+181_linux-x64_bin.tar.gz
+
+  curl -fLC - --retry 3 --retry-delay 3 -b oraclelicense=a -o jdk-source.tar.gz $source_url
+  tar -zxf jdk-source.tar.gz
+  mv $version/* .
+  rmdir $version
+  rm jdk-source.tar.gz
+
+  asdf reshim java
+}
+
+get_oracle_source_urls() {
+  case $1 in
+    jdk-6) ;;
+    jdk-7) ;;
+    jdk-8) ;;
+    jdk-9) ;;
+  esac
+}
+
+install_java $ASDF_INSTALL_TYPE \
+             $ASDF_INSTALL_VERSION \
+             $ASDF_INSTALL_PATH
