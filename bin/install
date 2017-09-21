@@ -1,45 +1,119 @@
 #!/usr/bin/env bash
 
-install_java() {
-  local install_type=$1
-  local version=$2
-  local install_path=$3
+kind=$(echo $ASDF_INSTALL_VERSION | cut -d'-' -f 1)
+version=$(echo $ASDF_INSTALL_VERSION | cut -d'-' -f 2)
+path=$ASDF_INSTALL_PATH
 
-  (
-    cd $install_path
+case "$(uname -s)" in
+  Linux)
+    os=linux
+    case "$(uname -m)" in
+      i[3-9]86) arch=i586 ;;
+      x86_64) arch=x64 ;;
+      *) echo "ERROR: Unsupported arch: '$(uname -m)'"; exit 1 ;;
+    esac ;;
+
+  Darwin)
+    os=macosx
+    case "$(uname -m)" in
+      x86_64) arch=x64 ;;
+      *) echo "ERROR: Unsupported arch: '$(uname -m)'"; exit 1 ;;
+    esac ;;
+
+  *) echo "ERROR: Unsupported OS: '$(uname -s)'"; exit 1 ;;
+esac
+
+case $kind in
+  jdk)
+    pack=.tar.gz
 
     case $version in
-      jdk*) install_oracle_jdk $version ;;
-    esac
-  )
-}
+      9*)
+        base=oracle-edge
+        url=http://download.java.net/java/jdk9/archive/181/binaries/jdk-9+181_$os-$arch"_bin"$pack
+        dest=jdk-9
+        ;;
 
-install_oracle_jdk() {
-  local version=$1
+      8*)
+        base=http://download.oracle.com/otn-pub/java
 
-  echo "Setting up..."
+        case $version in
+          # 8u144-b01/090f390dda5b47b9b721c7dfaa008135
+          8u144) build=b01 check=090f390dda5b47b9b721c7dfaa008135 ;;
 
-  # TODO: get sources
-  local source_url=http://download.java.net/java/jdk9/archive/181/binaries/jdk-9+181_linux-x64_bin.tar.gz
+          # 8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7
+          8u141) build=b15 check=336fa29ff2bb4ef291e347e091f7f4a7 ;;
 
-  curl -fLC - --retry 3 --retry-delay 3 -b oraclelicense=a -o jdk-source.tar.gz $source_url
-  tar -zxf jdk-source.tar.gz
-  mv $version/* .
-  rmdir $version
-  rm jdk-source.tar.gz
+          # 8u131-b11/d54c1d3a095b4ff2b6607d096fa80163
+          8u131) build=b11 check=d54c1d3a095b4ff2b6607d096fa80163 ;;
+
+          # 8u121-b13/e9e7ea248e2c4826b92b3f075a80e441
+          8u121) build=b13 check=e9e7ea248e2c4826b92b3f075a80e441 ;;
+
+          *) echo "ERROR: Unsupported version"; exit 1 ;;
+        esac
+
+        url=$base/$kind/$version-$build/$check/$kind-$version-$os-$arch$pack
+        dest=$version-$build$pack
+        ;;
+
+      7*)
+        base=http://www.dropbox.com/s
+
+        build=80
+
+        case $os in
+          linux)
+            case $arch in
+              i586) check=tof6j0eyqbljugy ;;
+              x64) check=lni4xcu2eqhqjq9 ;;
+              *) echo "ERROR: Unsupported arch"; exit 1 ;;
+            esac ;;
+          *) echo "ERROR: Unsupported os"; exit 1 ;;
+        esac
+
+        url=$base/$check/$kind-"$version"u$build-$os-$arch$pack
+        dest=$version-$build$pack
+        ;;
+
+      *) echo "ERROR: Unsupported version"; exit 1 ;;
+    esac ;;
+  *) echo "ERROR: Unsupported version"; exit 1 ;;
+esac
+
+(
+  echo "cd $path"
+  cd $path
+
+  case $base in
+    oracle-edge)
+      echo "Getting $dest"
+      echo "From $url"
+      curl -fLC - --retry 3 \
+                  --retry-delay 3 \
+                  -o $dest $url
+      ;;
+
+    *oracle*|*dropbox*)
+      echo "Getting $dest"
+      echo "From $url"
+      curl -fLC - --retry 3 \
+                  --retry-delay 3 \
+                  -b oraclelicense=a \
+                  -o $dest $url
+      ;;
+
+    *) echo "ERROR: Unsupported vendor"; exit 1 ;;
+  esac
+
+  case $pack in
+    .tar.gz) tar -xzf $dest && rm $dest ;;
+    *) echo "ERROR: Unsupported packaging"; exit 1 ;;
+  esac
+
+  name=$(ls --color=never | grep $kind)
+  mv $name/* .
+  rm -r $name
 
   asdf reshim java
-}
-
-get_oracle_source_urls() {
-  case $1 in
-    jdk-6) ;;
-    jdk-7) ;;
-    jdk-8) ;;
-    jdk-9) ;;
-  esac
-}
-
-install_java $ASDF_INSTALL_TYPE \
-             $ASDF_INSTALL_VERSION \
-             $ASDF_INSTALL_PATH
+)
