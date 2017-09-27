@@ -48,7 +48,7 @@ If you have trouble with any expected features,
 have any feature requests or want to contribute,
 please [do an issue](https://github.com/skotchpine/asdf-java/issues).
 
-# Upcoming
+## Upcoming
 
 Probable next steps are:
 
@@ -57,3 +57,19 @@ Probable next steps are:
 3. Gradle and Maven support
 4. Test
 5. Release
+
+## Homage
+
+This plugin wouldn't be possible without the current Java version managers.
+Here's a list of repos with similar affects that were heavily referenced here:
+
+- [jabba](https://github.com/hsyiko/jabba)
+- [sdkman](https://github.com/sdkman/sdkman-cli)
+- [Arch's JDK](https://aur.archlinux.org/packages/jdk/)
+
+## Development
+
+Here are a few resources for better coding:
+
+- asdf's [creating-plugins.md](https://github.com/asdf-vm/asdf/blob/master/docs/creating-plugins.md)
+- [Bash Hackers Wiki](http://wiki.bash-hackers.org/)
