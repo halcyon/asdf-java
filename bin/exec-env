@@ -1,12 +1,3 @@
 #!/usr/bin/env bash
 
-if [ "x$JAVA_HOME" = "x" ]; then
-  export JAVA_HOME=$ASDF_INSTALL_PATH/java/$ASDF_INSTALL_VERSION
-fi
-
-if [[ "$PATH" =~ "$ASDF_INSTALL_PATH/java" ]]; then
-  PATH=$(echo $PATH | sed -e "s|$ASDF_INSTALL_PATH/java/.*:|$JAVA_HOME/bin|")
-else
-  PATH=$JAVA_HOME/bin:$PATH
-fi
-
+[[ -z $JAVA_HOME ]] || export JAVA_HOME=$ASDF_INSTALL_PATH
