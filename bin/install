@@ -1,119 +1,154 @@
 #!/usr/bin/env bash
 
-kind=$(echo $ASDF_INSTALL_VERSION | cut -d'-' -f 1)
-version=$(echo $ASDF_INSTALL_VERSION | cut -d'-' -f 2)
-path=$ASDF_INSTALL_PATH
+# this is global for error reporting
+ASDF_JAVA_ERROR=""
 
-case "$(uname -s)" in
-  Linux)
-    os=linux
-    case "$(uname -m)" in
-      i[3-9]86) arch=i586 ;;
-      x86_64) arch=x64 ;;
-      *) echo "ERROR: Unsupported arch: '$(uname -m)'"; exit 1 ;;
-    esac ;;
+# install_java is the main execution delegate
+install_java() {
+	local version=$1
+	local destdir=$2
 
-  Darwin)
-    os=macosx
-    case "$(uname -m)" in
-      x86_64) arch=x64 ;;
-      *) echo "ERROR: Unsupported arch: '$(uname -m)'"; exit 1 ;;
-    esac ;;
+	# variant is the operating system (macosx, linux, etc.)
+	#   and the architecture (x86, i586, etc.) joined by a '-'
+	#   with a packaging type (.tar.gz, .dmg, etc.) postfixed
+	local variant=$(get_variant)
+	# return early if an error was reported
+	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-  *) echo "ERROR: Unsupported OS: '$(uname -s)'"; exit 1 ;;
-esac
+	# get_java downloads the package into destination
+	get_java $thekind $version $variant $destdir
+	# return early if an error was reported
+	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-case $kind in
-  jdk)
-    pack=.tar.gz
+	# unpack_java unpacks the source into destination and cleans up
+	unpack_java $thekind $version $variant $destdir
 
-    case $version in
-      9*)
-        base=oracle-edge
-        url=http://download.java.net/java/jdk9/archive/181/binaries/jdk-9+181_$os-$arch"_bin"$pack
-        dest=jdk-9
-        ;;
-
-      8*)
-        base=http://download.oracle.com/otn-pub/java
-
-        case $version in
-          # 8u144-b01/090f390dda5b47b9b721c7dfaa008135
-          8u144) build=b01 check=090f390dda5b47b9b721c7dfaa008135 ;;
-
-          # 8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7
-          8u141) build=b15 check=336fa29ff2bb4ef291e347e091f7f4a7 ;;
-
-          # 8u131-b11/d54c1d3a095b4ff2b6607d096fa80163
-          8u131) build=b11 check=d54c1d3a095b4ff2b6607d096fa80163 ;;
-
-          # 8u121-b13/e9e7ea248e2c4826b92b3f075a80e441
-          8u121) build=b13 check=e9e7ea248e2c4826b92b3f075a80e441 ;;
-
-          *) echo "ERROR: Unsupported version"; exit 1 ;;
-        esac
-
-        url=$base/$kind/$version-$build/$check/$kind-$version-$os-$arch$pack
-        dest=$version-$build$pack
-        ;;
-
-      7*)
-        base=http://www.dropbox.com/s
-
-        build=80
-
-        case $os in
-          linux)
-            case $arch in
-              i586) check=tof6j0eyqbljugy ;;
-              x64) check=lni4xcu2eqhqjq9 ;;
-              *) echo "ERROR: Unsupported arch"; exit 1 ;;
-            esac ;;
-          *) echo "ERROR: Unsupported os"; exit 1 ;;
-        esac
-
-        url=$base/$check/$kind-"$version"u$build-$os-$arch$pack
-        dest=$version-$build$pack
-        ;;
-
-      *) echo "ERROR: Unsupported version"; exit 1 ;;
-    esac ;;
-  *) echo "ERROR: Unsupported version"; exit 1 ;;
-esac
-
-(
-  echo "cd $path"
-  cd $path
-
-  case $base in
-    oracle-edge)
-      echo "Getting $dest"
-      echo "From $url"
-      curl -fLC - --retry 3 \
-                  --retry-delay 3 \
-                  -o $dest $url
-      ;;
-
-    *oracle*|*dropbox*)
-      echo "Getting $dest"
-      echo "From $url"
-      curl -fLC - --retry 3 \
-                  --retry-delay 3 \
-                  -b oraclelicense=a \
-                  -o $dest $url
-      ;;
-
-    *) echo "ERROR: Unsupported vendor"; exit 1 ;;
-  esac
-
-  case $pack in
-    .tar.gz) tar -xzf $dest && rm $dest ;;
-    *) echo "ERROR: Unsupported packaging"; exit 1 ;;
-  esac
-
-  name=$(ls --color=never | grep $kind)
-  mv $name/* .
-  rm -r $name
-
+	# reshim PATH with new java binaries
   asdf reshim java
-)
+}
+
+get_variant() {
+	case "$(uname -s)" in
+		Linux)
+			case "$(uname -m)" in
+				x86_64) echo linux-x64.tar.gz ;;
+				i[[3-9]]86) echo linux-i586.tar.gz ;;
+				*) ASDF_JAVA_ERROR="$(uname -m) is not a supported architecture on linux" ;;
+			esac ;;
+		Darwin)
+			case "$(uname -m)" in
+				x86_64) echo macosx-x64.dmg ;;
+				*) ASDF_JAVA_ERROR="$(uname -m) is not a supported architecture on macosx" ;;
+			esac ;;
+		*) ASDF_JAVA_ERROR="$(uname -s) is not a supported operating system" ;;
+	esac
+}
+
+get_java() {
+	local version=$1
+	local variant=$2
+	local destdir=$3
+
+	# kine is the kind of installation (jdk, jre, etc.)
+	local kine=$(echo $version | cut -d '-' -f 1)
+	# full is the full version number (major and minor) (8u144, 8u141, etc.)
+	local full=$(echo $version | cut -d '-' -f 2)
+
+	local url=
+	local base=http://download.oracle.com/otn-pub/java/$kine/$full
+
+	case $version in
+		jdk-8u144) url=$base-b01/090f390dda5b47b9b721c7dfaa008135/$version-$variant ;;
+		jdk-8u144) url=$base-b01/090f390dda5b47b9b721c7dfaa008135/$version-$variant ;;
+		jdk-8u141) url=$base-b15/336fa29ff2bb4ef291e347e091f7f4a7/$version-$variant ;;
+		jdk-8u131) url=$base-b11/d54c1d3a095b4ff2b6607d096fa80163/$version-$variant ;;
+		jdk-8u121) url=$base-b13/e9e7ea248e2c4826b92b3f075a80e441/$version-$variant ;;
+		*) ASDF_JAVA_ERROR="$thekind-$version is not a supported version" ;;
+	esac
+	# return early if an error was reported
+	[[ -z "$ASDF_JAVA_ERROR" ]] || return
+
+	# TODO: capture errors from curl
+	echo $url
+	curl -fLC - --retry 3 --retry-delay 3 -b oraclelicense=a -o $destdir/$variant $url
+}
+
+unpack_java() {
+	local version=$1
+	local variant=$2
+	local destdir=$3
+
+	case $variant in
+		*.tar.gz) unpack_tar $variant $destdir ;;
+		*.dmg) unpack_dmg $variant $destdir ;;
+		*) ASDF_JAVA_ERROR="$variant is not a supported install variant" ;;
+	esac
+}
+
+# TODO: this function should be sanitized with error reporting
+unpack_tar() {
+	local variant=$1
+	local destdir=$2
+
+	# using a memo for pwd rather than a subshell because errors won't
+	#   be persisted from a subshell
+	local origin=$(pwd)
+	cd $destdir
+
+	# unarchive the downloaded sources into the install directory
+	#   and cleanup. That was easy, right?
+	tar -xzf $variant && rm $variant
+
+	cd $origin
+}
+
+# TODO: this function should be sanitized with error reporting
+unpack_dmg() {
+	local variant=$1
+	local destdir=$2
+
+	# using a memo for pwd rather than a subshell because errors won't
+	#   be persisted from a subshell
+	#
+	# grab current directory and move into install directory
+	local origin=$(pwd)
+	cd $destdir
+
+	# mount dmg image to local tmp image directory (asdf_tmp_imgdir)
+	hdiutil mount -mountpoint asdf_tmp_imgdir $variant
+	# expand all pkg archives into a tmp pkg directory (asdf_tmp_pkgdir)
+	pkgutil --expand asdf_tmp_imgdir/*.pkg asdf_tmp_pkgdir
+
+	# enter the tmp pkg directory
+	cd asdf_tmp_pkgdir/jdk*.pkg
+	# unzip an archive Payload and extract all its files
+	cat Payload | gzip -d | cpio -i
+	# move the entirety of the extracted JAVA_HOME (Contents/Home) directory
+	#   into the install destination
+	mv Contents/Home/* $destdir/
+
+	# exit the tmp directories
+	cd $destdir
+
+	# unmount the dmg image
+	hdiutil unmount $destdir/asdf_tmp_imgdir
+
+	# remove both tmp directories
+	rm -r $destdir/asdf_tmp_pkgdir
+	# rm -r $destdir/asdf_tmp_imgdir
+
+	# remove downloaded install image
+	rm -r $destdir/$variant
+
+	# return to original directory
+	cd $origin
+}
+
+# MAIN EXECUTION
+
+# install java version (jdk-8u144) into path (~/.asdf/installs/java/jdk-8u144)
+install_java $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
+[[ -z "$ASDF_JAVA_ERROR" ]] || echo "ERROR: $ASDF_JAVA_ERROR."
+
+# "we don't want to litter"
+unset ASDF_JAVA_ERROR
