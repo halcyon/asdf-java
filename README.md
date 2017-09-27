@@ -47,3 +47,13 @@ for instructions on how to install and manage versions of any language.
 If you have trouble with any expected features,
 have any feature requests or want to contribute,
 please [do an issue](https://github.com/skotchpine/asdf-java/issues).
+
+# Upcoming
+
+Probable next steps are:
+
+1. JDK 9 support
+2. JDK 7 and 6 support
+3. Gradle and Maven support
+4. Test
+5. Release
