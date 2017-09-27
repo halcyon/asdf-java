@@ -69,7 +69,6 @@ get_java() {
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
 	# TODO: capture errors from curl
-	echo $url
 	curl -fLC - --retry 3 --retry-delay 3 -b oraclelicense=a -o $destdir/$variant $url
 }
 
