@@ -22,9 +22,6 @@ install_java() {
 
 	# unpack_java unpacks the source into destination and cleans up
 	unpack_java $thekind $version $variant $destdir
-
-	# reshim PATH with new java binaries
-  asdf reshim java
 }
 
 get_variant() {
