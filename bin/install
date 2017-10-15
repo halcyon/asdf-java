@@ -3,27 +3,22 @@
 # this is global for error reporting
 ASDF_JAVA_ERROR=""
 
-# install_java is the main execution delegate
+# Download the java source from Oracle, copy files and cleanup.
 install_java() {
 	local version=$1
 	local destdir=$2
 
-	# variant is the operating system (macosx, linux, etc.)
-	#   and the architecture (x86, i586, etc.) joined by a '-'
-	#   with a packaging type (.tar.gz, .dmg, etc.) postfixed
 	local variant=$(get_variant)
-	# return early if an error was reported
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-	# get_java downloads the package into destination
-	get_java $thekind $version $variant $destdir
-	# return early if an error was reported
+	get_java $version $variant $destdir
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-	# unpack_java unpacks the source into destination and cleans up
-	unpack_java $thekind $version $variant $destdir
+	unpack_java $version $variant $destdir
+	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 }
 
+# Get the "variant" piece of the Oracle url.
 get_variant() {
 	case "$(uname -s)" in
 		Linux)
@@ -41,14 +36,17 @@ get_variant() {
 	esac
 }
 
+# Download java from Oracle.
+#
+# TODO: Capture errors from curl.
 get_java() {
 	local version=$1
 	local variant=$2
 	local destdir=$3
 
-	# kine is the kind of installation (jdk, jre, etc.)
+	# kind of installation (jdk, jre, etc.)
 	local kine=$(echo $version | cut -d '-' -f 1)
-	# full is the full version number (major and minor) (8u144, 8u141, etc.)
+	# full version number (major and minor) (8u144, 8u141, etc.)
 	local full=$(echo $version | cut -d '-' -f 2)
 
 	local url=
@@ -60,15 +58,14 @@ get_java() {
 		jdk-8u141) url=$base-b15/336fa29ff2bb4ef291e347e091f7f4a7/$version-$variant ;;
 		jdk-8u131) url=$base-b11/d54c1d3a095b4ff2b6607d096fa80163/$version-$variant ;;
 		jdk-8u121) url=$base-b13/e9e7ea248e2c4826b92b3f075a80e441/$version-$variant ;;
-		*) ASDF_JAVA_ERROR="$thekind-$version is not a supported version" ;;
+		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
-	# return early if an error was reported
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-	# TODO: capture errors from curl
 	curl -fLC - --retry 3 --retry-delay 3 -b oraclelicense=a -o $destdir/$variant $url
 }
 
+# Unpacks all kinds of sources.
 unpack_java() {
 	local version=$1
 	local variant=$2
@@ -81,70 +78,58 @@ unpack_java() {
 	esac
 }
 
-# TODO: this function should be sanitized with error reporting
+# Unarchive a tar archive into the install directory and cleanup.
+#
+# NOTE: Using $origin as a memo rather than executing in a subshell
+#   because errors won't be persisted from a subshell.
+#
+# TODO: Should be sanitized with error reporting.
 unpack_tar() {
 	local variant=$1
 	local destdir=$2
 
-	# using a memo for pwd rather than a subshell because errors won't
-	#   be persisted from a subshell
 	local origin=$(pwd)
-	cd $destdir
-
-	# unarchive the downloaded sources into the install directory
-	#   and cleanup. That was easy, right?
-	tar -xzf $variant && rm $variant
-
+	cd $destdir; {
+		tar -xzf $variant && rm $variant
+	}
 	cd $origin
 }
 
-# TODO: this function should be sanitized with error reporting
+# Unarchive a tar archive into the install directory and cleanup.
+#
+# NOTE: Using $origin as a memo rather than executing in a subshell
+#   because errors won't be persisted from a subshell.
+#
+# TODO: Should be sanitized with error reporting.
 unpack_dmg() {
 	local variant=$1
 	local destdir=$2
 
-	# using a memo for pwd rather than a subshell because errors won't
-	#   be persisted from a subshell
-	#
-	# grab current directory and move into install directory
+	local pkgdir=asdf_tmp_pkgdir
+	local imgdir=asdf_tmp_imgdir
+
 	local origin=$(pwd)
-	cd $destdir
+	cd $destdir; {
+		hdiutil mount -mountpoint $pkgdir $variant
+		pkgutil --expand $imgdir/*.pkg $pkgdir
 
-	# mount dmg image to local tmp image directory (asdf_tmp_imgdir)
-	hdiutil mount -mountpoint asdf_tmp_imgdir $variant
-	# expand all pkg archives into a tmp pkg directory (asdf_tmp_pkgdir)
-	pkgutil --expand asdf_tmp_imgdir/*.pkg asdf_tmp_pkgdir
+		cd $pkgdir/jdk*.pkg; {
+			cat Payload | gzip -d | cpio -i
+			mv Contents/Home/* $destdir/
+		}
+		cd $destdir
 
-	# enter the tmp pkg directory
-	cd asdf_tmp_pkgdir/jdk*.pkg
-	# unzip an archive Payload and extract all its files
-	cat Payload | gzip -d | cpio -i
-	# move the entirety of the extracted JAVA_HOME (Contents/Home) directory
-	#   into the install destination
-	mv Contents/Home/* $destdir/
-
-	# exit the tmp directories
-	cd $destdir
-
-	# unmount the dmg image
-	hdiutil unmount $destdir/asdf_tmp_imgdir
-
-	# remove both tmp directories
-	rm -r $destdir/asdf_tmp_pkgdir
-	# rm -r $destdir/asdf_tmp_imgdir
-
-	# remove downloaded install image
-	rm -r $destdir/$variant
-
-	# return to original directory
+		hdiutil unmount $destdir/$imgdir
+		rm -r $destdir/$imgdir
+		rm -r $destdir/$variant
+	}
 	cd $origin
 }
 
-# MAIN EXECUTION
-
-# install java version (jdk-8u144) into path (~/.asdf/installs/java/jdk-8u144)
+#
+# MAIN
+#
 install_java $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
-[[ -z "$ASDF_JAVA_ERROR" ]] || echo "ERROR: $ASDF_JAVA_ERROR."
 
-# "we don't want to litter"
+[[ -z "$ASDF_JAVA_ERROR" ]] || echo "ERROR: $ASDF_JAVA_ERROR."
 unset ASDF_JAVA_ERROR

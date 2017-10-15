@@ -30,7 +30,7 @@ asdf plugin-add java https://github.com/skotchpine/asdf-java
 and install new versions like this:
 
 ```bash
-asdf install java jdk-8u141
+asdf install java jdk-8u144
 ```
 
 and switch versions like this:
