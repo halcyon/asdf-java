@@ -1,6 +1,6 @@
 # asdf-java
 
-[Java](https://www.java.com/en/) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager
+[Java](https://www.java.com/en/) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
 ## Obey
 
@@ -37,6 +37,13 @@ and switch versions like this:
 
 ```bash
 asdf global java jdk-8u141
+```
+
+If you need Gradle or Maven, you can use asdf plugins for those, too.
+
+```bash
+asdf plugin-add maven https://github.com/skotchpine/asdf-maven
+asdf plugin-add gradle https://github.com/rfrancis/asdf-gradle
 ```
 
 ## Reading
