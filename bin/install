@@ -110,7 +110,7 @@ unpack_tar() {
 	local origin=$(pwd)
 	cd $destdir; {
 		tar -xzf $variant
-		[[ $? != 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
+		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
 		rm $variant
 	}; cd $origin
 }
