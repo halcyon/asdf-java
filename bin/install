@@ -57,14 +57,15 @@ get_java() {
 	local destdir=$3
 
 	local url=
-	local base=http://download.oracle.com/otn-pub/java/jdk/$version
+	local base=http://download.oracle.com/otn-pub/java/jdk/
+	local oracle_version=$(echo $version | sed -e 's/\./u/g')
 
 	case $version in
-		9.0.1) url=$base+11/jdk-$version'_'$(get_current_variant $variant) ;;
-		8.144) url=$base-b01/090f390dda5b47b9b721c7dfaa008135/jdk-$version-$variant ;;
-		8.141) url=$base-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$version-$variant ;;
-		8.131) url=$base-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$version-$variant ;;
-		8.121) url=$base-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-$version-$variant ;;
+		9.0.1) url=$base$version+11/jdk-$version'_'$(get_current_variant $variant) ;;
+		8.144) url=$base$oracle_version-b01/090f390dda5b47b9b721c7dfaa008135/jdk-$oracle_version-$variant ;;
+		8.141) url=$base$oracle_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle_version-$variant ;;
+		8.131) url=$base$oracle_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle_version-$variant ;;
+		8.121) url=$base$oracle_version-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-$oracle_version-$variant ;;
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
@@ -92,7 +93,7 @@ unpack_java() {
 
 	case $variant in
 		*.tar.gz) unpack_tar $variant $destdir ;;
-		*.dmg) unpack_dmg $variant $destdir ;;
+		*.dmg)    unpack_dmg $variant $destdir ;;
 		*) ASDF_JAVA_ERROR="$variant is not supported" ;;
 	esac
 }
@@ -112,6 +113,10 @@ unpack_tar() {
 		tar -xzf $variant
 		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
 		rm $variant
+
+		local pkg=$(echo * | grep jdk)
+		mv $pkg/* .
+		rmdir $pkg
 	}; cd $origin
 }
 
