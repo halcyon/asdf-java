@@ -62,6 +62,7 @@ get_java() {
 
 	case $version in
 		9.0.1) url=$base$version+11/jdk-$version'_'$(get_current_variant $variant) ;;
+		8.151) url=$base$oracle_version-b12/e758a0de34e24606bca991d704f6dcbf/jdk-$oracle_version-$variant ;;
 		8.144) url=$base$oracle_version-b01/090f390dda5b47b9b721c7dfaa008135/jdk-$oracle_version-$variant ;;
 		8.141) url=$base$oracle_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle_version-$variant ;;
 		8.131) url=$base$oracle_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle_version-$variant ;;
