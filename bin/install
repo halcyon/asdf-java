@@ -61,6 +61,7 @@ get_java() {
 	local oracle_version=$(echo $version | sed -e 's/\./u/g')
 
 	case $version in
+    10)    url=$base$version+46/76eac37278c24557a3c4199677f19b62/jdk-$version'_'$(get_current_variant $variant) ;;
 		9.0.4) url=$base$version+11/c2514751926b4512b076cc82f959763f/jdk-$version'_'$(get_current_variant $variant) ;;
 		9.0.1) url=$base$version+11/jdk-$version'_'$(get_current_variant $variant) ;;
 		8.161) url=$base$oracle_version-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-$oracle_version-$variant ;;
