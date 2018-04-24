@@ -1,6 +1,7 @@
 # asdf-java
 
 ![travis ci](https://travis-ci.org/skotchpine/asdf-java.svg?branch=master)
+[Travis Build](https://travis-ci.org/skotchpine/asdf-java)
 
 [Java](https://www.java.com/en/) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
