@@ -61,15 +61,11 @@ get_java() {
 	local oracle_version=$(echo $version | sed -e 's/\./u/g')
 
 	case $version in
-    10)    url=$base$version+46/76eac37278c24557a3c4199677f19b62/jdk-$version'_'$(get_current_variant $variant) ;;
-		9.0.4) url=$base$version+11/c2514751926b4512b076cc82f959763f/jdk-$version'_'$(get_current_variant $variant) ;;
-		9.0.1) url=$base$version+11/jdk-$version'_'$(get_current_variant $variant) ;;
-		8.161) url=$base$oracle_version-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-$oracle_version-$variant ;;
-		8.151) url=$base$oracle_version-b12/e758a0de34e24606bca991d704f6dcbf/jdk-$oracle_version-$variant ;;
-		8.144) url=$base$oracle_version-b01/090f390dda5b47b9b721c7dfaa008135/jdk-$oracle_version-$variant ;;
-		8.141) url=$base$oracle_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle_version-$variant ;;
-		8.131) url=$base$oracle_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle_version-$variant ;;
-		8.121) url=$base$oracle_version-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-$oracle_version-$variant ;;
+    	10.0.1)	url=$base$version+10/fb4372174a714e6b8c52526dc134031e/jdk-$version'_'$(get_current_variant $variant) ;;
+		8.172)	url=$base$oracle_version-b11/a58eab1ec242421181065cdc37240b08/jdk-$oracle_version-$variant ;;
+		8.171)	url=$base$oracle_version-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-$oracle_version-$variant ;;
+		8.141) 	url=$base$oracle_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle_version-$variant ;;
+		8.131) 	url=$base$oracle_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle_version-$variant ;;
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
