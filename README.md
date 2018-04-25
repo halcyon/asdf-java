@@ -26,6 +26,21 @@ and switch versions like this:
 asdf global java 9.0.1
 ```
 
+If you want or need JAVA_HOME set you can add this to your shell initialization (in `.bashrc`, for example):
+
+```bash
+asdf_update_java_home() {
+  local current
+  if current=$(asdf current java); then
+    local version=$(echo $current | cut -d ' ' -f 1)
+    export JAVA_HOME=$(asdf where java $version)
+  else
+    echo "No java version set. Type `asdf list-all java` for all versions."
+  fi
+}
+asdf_update_java_home
+```
+
 If you need Gradle or Maven, you can use asdf plugins for those, too.
 
 ```bash
