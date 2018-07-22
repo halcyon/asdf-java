@@ -11,7 +11,7 @@ After installing [asdf](https://github.com/asdf-vm/asdf),
 you can add this plugin like this:
 
 ```bash
-asdf plugin-add java https://github.com/skotchpine/asdf-java
+asdf plugin-add java
 ```
 
 and install new versions like this:
