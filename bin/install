@@ -73,7 +73,9 @@ get_java() {
 
 	case $distro-$version in
 		oracle-10.0.2) url=$base$version+13/19aef61b38124481863b1413dce1855f/jdk-$version'_'$(get_current_variant $variant) ;;
-		oracle-8.181)	url=$base$oracle8_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle8_version-$variant ;;
+		oracle-8.181)  url=$base$oracle8_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle8_version-$variant ;;
+		oracle-8.141)  url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
+		oracle-8.131)  url=$base$oracle8_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle8_version-$variant ;;
 		openjdk-10.0.2) url=$base$version/19aef61b38124481863b1413dce1855f/13/openjdk-$version'_'$(get_current_variant $variant) ;;
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
