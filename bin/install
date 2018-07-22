@@ -61,6 +61,8 @@ get_java() {
 	local oracle_version=$(echo $version | sed -e 's/\./u/g')
 
 	case $version in
+		10.0.2) url=$base$version+13/19aef61b38124481863b1413dce1855f/jdk-$version'_'$(get_current_variant $variant) ;;
+		8.181)	url=$base$oracle_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle_version-$variant ;;
 		8.141)  url=$base$oracle_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle_version-$variant ;;
 		8.131)  url=$base$oracle_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle_version-$variant ;;
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
