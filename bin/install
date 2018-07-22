@@ -5,16 +5,18 @@ ASDF_JAVA_ERROR=""
 
 # Download the java source from Oracle, copy files and cleanup.
 install_java() {
-	local version=$1
+	local versionstr=$1
 	local destdir=$2
+
+	IFS=- read distro version <<< $versionstr
 
 	local variant=$(get_variant)
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-	get_java $version $variant $destdir
+	get_java $distro $version $variant $destdir
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-	unpack_java $version $variant $destdir
+	unpack_java $variant $destdir
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 }
 
@@ -50,21 +52,31 @@ get_current_variant() {
 	fi
 }
 
+get_base_url() {
+	local distro=$1
+	case $distro in
+		oracle) echo "http://download.oracle.com/otn-pub/java/jdk/" ;;
+		openjdk) echo "https://download.java.net/java/GA/jdk10/" ;;
+		*) ;;
+	esac
+}
+
 # Download java from Oracle.
 get_java() {
-	local version=$1
-	local variant=$2
-	local destdir=$3
+	local distro=$1
+	local version=$2
+	local variant=$3
+	local destdir=$4
 
-	local url=
-	local base=http://download.oracle.com/otn-pub/java/jdk/
-	local oracle_version=$(echo $version | sed -e 's/\./u/g')
+	local base=$(get_base_url $distro)
+	local oracle8_version=$(echo $version | sed -e 's/\./u/g')
 
-	case $version in
-		10.0.2) url=$base$version+13/19aef61b38124481863b1413dce1855f/jdk-$version'_'$(get_current_variant $variant) ;;
-		8.181)	url=$base$oracle_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle_version-$variant ;;
-		8.141)  url=$base$oracle_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle_version-$variant ;;
-		8.131)  url=$base$oracle_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle_version-$variant ;;
+	case $distro-$version in
+		oracle-10.0.2) url=$base$version+13/19aef61b38124481863b1413dce1855f/jdk-$version'_'$(get_current_variant $variant) ;;
+		oracle-8.181)  url=$base$oracle8_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle8_version-$variant ;;
+		oracle-8.141)  url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
+		oracle-8.131)  url=$base$oracle8_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle8_version-$variant ;;
+		openjdk-10.0.2) url=$base$version/19aef61b38124481863b1413dce1855f/13/openjdk-$version'_'$(get_current_variant $variant) ;;
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
@@ -83,9 +95,8 @@ get_java() {
 
 # Unpacks all kinds of sources.
 unpack_java() {
-	local version=$1
-	local variant=$2
-	local destdir=$3
+	local variant=$1
+	local destdir=$2
 
 	echo "---- ASDF JAVA MESSAGE ----"
 	echo "expanding java dist"
