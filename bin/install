@@ -87,7 +87,7 @@ get_java() {
 	curl -fLC - \
 		--progress-bar --silent \
 		--retry 3 --retry-delay 3 \
-		-b oraclelicense=a \
+		-b oraclelicense=accept-securebackup-cookie \
 		-o $destdir/$variant $url
 
 	[[ $? != 0 ]] && ASDF_JAVA_ERROR="downloading java dist"
