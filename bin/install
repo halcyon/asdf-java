@@ -31,7 +31,7 @@ get_variant() {
 			esac ;;
 		Darwin)
 			case "$(uname -m)" in
-				x86_64) echo macosx-x64.dmg ;;
+				x86_64) echo macosx-x64.tar.gz ;;
 				*) ASDF_JAVA_ERROR="$(uname -m) is not supported on macos" ;;
 			esac ;;
 		*) ASDF_JAVA_ERROR="$(uname -s) is not supported" ;;
