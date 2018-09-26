@@ -10,7 +10,7 @@ install_java() {
 
 	IFS=- read distro version <<< $versionstr
 
-	local variant=$(get_variant)
+	local variant=$(get_variant $distro)
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
 	get_java $distro $version $variant $destdir
@@ -22,6 +22,8 @@ install_java() {
 
 # Get the "variant" piece of the Oracle url.
 get_variant() {
+	local distro=$1
+	echo $distro >> /tmp/distro
 	case "$(uname -s)" in
 		Linux)
 			case "$(uname -m)" in
@@ -31,15 +33,20 @@ get_variant() {
 			esac ;;
 		Darwin)
 			case "$(uname -m)" in
-				x86_64) echo macosx-x64.dmg ;;
-				*) ASDF_JAVA_ERROR="$(uname -m) is not supported on macos" ;;
+				x86_64)
+					case $distro in
+						oracle) echo macosx-x64.dmg ;;
+						openjdk) echo osx-x64_bin.tar.gz ;;
+						*) ;;
+					esac ;;
+				*) ASDF_JAVA_ERROR="$(uname -m) is not supported on MacOS" ;;
 			esac ;;
 		*) ASDF_JAVA_ERROR="$(uname -s) is not supported" ;;
 	esac
 }
 
 get_current_variant() {
-	variant=$1
+	local variant=$1
 
 	if [[ "$variant" == *"mac"* ]]; then
 		variant=$(echo $variant | sed -e 's/mac//')
@@ -56,7 +63,7 @@ get_base_url() {
 	local distro=$1
 	case $distro in
 		oracle) echo "http://download.oracle.com/otn-pub/java/jdk/" ;;
-		openjdk) echo "https://download.java.net/java/GA/jdk10/" ;;
+		openjdk) echo "https://download.java.net/java/GA/jdk" ;;
 		*) ;;
 	esac
 }
@@ -72,12 +79,13 @@ get_java() {
 	local oracle8_version=$(echo $version | sed -e 's/\./u/g')
 
 	case $distro-$version in
-		oracle-11) url=$base$version+28/55eed80b163941c8885ad9298e6d786a/jdk-$version'_'$(get_current_variant $variant) ;;
-		oracle-10.0.2) url=$base$version+13/19aef61b38124481863b1413dce1855f/jdk-$version'_'$(get_current_variant $variant) ;;
-		oracle-8.181)  url=$base$oracle8_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle8_version-$variant ;;
-		oracle-8.141)  url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
-		oracle-8.131)  url=$base$oracle8_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle8_version-$variant ;;
-		openjdk-10.0.2) url=$base$version/19aef61b38124481863b1413dce1855f/13/openjdk-$version'_'$(get_current_variant $variant) ;;
+		oracle-11)      url=$base$version+28/55eed80b163941c8885ad9298e6d786a/jdk-$version'_'$(get_current_variant $variant) ;;
+		oracle-10.0.2)  url=$base$version+13/19aef61b38124481863b1413dce1855f/jdk-$version'_'$(get_current_variant $variant) ;;
+		oracle-8.181)   url=$base$oracle8_version-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-$oracle8_version-$variant ;;
+		oracle-8.141)   url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
+		oracle-8.131)   url=$base$oracle8_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle8_version-$variant ;;
+		openjdk-10.0.2) url=$base'10'/$version/19aef61b38124481863b1413dce1855f/13/openjdk-$version'_'$variant ;;
+		openjdk-11)     url=$base$version/28/GPL/openjdk-11+28_$variant ;;
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
