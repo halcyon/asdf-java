@@ -30,19 +30,16 @@ If you want or need `JAVA_HOME` set you can add this to your shell initializatio
 
 ```bash
 function asdf_and_update_env() {
-  if asdf "$@"; then
-    local current
-    if current=$(\asdf current java); then
-      local version=$(echo $current | sed -e 's|\(.*\) \?(.*|\1|g')
-      export JAVA_HOME=$(\asdf where java $version)
+  if \asdf "$@"; then
+    if [[ "$(\asdf current java 2>&1)" =~ (^([-_.a-zA-Z0-9]+)[[:space:]]*\(set by.*$) ]]; then
+      export JAVA_HOME=$(\asdf where java ${BASH_REMATCH[2]})
     else
-      echo "No java version set. Type `asdf list-all java` for all versions."
+      export JAVA_HOME=''
     fi
   fi
 }
 
 alias asdf='asdf_and_update_env'
-asdf_and_update_env current
 ```
 
 If you need Gradle or Maven, you can use asdf plugins for those, too.
