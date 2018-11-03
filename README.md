@@ -16,13 +16,13 @@ asdf plugin-add java
 and install new versions like this:
 
 ```bash
-asdf install java oracle-10.0.2
+asdf install java openjdk-11.0.1
 ```
 
 and switch versions like this:
 
 ```bash
-asdf global java oracle-10.0.2
+asdf global java openjdk-11.0.1
 ```
 
 If you need to disable colors, try:
