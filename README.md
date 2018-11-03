@@ -26,19 +26,20 @@ and switch versions like this:
 asdf global java oracle-10.0.2
 ```
 
-If you want or need JAVA_HOME set you can add this to your shell initialization (in `.bashrc`, for example):
+If you want or need `JAVA_HOME` set you can add this to your shell initialization (in `.bashrc`, for example):
 
 ```bash
-asdf_update_java_home() {
-  local current
-  if current=$(asdf current java); then
-    local version=$(echo $current | sed -e 's|\(.*\) \?(.*|\1|g')
-    export JAVA_HOME=$(asdf where java $version)
-  else
-    echo "No java version set. Type `asdf list-all java` for all versions."
+function asdf_and_update_env() {
+  if \asdf "$@"; then
+    if [[ "$(\asdf current java 2>&1)" =~ (^([-_.a-zA-Z0-9]+)[[:space:]]*\(set by.*$) ]]; then
+      export JAVA_HOME=$(\asdf where java ${BASH_REMATCH[2]})
+    else
+      export JAVA_HOME=''
+    fi
   fi
 }
-asdf_update_java_home
+
+alias asdf='asdf_and_update_env'
 ```
 
 If you need Gradle or Maven, you can use asdf plugins for those, too.
