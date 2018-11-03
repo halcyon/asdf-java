@@ -25,16 +25,16 @@ and switch versions like this:
 asdf global java openjdk-11.0.1
 ```
 
-If you need to disable colors, try:
-
-```bash
-export ASDF_JAVA_PLAIN=truthy
-```
-
 If you want or need `JAVA_HOME` set you can load our `asdf` wrapper to your shell initialization (in `.bashrc`, for example):
 
 ```bash
 . ~/.asdf/plugins/java/bin/asdf-java-wrapper
+```
+
+If you need to disable colors, try:
+
+```bash
+export ASDF_JAVA_PLAIN=truthy
 ```
 
 If you need Gradle or Maven, you can use asdf plugins for those, too.
