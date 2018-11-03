@@ -26,20 +26,16 @@ and switch versions like this:
 asdf global java oracle-10.0.2
 ```
 
-If you want or need `JAVA_HOME` set you can add this to your shell initialization (in `.bashrc`, for example):
+If you need to disable colors, try:
 
 ```bash
-function asdf_and_update_env() {
-  if \asdf "$@"; then
-    if [[ "$(\asdf current java 2>&1)" =~ (^([-_.a-zA-Z0-9]+)[[:space:]]*\(set by.*$) ]]; then
-      export JAVA_HOME=$(\asdf where java ${BASH_REMATCH[2]})
-    else
-      export JAVA_HOME=''
-    fi
-  fi
-}
+export ASDF_JAVA_PLAIN=truthy
+```
 
-alias asdf='asdf_and_update_env'
+If you want or need `JAVA_HOME` set you can load our `asdf` wrapper to your shell initialization (in `.bashrc`, for example):
+
+```bash
+. ~/.asdf/plugins/java/bin/asdf-java-wrapper
 ```
 
 If you need Gradle or Maven, you can use asdf plugins for those, too.
