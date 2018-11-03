@@ -1,5 +1,5 @@
 language: c
-script: asdf plugin-test java https://github.com/skotchpine/asdf-java.git
+script: asdf plugin-test java $TRAVIS_BUILD_DIR
 before_script:
   - git clone https://github.com/asdf-vm/asdf.git
   - . asdf/asdf.sh
