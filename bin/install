@@ -239,7 +239,6 @@ install_java "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
 
 if [[ -z "$ASDF_JAVA_ERROR" ]]; then
 	log_info "$ASDF_INSTALL_VERSION was installed successfully"
-	respond_to_failure
 else
 	log_error "asdf java failed. $ASDF_JAVA_ERROR"
 fi
