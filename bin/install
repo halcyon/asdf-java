@@ -169,7 +169,11 @@ unpack_tar() {
 		rm $variant
 
 		local pkg=$(echo * | grep jdk)
-		mv $pkg/* .
+		if [ -d $pkg/Contents/Home ]; then
+			mv $pkg/Contents/Home/* .
+		else
+			mv $pkg/* .
+		fi
 		rmdir $pkg
 	}; cd $origin
 }
