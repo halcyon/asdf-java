@@ -28,7 +28,13 @@ asdf global java openjdk-11.0.1
 If you want or need `JAVA_HOME` set you can load our `asdf` wrapper to your shell initialization (in `.bashrc`, for example):
 
 ```bash
-. ~/.asdf/plugins/java/bin/asdf-java-wrapper
+. ~/.asdf/plugins/java/asdf-java-wrapper.bash
+```
+
+Or in `.zshrc`
+
+```zsh
+. ~/.asdf/plugins/java/asdf-java-wrapper.zsh
 ```
 
 If you need to disable colors, try:
