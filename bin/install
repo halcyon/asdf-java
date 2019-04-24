@@ -56,12 +56,14 @@ get_variant() {
 					case $distro in
 						oracle) echo linux-x64.tar.gz ;;
 						openjdk) echo linux-x64_bin.tar.gz ;;
+                                                zulu) echo linux_x64.tar.gz;;
 						*) ;;
 					esac ;;
 				i[[3-9]]86)
 					case $distro in
 						oracle) echo linux-i586.tar.gz ;;
 						openjdk) echo linux-i586_bin.tar.gz ;;
+                                                zulu) echo linux_i686.tar.gz ;;
 						*) ;;
 					esac ;;
 				*) ASDF_JAVA_ERROR="$(uname -m) is not supported on linux" ;;
@@ -72,6 +74,7 @@ get_variant() {
 					case $distro in
 						oracle) echo macosx-x64.dmg ;;
 						openjdk) echo osx-x64_bin.tar.gz ;;
+                                                zulu) echo macosx_x64.zip ;;
 						*) ;;
 					esac ;;
 				*) ASDF_JAVA_ERROR="$(uname -m) is not supported on MacOS" ;;
@@ -99,6 +102,7 @@ get_base_url() {
 	case $distro in
 		oracle) echo "http://download.oracle.com/otn-pub/java/jdk/" ;;
 		openjdk) echo "https://download.java.net/java/GA/jdk" ;;
+                zulu) echo "https://cdn.azul.com/zulu/bin" ;;
 		*) ;;
 	esac
 }
@@ -122,6 +126,11 @@ get_java() {
 		openjdk-11.0.1) url=${base}11/13/GPL/openjdk-11.0.1_$variant ;;
 		openjdk-11)     url=${base/\/GA\//\/ga\/}11/openjdk-11_$variant ;;
 		openjdk-10.0.2) url=$base'10'/$version/19aef61b38124481863b1413dce1855f/13/openjdk-$version'_'$variant ;;
+
+                zulu-7.0.222) url=$base/zulu7.29.0.5-ca-jdk7.0.222-$variant ;;
+                zulu-8.0.212) url=$base/zulu8.38.0.13-ca-jdk8.0.212-$variant ;;
+                zulu-11.0.3)  url=$base/zulu11.31.11-ca-jdk11.0.3-$variant ;;
+                zulu-12.0.1)  url=$base/zulu12.2.3-ca-jdk12.0.1-$variant ;;
 
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
@@ -148,6 +157,7 @@ unpack_java() {
 	case $variant in
 		*.tar.gz) unpack_tar $variant $destdir ;;
 		*.dmg)    unpack_dmg $variant $destdir ;;
+                *.zip)    unpack_zip $variant $destdir ;;
 		*) ASDF_JAVA_ERROR="$variant is not supported" ;;
 	esac
 }
@@ -235,6 +245,23 @@ unmount_dmg() {
 		log_warning "The java dist is still mounted at $dir."
 		log_warning " Use hdiutil unmount to unmount it."
 	fi
+}
+
+unpack_zip() {
+	local variant=$1
+	local destdir=$2
+
+	local origin=$(pwd)
+	(
+		cd $destdir
+		unzip $variant
+		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
+		rm $variant
+
+		local pkg=$(echo * | grep jdk)
+		mv $pkg/* .
+		rmdir $pkg
+	)
 }
 
 #

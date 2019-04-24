@@ -8,4 +8,8 @@ oracle-11.0.1
 openjdk-10.0.2
 openjdk-11
 openjdk-11.0.1
+zulu-7.0.222
+zulu-8.0.212
+zulu-11.0.3
+zulu-12.0.1
 ")
