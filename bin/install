@@ -54,8 +54,10 @@ get_variant() {
 			case "$(uname -m)" in
 				x86_64)
 					case $distro in
-						oracle) echo linux-x64.tar.gz ;;
-						openjdk) echo linux-x64_bin.tar.gz ;;
+                                                adoptopenjdk) echo linux_hotspot ;;
+                                                corretto) echo linux-x64.tar.gz ;;
+                                                oracle) echo linux-x64.tar.gz ;;
+                                                openjdk) echo linux-x64_bin.tar.gz ;;
                                                 zulu) echo linux_x64.tar.gz;;
 						*) ;;
 					esac ;;
@@ -72,8 +74,10 @@ get_variant() {
 			case "$(uname -m)" in
 				x86_64)
 					case $distro in
-						oracle) echo macosx-x64.dmg ;;
-						openjdk) echo osx-x64_bin.tar.gz ;;
+                                                adoptopenjdk) echo mac_hotspot ;;
+                                                corretto) echo macosx-x64.tar.gz ;;
+                                                oracle) echo macosx-x64.dmg ;;
+                                                openjdk) echo osx-x64_bin.tar.gz ;;
                                                 zulu) echo macosx_x64.zip ;;
 						*) ;;
 					esac ;;
@@ -100,6 +104,8 @@ get_current_variant() {
 get_base_url() {
 	local distro=$1
 	case $distro in
+                adoptopenjdk) echo "https://github.com/AdoptOpenJDK/" ;;
+                corretto) echo "https://d3pxv6yz143wms.cloudfront.net/" ;;
 		oracle) echo "http://download.oracle.com/otn-pub/java/jdk/" ;;
 		openjdk) echo "https://download.java.net/java/GA/jdk" ;;
                 zulu) echo "https://cdn.azul.com/zulu/bin" ;;
@@ -118,6 +124,10 @@ get_java() {
 	local oracle8_version=$(echo $version | sed -e 's|\.|u|g')
 
 	case $distro-$version in
+                adoptopenjdk-8.212) url=${base}openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_${variant}_8u212b03.tar.gz ;;
+                adoptopenjdk-11.0.3) url=${base}openjdk11-binaries/releases/download/jdk-11.0.3+7/OpenJDK11U-jdk_x64_${variant}_11.0.3_7.tar.gz ;;
+                corretto-8.212) url=${base}8.212.04.2/amazon-${distro}-${version}.04.2-${variant} ;;
+                corretto-11.0.3) url=${base}11.0.3.7.1/amazon-${distro}-${version}.7.1-${variant} ;;
                 oracle-8.141)  url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
 		oracle-8.131)  url=$base$oracle8_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle8_version-$variant ;;
 
@@ -153,7 +163,7 @@ unpack_java() {
 	log_info expanding java dist
 
 	case $variant in
-		*.tar.gz) unpack_tar $variant $destdir ;;
+		*linux_hotspot | *.tar.gz) unpack_tar $variant $destdir ;;
 		*.dmg)    unpack_dmg $variant $destdir ;;
                 *.zip)    unpack_zip $variant $destdir ;;
 		*) ASDF_JAVA_ERROR="$variant is not supported" ;;
@@ -176,8 +186,8 @@ unpack_tar() {
 		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
 		rm $variant
 
-		local pkg=$(echo * | grep jdk)
-		if [ -d $pkg/Contents/Home ]; then
+                local pkg=$(echo *)
+                if [ -d $pkg/Contents/Home ]; then
 			mv $pkg/Contents/Home/* .
 		else
 			mv $pkg/* .
