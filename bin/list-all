@@ -1,6 +1,10 @@
 #!/bin/env bash
 
 echo $(echo "
+adoptopenjdk-8.212
+adoptopenjdk-11.0.3
+corretto-8.212
+corretto-11.0.3
 oracle-8.131
 oracle-8.141
 openjdk-10.0.2
