@@ -1,8 +1,12 @@
 #!/bin/env bash
 
 echo $(echo "
-adoptopenjdk-8.212
-adoptopenjdk-11.0.3
+adoptopenjdk-hotspot-8.212
+adoptopenjdk-openj9-8.212
+adoptopenjdk-hotspot-11.0.3
+adoptopenjdk-openj9-11.0.3
+adoptopenjdk-hotspot-12.0.1
+adoptopenjdk-openj9-12.0.1
 corretto-8.212
 corretto-11.0.3
 oracle-8.131

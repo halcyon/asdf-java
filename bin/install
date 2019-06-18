@@ -62,7 +62,7 @@ get_variant() {
 			case "$(uname -m)" in
 				x86_64)
 					case $distro in
-                                                adoptopenjdk) echo linux_hotspot ;;
+                                                adoptopenjdk) echo x64_linux ;;
                                                 corretto) echo linux-x64.tar.gz ;;
                                                 oracle) echo linux-x64.tar.gz ;;
                                                 openjdk) echo linux-x64_bin.tar.gz ;;
@@ -82,7 +82,7 @@ get_variant() {
 			case "$(uname -m)" in
 				x86_64)
 					case $distro in
-                                                adoptopenjdk) echo mac_hotspot ;;
+                                                adoptopenjdk) echo x64_mac ;;
                                                 corretto) echo macosx-x64.tar.gz ;;
                                                 oracle) echo macosx-x64.dmg ;;
                                                 openjdk) echo osx-x64_bin.tar.gz ;;
@@ -131,8 +131,13 @@ get_java() {
 	local oracle8_version=$(echo $version | sed -e 's|\.|u|g')
 
 	case $distro-$version in
-                adoptopenjdk-8.212) url=${base}openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_${variant}_8u212b03.tar.gz ;;
-                adoptopenjdk-11.0.3) url=${base}openjdk11-binaries/releases/download/jdk-11.0.3+7/OpenJDK11U-jdk_x64_${variant}_11.0.3_7.tar.gz ;;
+                adoptopenjdk-hotspot-8.212) url=${base}openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_${variant}_hotspot_8u212b03.tar.gz ;;
+                adoptopenjdk-openj9-8.212) url=${base}openjdk8-binaries/releases/download/jdk8u212-b04/OpenJDK8U-jdk_x64_${variant}_openj9-0.14.2.tar.gz ;;
+                adoptopenjdk-hotspot-11.0.3) url=${base}openjdk11-binaries/releases/download/jdk-11.0.3+7/OpenJDK11U-jdk_x64_${variant}_hotspot_11.0.3_7.tar.gz ;;
+                adoptopenjdk-hotspot-12.0.1) url=${base}openjdk11-binaries/releases/download/jdk-12.0.1+12/OpenJDK12U-jdk_x64_${variant}_hotspot_12.0.1_12.tar.gz ;;
+                url=${base}openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_${variant}_hotspot_8u212b03.tar.gz ;;
+                adoptopenjdk-hotspot-11.0.3) url=${base}openjdk11-binaries/releases/download/jdk-11.0.3+7/OpenJDK11U-jdk_x64_${variant}_hotspot_11.0.3_7.tar.gz ;;
+                adoptopenjdk-hotspot-12.0.1) url=${base}openjdk11-binaries/releases/download/jdk-12.0.1+12/OpenJDK12U-jdk_x64_${variant}_hotspot_12.0.1_12.tar.gz ;;
                 corretto-8.212) url=${base}8.212.04.2/amazon-${distro}-${version}.04.2-${variant} ;;
                 corretto-11.0.3) url=${base}11.0.3.7.1/amazon-${distro}-${version}.7.1-${variant} ;;
                 oracle-8.141)  url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
@@ -172,8 +177,8 @@ unpack_java() {
 
         mkdir -p "${destdir}"
 	case $variant in
-		*linux_hotspot | *.tar.gz) unpack_tar $variant $destdir ;;
-		*.dmg)    unpack_dmg $variant $destdir ;;
+		*x64_linux | *.tar.gz) unpack_tar $variant $destdir ;;
+		*x64_mac | *.dmg)    unpack_dmg $variant $destdir ;;
                 *.zip)    unpack_zip $variant $destdir ;;
 		*) ASDF_JAVA_ERROR="$variant is not supported" ;;
 	esac
