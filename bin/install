@@ -34,12 +34,20 @@ install_java() {
 	local versionstr=$1
 	local destdir=$2
 
-	IFS=- read distro version <<< $versionstr
+        IFS=- read -r distro version <<< "${versionstr}"
 
 	local variant=$(get_variant $distro)
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-	get_java $distro $version $variant $destdir
+	# Perform all operations is a temporary directory that will be
+	# automatically cleaned up on exit (success or failure).
+        local wrkdir
+        wrkdir=$(mktemp -dt asdf-java.XXXXXX)
+        # shellcheck disable=SC2064
+        trap "cd ${PWD}; rm -rf ${wrkdir}" EXIT
+        cd "${wrkdir}"
+
+        get_java "${distro}" "${version}" "${variant}"
 	[[ -z "$ASDF_JAVA_ERROR" ]] || return
 
 	unpack_java $variant $destdir
@@ -118,7 +126,6 @@ get_java() {
 	local distro=$1
 	local version=$2
 	local variant=$3
-	local destdir=$4
 
 	local base=$(get_base_url $distro)
 	local oracle8_version=$(echo $version | sed -e 's|\.|u|g')
@@ -151,7 +158,7 @@ get_java() {
 		--progress-bar \
 		--retry 3 --retry-delay 3 \
 		-b oraclelicense=accept-securebackup-cookie \
-		-o $destdir/$variant $url
+                -o ./${variant} ${url}
 
 	[[ $? != 0 ]] && ASDF_JAVA_ERROR="downloading java dist"
 }
@@ -163,6 +170,7 @@ unpack_java() {
 
 	log_info expanding java dist
 
+        mkdir -p "${destdir}"
 	case $variant in
 		*linux_hotspot | *.tar.gz) unpack_tar $variant $destdir ;;
 		*.dmg)    unpack_dmg $variant $destdir ;;
@@ -173,28 +181,17 @@ unpack_java() {
 
 # Unarchive a tar archive into the install directory and cleanup.
 #
-# NOTE: Using $origin as a memo rather than executing in a subshell
-#   because errors won't be persisted from a subshell.
-#
 # TODO: Should be sanitized with error reporting.
 unpack_tar() {
-	local variant=$1
-	local destdir=$2
-
-	local origin=$(pwd)
-	cd $destdir; {
-		tar -xzf $variant
-		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
-		rm $variant
-
-                local pkg=$(echo *)
-                if [ -d $pkg/Contents/Home ]; then
-			mv $pkg/Contents/Home/* .
-		else
-			mv $pkg/* .
-		fi
-		rmdir $pkg
-	}; cd $origin
+        local archive=${1}
+        local destdir=${2}
+        tar -xzf "${archive}" || { ASDF_JAVA_ERROR="expanding java dist"; return; }
+        local jdk_dir
+        jdk_dir=$(ls | grep -v ${archive})
+        if [[ -d ${jdk_dir}/Contents/Home ]]; then
+          jdk_dir="${jdk_dir}/Contents/Home"
+        fi
+        mv "${jdk_dir}"/* "${destdir}/"
 }
 
 # Unarchive a tar archive into the install directory and cleanup.
@@ -204,35 +201,26 @@ unpack_tar() {
 #
 # TODO: Should be sanitized with error reporting.
 unpack_dmg() {
-	local variant=$1
-	local destdir=$2
+        local image=${1}
+        local destdir=${2}
+        local pkgdir=./asdf_tmp_pkgdir
+        local imgdir=./asdf_tmp_imgdir
 
-	local origin=$(pwd)
-	cd $destdir; {
-		local pkgdir=$destdir/asdf_tmp_pkgdir
-		local imgdir=$destdir/asdf_tmp_imgdir
+        mount_dmg $imgdir $image
+        [[ -z "$ASDF_JAVA_ERROR" ]] || return
 
-		mount_dmg $imgdir $variant
-		[[ -z "$ASDF_JAVA_ERROR" ]] || return
+        if pkgutil --expand $imgdir/*.pkg $pkgdir; then
+        if gzip -dc < ${pkgdir}/jdk*.pkg/Payload | cpio -i \
+                && [[ -d Contents ]]; then
+            mv Contents/Home/* $destdir/
+        else
+            ASDF_JAVA_ERROR="demangling dist payload"
+        fi
+    else
+        ASDF_JAVA_ERROR="expanding java dist"
+    fi
 
-		pkgutil --expand $imgdir/*.pkg $pkgdir
-		if [[ $? != 0 ]]; then
-			ASDF_JAVA_ERROR="expanding java dist"
-			unmount_dmg $imgdir
-			return
-		fi
-
-		cd $pkgdir/jdk*.pkg; {
-			cat Payload | gzip -d | cpio -i
-			if [[ $? != 0 ]] || ! [[ -d Contents ]]; then
-				ASDF_JAVA_ERROR="demangling dist payload"
-			fi
-			mv Contents/Home/* $destdir/
-		}; cd $destdir
-
-		unmount_dmg $imgdir
-		rm -r $destdir/$variant
-	}; cd $origin
+    unmount_dmg "${imgdir}"
 }
 
 mount_dmg() {
@@ -267,7 +255,7 @@ unpack_zip() {
 		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
 		rm $variant
 
-		local pkg=$(echo * | grep jdk)
+		local pkg=$(ls | grep -v ${variant})
 		mv $pkg/* .
 		rmdir $pkg
 	)
