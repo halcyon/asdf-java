@@ -42,7 +42,10 @@ install_java() {
 	# Perform all operations is a temporary directory that will be
 	# automatically cleaned up on exit (success or failure).
         local wrkdir
-        wrkdir=$(mktemp -dt asdf-java.XXXXXX)
+        case "$(uname -s)" in
+            Darwin) wrkdir=$(mktemp -dt asdf-java) ;;
+            *) wrkdir=$(mktemp -dp /tmp asdf-java.XXXXXXXX) ;;
+        esac
         # shellcheck disable=SC2064
         trap "cd ${PWD}; rm -rf ${wrkdir}" EXIT
         cd "${wrkdir}"
@@ -168,7 +171,7 @@ unpack_java() {
 	local variant=$1
 	local destdir=$2
 
-	log_info expanding java dist
+        log_info expanding java dist
 
         mkdir -p "${destdir}"
 	case $variant in
@@ -245,20 +248,15 @@ unmount_dmg() {
 }
 
 unpack_zip() {
-	local variant=$1
-	local destdir=$2
-
-	local origin=$(pwd)
-	(
-		cd $destdir
-		unzip $variant
-		[[ $? == 0 ]] || ASDF_JAVA_ERROR="expanding java dist"
-		rm $variant
-
-		local pkg=$(ls | grep -v ${variant})
-		mv $pkg/* .
-		rmdir $pkg
-	)
+        local archive=${1}
+        local destdir=${2}
+        unzip "${archive}" || { ASDF_JAVA_ERROR="expanding java dist"; return; }
+        local jdk_dir
+        jdk_dir=$(ls | grep -v ${archive})
+        if [[ -d ${jdk_dir}/Contents/Home ]]; then
+          jdk_dir="${jdk_dir}/Contents/Home"
+        fi
+        mv "${jdk_dir}"/* "${destdir}/"
 }
 
 #
