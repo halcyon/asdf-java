@@ -117,9 +117,9 @@ get_base_url() {
 	case $distro in
                 adoptopenjdk) echo "https://github.com/AdoptOpenJDK/" ;;
                 corretto) echo "https://d3pxv6yz143wms.cloudfront.net/" ;;
-		oracle) echo "http://download.oracle.com/otn-pub/java/jdk/" ;;
+		oracle) echo "https://download.oracle.com/" ;;
 		openjdk) echo "https://download.java.net/java/GA/jdk" ;;
-                zulu) echo "https://cdn.azul.com/zulu/bin" ;;
+                zulu) echo "https://cdn.azul.com/zulu/bin/" ;;
 		*) ;;
 	esac
 }
@@ -131,25 +131,22 @@ get_java() {
 	local variant=$3
 
 	local base=$(get_base_url $distro)
-	local oracle8_version=$(echo $version | sed -e 's|\.|u|g')
 
 	case $distro-$version in
                 adoptopenjdk-8.212) url=${base}openjdk8-binaries/releases/download/jdk8u212-b03/OpenJDK8U-jdk_x64_${variant}_8u212b03.tar.gz ;;
                 adoptopenjdk-11.0.3) url=${base}openjdk11-binaries/releases/download/jdk-11.0.3+7/OpenJDK11U-jdk_x64_${variant}_11.0.3_7.tar.gz ;;
                 corretto-8.212) url=${base}8.212.04.2/amazon-${distro}-${version}.04.2-${variant} ;;
                 corretto-11.0.3) url=${base}11.0.3.7.1/amazon-${distro}-${version}.7.1-${variant} ;;
-                oracle-8.141)  url=$base$oracle8_version-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-$oracle8_version-$variant ;;
-                oracle-8.131)  url=$base$oracle8_version-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-$oracle8_version-$variant ;;
-
-                openjdk-12.0.1) url=${base}12.0.1/69cfe15208a647278a19ef0990eea691/12/GPL/openjdk-$version'_'$variant;;
-                openjdk-11.0.1) url=${base}11/13/GPL/openjdk-11.0.1_$variant ;;
-                openjdk-11)     url=${base/\/GA\//\/ga\/}11/openjdk-11_$variant ;;
-                openjdk-10.0.2) url=$base'10'/$version/19aef61b38124481863b1413dce1855f/13/openjdk-$version'_'$variant ;;
-
-                zulu-7.0.222) url=$base/zulu7.29.0.5-ca-jdk7.0.222-$variant ;;
-                zulu-8.0.212) url=$base/zulu8.38.0.13-ca-jdk8.0.212-$variant ;;
-                zulu-11.0.3)  url=$base/zulu11.31.11-ca-jdk11.0.3-$variant ;;
-                zulu-12.0.1)  url=$base/zulu12.2.3-ca-jdk12.0.1-$variant ;;
+                oracle-8.131) url=${base}otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-${variant} ;;
+                oracle-8.141) url=${base}otn-pub/java/jdk/8u141-b15/336fa29ff2bb4ef291e347e091f7f4a7/jdk-8u141-${variant} ;;
+                openjdk-10.0.2)url=${base}10/${version}/19aef61b38124481863b1413dce1855f/13/openjdk-${version}_${variant} ;;
+                openjdk-11)url=${base/GA/ga}11/openjdk-11_${variant} ;;
+                openjdk-11.0.1) url=${base}11/13/GPL/openjdk-11.0.1_${variant} ;;
+                openjdk-12.0.1)url=${base}12.0.1/69cfe15208a647278a19ef0990eea691/12/GPL/openjdk-${version}_${variant};;
+                zulu-7.0.222) url=${base}zulu7.29.0.5-ca-jdk7.0.222-${variant} ;;
+                zulu-8.0.212) url=${base}zulu8.38.0.13-ca-jdk8.0.212-${variant} ;;
+                zulu-11.0.3) url=${base}zulu11.31.11-ca-jdk11.0.3-${variant} ;;
+                zulu-12.0.1) url=${base}zulu12.2.3-ca-jdk12.0.1-${variant} ;;
 
 		*) ASDF_JAVA_ERROR="$version is not a supported version" ;;
 	esac
