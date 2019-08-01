@@ -172,7 +172,7 @@ unpack_java() {
 
         mkdir -p "${destdir}"
 	case $variant in
-		*linux_hotspot | *.tar.gz) unpack_tar $variant $destdir ;;
+		*linux_hotspot | *.tar.gz | *mac_hotspot) unpack_tar $variant $destdir ;;
 		*.dmg)    unpack_dmg $variant $destdir ;;
                 *.zip)    unpack_zip $variant $destdir ;;
 		*) ASDF_JAVA_ERROR="$variant is not supported" ;;
