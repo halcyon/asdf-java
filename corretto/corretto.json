@@ -1,0 +1,43 @@
+[
+  {
+    "release_name": "amazon-corretto-8.212.04.2",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/amazon-corretto-8.212.04.2-linux-x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java-2/master/corretto/amazon-corretto-8.212.04.2-linux-x64.tar.gz.sha256.txt"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/amazon-corretto-8.212.04.2-macosx-x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java-2/master/corretto/amazon-corretto-8.212.04.2-macosx-x64.tar.gz.sha256.txt"
+      }
+    ]
+  },
+  {
+    "release_name": "amazon-corretto-11.0.3.7.1",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java-2/master/corretto/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz.sha256.txt"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java-2/master/corretto/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz.sha256.txt"
+      }]
+  }
+]

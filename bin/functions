@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+
+PLUGIN_HOME=$(dirname $(dirname "${0}"))
+CACHE_DIR="/tmp/asdf-java.cache"
+mkdir -p ${CACHE_DIR}
+case "$(uname -s)" in
+    Darwin) TEMP_DIR=$(mktemp -dt asdf-java)
+            STAT="stat -f %c ${CACHE_DIR}/*"
+            ;;
+    *) TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
+       STAT="stat -c %Z ${CACHE_DIR}/*";;
+esac
+
+trap "cd ${PWD}; rm -rf ${TEMP_DIR}" EXIT
+
+function retrieve-json() {
+    URLS=("https://api.adoptopenjdk.net/v2/info/releases/{openjdk8}?type=jdk"
+          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk9}?type=jdk"
+          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk10}?type=jdk"
+          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk11}?type=jdk"
+          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk12}?type=jdk")
+
+    if [[ -z "$(ls -A ${CACHE_DIR})" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
+    then
+        for url in "${URLS[@]}"
+        do
+            curl -s -L ${url} -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" 2>&1 >> /dev/null
+        done
+        for i in `ls ${CACHE_DIR}`
+        do
+            jq '(.[].release_name) |= sub("jdk-";"adopt-openjdk-") | (.[].release_name) |= sub("^jdk";"adopt-openjdk-")' \
+               ${CACHE_DIR}/${i} > ${CACHE_DIR}/${i}.temp
+            mv ${CACHE_DIR}/${i}.temp ${CACHE_DIR}/${i}
+        done
+    fi
+}
+
+function all-json() {
+    jq -s 'add' ${CACHE_DIR}/*.json ${PLUGIN_HOME}/corretto/corretto.json ${PLUGIN_HOME}/zulu/zulu.json
+}
+
+
+function list-all() {
+    retrieve-json
+    local hotspot="map(select(.binaries[].openjdk_impl == \"hotspot\")) \
+                   | map(.release_name) | unique[]"
+    local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\")) \
+                              | map(.release_name) | unique[] | select(contains(\"openj9\"))"
+    local openj9_large_heap="map(select(.binaries[].heap_size == \"large\")) \
+                             | map(.release_name + \"_large-heap\") | unique[] | select(contains(\"openj9\"))"
+    echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}")
+}
+
+function install {
+    retrieve-json
+    local release=$(case ${ASDF_INSTALL_VERSION} in
+                  *_large-heap) echo ${ASDF_INSTALL_VERSION%%_large-heap} ;;
+                  *) echo ${ASDF_INSTALL_VERSION} ;;
+
+              esac)
+    local heap_size=$(case ${ASDF_INSTALL_VERSION} in
+                    *_large-heap) echo "large" ;;
+                    *) echo "normal" ;;
+                esac)
+    local os=$(case `uname -s` in
+             Linux) echo "linux" ;;
+             Darwin) echo "mac" ;;
+         esac)
+    local architecture=$(case `uname -m` in
+                             x86_64) echo "x64" ;;
+                         esac)
+    local select_release="map(select(.release_name==\"${release}\")) | unique[] | .binaries[]"
+    local select_binary="select(.os==\"${os}\" and .architecture==\"${architecture}\" and .heap_size==\"${heap_size}\")"
+    local binary=$(all-json | jq "$select_release | $select_binary")
+    local binary_link=$(set -- $(echo ${binary} | jq -r ".binary_link") ; echo ${1})
+    local checksum_link=$(set -- $(echo ${binary} | jq -r ".checksum_link") ; echo ${1})
+
+    cd ${TEMP_DIR}
+    curl -LO -# -w "%{filename_effective}\n" ${binary_link}
+    if [ $? -ne 0 ]
+    then
+        exit 1
+    fi
+
+    curl -LO -# -w "%{filename_effective}\n" ${checksum_link}
+    if [ $? -ne 0 ]
+    then
+        exit 1
+    fi
+
+    sha256sum -c $(basename ${checksum_link})
+
+    tar zxf $(basename ${binary_link})
+    dir=$(set -- $(ls -d */) ; echo ${1})
+    cd ${dir}
+    mkdir -p ${ASDF_INSTALL_PATH}
+
+    case ${os} in
+        mac) case ${release} in
+                 azul*) mv * ${ASDF_INSTALL_PATH} ;;
+                 *) mv Contents/Home/* ${ASDF_INSTALL_PATH} ;;
+             esac ;;
+        *) mv * ${ASDF_INSTALL_PATH} ;;
+    esac
+}
+
+case `basename ${0}` in
+    list-all) list-all
+              ;;
+    install) install
+             ;;
+esac

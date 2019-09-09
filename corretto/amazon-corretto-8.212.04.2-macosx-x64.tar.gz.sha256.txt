@@ -1,0 +1,1 @@
+1d53e7a9fd0e2ab213bb6ea9043992a46fa5b82a5dd1de674bc9bfc2ed59432c  amazon-corretto-8.212.04.2-macosx-x64.tar.gz
