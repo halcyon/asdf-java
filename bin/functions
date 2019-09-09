@@ -6,9 +6,12 @@ mkdir -p ${CACHE_DIR}
 case "$(uname -s)" in
     Darwin) TEMP_DIR=$(mktemp -dt asdf-java)
             STAT="stat -f %c ${CACHE_DIR}/*"
+            SHA256SUM="gsha256sum"
             ;;
     *) TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
-       STAT="stat -c %Z ${CACHE_DIR}/*";;
+       STAT="stat -c %Z ${CACHE_DIR}/*"
+       SHA256SUM="sha256sum"
+       ;;
 esac
 
 trap "cd ${PWD}; rm -rf ${TEMP_DIR}" EXIT
@@ -72,6 +75,13 @@ function os {
     esac
 }
 
+function sha256_sum {
+    case `uname -s` in
+        Linux) sha256sum -c $(basename ${1}) ;;
+        Darwin) gsha256sum -c $(basename ${1}) ;;
+    esac
+}
+
 function architecture {
     case `uname -m` in
         x86_64) echo "x64" ;;
@@ -99,7 +109,7 @@ function install {
         exit 1
     fi
 
-    sha256sum -c $(basename ${checksum_link})
+    sha256_sum ${checksum_link}
 
     tar zxf $(basename ${binary_link})
     dir=$(set -- $(ls -d */) ; echo ${1})

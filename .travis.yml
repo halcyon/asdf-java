@@ -1,8 +1,10 @@
 language: c
 script: asdf plugin-test java $TRAVIS_BUILD_DIR
 before_script:
-  - git clone https://github.com/asdf-vm/asdf.git
-  - . asdf/asdf.sh
-os:
-  - linux
-  - osx
+- git clone https://github.com/asdf-vm/asdf.git
+- . asdf/asdf.sh
+matrix:
+  include:
+    - os: linux
+    - os: osx
+      install: HOMEBREW_NO_AUTO_UPDATE=1 brew install jq
