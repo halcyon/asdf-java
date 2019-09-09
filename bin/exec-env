@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-export JAVA_HOME=$ASDF_INSTALL_PATH
