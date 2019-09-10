@@ -3,15 +3,31 @@
 PLUGIN_HOME=$(dirname $(dirname "${0}"))
 CACHE_DIR="/tmp/asdf-java.cache"
 mkdir -p ${CACHE_DIR}
-case "$(uname -s)" in
-    Darwin) TEMP_DIR=$(mktemp -dt asdf-java)
-            STAT="stat -f %c ${CACHE_DIR}/*"
+
+case $(uname -s) in
+    Darwin) OS="mac"
             SHA256SUM="gsha256sum"
+            STAT="stat -f %c ${CACHE_DIR}/*"
+            TEMP_DIR=$(mktemp -dt asdf-java)
             ;;
-    *) TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
-       STAT="stat -c %Z ${CACHE_DIR}/*"
-       SHA256SUM="sha256sum"
+    Linux) OS="linux"
+           SHA256SUM="sha256sum"
+           STAT="stat -c %Z ${CACHE_DIR}/*"
+           TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
+           ;;
+esac
+
+case ${ASDF_INSTALL_VERSION} in
+    *_large-heap) RELEASE=${ASDF_INSTALL_VERSION%%_large-heap}
+                  HEAP_SIZE="large"
+                  ;;
+    *) RELEASE=${ASDF_INSTALL_VERSION}
+       HEAP_SIZE="normal"
        ;;
+esac
+
+case $(uname -m) in
+    x86_64) ARCHITECTURE="x64" ;;
 esac
 
 trap "cd ${PWD}; rm -rf ${TEMP_DIR}" EXIT
@@ -54,44 +70,10 @@ function list-all() {
     echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}")
 }
 
-function release {
-    case ${ASDF_INSTALL_VERSION} in
-        *_large-heap) echo ${ASDF_INSTALL_VERSION%%_large-heap} ;;
-        *) echo ${ASDF_INSTALL_VERSION} ;;
-    esac
-}
-
-function heap_size {
-    case ${ASDF_INSTALL_VERSION} in
-        *_large-heap) echo "large" ;;
-        *) echo "normal" ;;
-    esac
-}
-
-function os {
-    case `uname -s` in
-        Linux) echo "linux" ;;
-        Darwin) echo "mac" ;;
-    esac
-}
-
-function sha256_sum {
-    case `uname -s` in
-        Linux) sha256sum -c $(basename ${1}) ;;
-        Darwin) gsha256sum -c $(basename ${1}) ;;
-    esac
-}
-
-function architecture {
-    case `uname -m` in
-        x86_64) echo "x64" ;;
-    esac
-}
-
 function install {
     retrieve-json
-    local select_release="map(select(.release_name==\"$(release)\")) | unique[] | .binaries[]"
-    local select_binary="select(.os==\"$(os)\" and .architecture==\"$(architecture)\" and .heap_size==\"$(heap_size)\")"
+    local select_release="map(select(.release_name==\"${RELEASE}\")) | unique[] | .binaries[]"
+    local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")"
     local binary=$(all-json | jq "$select_release | $select_binary")
     local binary_link=$(set -- $(echo ${binary} | jq -r ".binary_link") ; echo ${1})
     local checksum_link=$(set -- $(echo ${binary} | jq -r ".checksum_link") ; echo ${1})
@@ -109,7 +91,7 @@ function install {
         exit 1
     fi
 
-    sha256_sum ${checksum_link}
+    ${SHA256SUM} -c $(basename ${checksum_link})
 
     tar zxf $(basename ${binary_link})
     dir=$(set -- $(ls -d */) ; echo ${1})
