@@ -98,7 +98,7 @@ function install {
     cd ${dir}
     mkdir -p ${ASDF_INSTALL_PATH}
 
-    case ${os} in
+    case ${OS} in
         mac) case ${release} in
                  azul*) mv * ${ASDF_INSTALL_PATH} ;;
                  *) mv Contents/Home/* ${ASDF_INSTALL_PATH} ;;
