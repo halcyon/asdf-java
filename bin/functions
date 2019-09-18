@@ -37,7 +37,8 @@ function retrieve-json() {
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk9}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk10}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk11}?type=jdk"
-          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk12}?type=jdk")
+          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk12}?type=jdk"
+          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk13}?type=jdk")
 
     if [[ -z "$(ls -A ${CACHE_DIR})" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
     then
