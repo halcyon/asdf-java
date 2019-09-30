@@ -32,6 +32,18 @@ esac
 
 trap "cd ${PWD}; rm -rf ${TEMP_DIR}" EXIT
 
+
+function check-jq() {
+  bold=`tput bold`
+  nc=`tput sgr0`
+  USAGE="Install ${bold}jq${nc} to continue. Aborting."
+
+  if ! [ -x "$(command -v jq)" ]; then
+    printf "$USAGE" >&2
+    exit 1;
+  fi
+}
+
 function retrieve-json() {
     URLS=("https://api.adoptopenjdk.net/v2/info/releases/{openjdk8}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk9}?type=jdk"
@@ -56,11 +68,13 @@ function retrieve-json() {
 }
 
 function all-json() {
-    jq -s 'add' ${CACHE_DIR}/*.json ${PLUGIN_HOME}/corretto/corretto.json ${PLUGIN_HOME}/zulu/zulu.json
+  check-jq
+  jq -s 'add' ${CACHE_DIR}/*.json ${PLUGIN_HOME}/corretto/corretto.json ${PLUGIN_HOME}/zulu/zulu.json
 }
 
 
 function list-all() {
+    check-jq
     retrieve-json
     local hotspot="map(select(.binaries[].openjdk_impl == \"hotspot\")) \
                    | map(.release_name) | unique[]"
@@ -72,6 +86,7 @@ function list-all() {
 }
 
 function install {
+    check-jq
     retrieve-json
     local select_release="map(select(.release_name==\"${RELEASE}\")) | unique[] | .binaries[]"
     local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")"
