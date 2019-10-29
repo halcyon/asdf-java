@@ -62,23 +62,23 @@
       }]
   },
   {
-    "release_name": "azul-zulu-8.0.212",
+    "release_name": "azul-zulu-8u232b18",
     "binaries": [
       {
         "os": "linux",
         "architecture": "x64",
         "openjdk_impl": "hotspot",
-        "binary_link": "https://cdn.azul.com/zulu/bin/zulu8.38.0.13-ca-jdk8.0.212-linux_x64.tar.gz",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.21-ca-jdk8.0.232-linux_x64.tar.gz",
         "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.38.0.13-ca-jdk8.0.212-linux_x64.tar.gz.sha256.txt"
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.21-ca-jdk8.0.232-linux_x64.tar.gz.sha256.txt"
       },
       {
         "os": "mac",
         "architecture": "x64",
         "openjdk_impl": "hotspot",
-        "binary_link": "https://cdn.azul.com/zulu/bin/zulu8.38.0.13-ca-jdk8.0.212-macosx_x64.tar.gz",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.tar.gz",
         "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.38.0.13-ca-jdk8.0.212-macosx_x64.tar.gz.sha256.txt"
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.tar.gz.sha256.txt"
       }]
   },
   {
