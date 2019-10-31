@@ -37,3 +37,7 @@ Select an installed candidate for use like this:
 To set JAVA_HOME in your shell's initialization add the following:
 
 `. ~/.asdf/plugins/java/set-java-home.sh`
+
+for fish shell, instead use:
+
+`. ~/.asdf/plugins/java/set-java-home.fish`
