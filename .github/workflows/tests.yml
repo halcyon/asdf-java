@@ -12,6 +12,8 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest', 'macOS-latest']
+    env:
+      TERM: dumb
     steps:
     - uses: actions/checkout@v1
     - uses: mstksg/get-package@v1
