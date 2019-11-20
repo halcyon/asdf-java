@@ -14,9 +14,6 @@ jobs:
         os: ['ubuntu-latest', 'macOS-latest']
     steps:
     - uses: actions/checkout@v1
-    - uses: mstksg/get-package@v1
-      with:
-        brew: jq
     - name: Install asdf
       run: git clone --depth 1 --quiet https://github.com/asdf-vm/asdf.git
     - name: Run tests
