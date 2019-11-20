@@ -17,7 +17,7 @@ jobs:
     - uses: mstksg/get-package@v1
       with:
         brew: jq
-    - name: Set-up asdf
-      run: git clone --depth 1 --quiet https://github.com/asdf-vm/asdf.git && . asdf/asdf.sh
+    - name: Install asdf
+      run: git clone --depth 1 --quiet https://github.com/asdf-vm/asdf.git
     - name: Run tests
-      run: asdf plugin-test java $GITHUB_WORKSPACE
+      run: . asdf/asdf.sh && asdf plugin-test java $GITHUB_WORKSPACE
