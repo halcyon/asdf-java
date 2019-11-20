@@ -1,5 +1,26 @@
 [
   {
+    "release_name": "azul-zulu-13.0.1",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu13.28.11-ca-jdk13.0.1-linux_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.28.11-ca-jdk13.0.1-linux_x64.tar.gz.sha256.txt"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu13.28.11-ca-jdk13.0.1-macosx_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.28.11-ca-jdk13.0.1-macosx_x64.tar.gz.sha256.txt"
+      }
+    ]
+  },
+  {
     "release_name": "azul-zulu-13.27.9",
     "binaries": [
       {
@@ -59,6 +80,26 @@
         "binary_link": "https://cdn.azul.com/zulu/bin/zulu11.31.11-ca-jdk11.0.3-macosx_x64.tar.gz",
         "heap_size": "normal",
         "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.31.11-ca-jdk11.0.3-macosx_x64.tar.gz.sha256.txt"
+      }]
+  },
+  {
+    "release_name": "azul-zulu-11.0.5",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu11.35.13-ca-jdk11.0.5-linux_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.13-ca-jdk11.0.5-linux_x64.tar.gz.sha256.txt"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu11.35.13-ca-jdk11.0.5-macosx_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.13-ca-jdk11.0.5-macosx_x64.tar.gz.sha256.txt"
       }]
   },
   {
