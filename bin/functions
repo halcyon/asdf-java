@@ -7,8 +7,8 @@ mkdir -p ${CACHE_DIR}
 case $(uname -s) in
     Darwin) OS="mac"
             SHA256SUM="gsha256sum"
-            STAT="stat -f %c ${CACHE_DIR}/*"
-            TEMP_DIR=$(mktemp -dt asdf-java)
+            STAT="/usr/bin/stat -f %c ${CACHE_DIR}/*"
+            TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
             ;;
     Linux) OS="linux"
            SHA256SUM="sha256sum"
