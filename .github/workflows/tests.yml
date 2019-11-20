@@ -1,0 +1,23 @@
+name: asdf-java Tests
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'macOS-latest']
+    steps:
+    - uses: actions/checkout@v1
+    - uses: mstksg/get-package@v1
+      with:
+        brew: jq
+    - name: Set-up asdf
+      run: git clone --depth 1 --quiet https://github.com/asdf-vm/asdf.git && . asdf/asdf.sh
+    - name: Run tests
+      run: asdf plugin-test java $GITHUB_WORKSPACE
