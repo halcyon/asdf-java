@@ -85,6 +85,10 @@ function list-all() {
     echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}")
 }
 
+function list-legacy-filenames() {
+    echo ".java-version"
+}
+
 function install {
     check-jq
     retrieve-json
@@ -126,6 +130,8 @@ function install {
 case `basename ${0}` in
     list-all) list-all
               ;;
+    list-legacy-filenames) list-legacy-filenames
+                           ;;
     install) install
              ;;
 esac
