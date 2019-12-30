@@ -60,5 +60,18 @@
         "heap_size": "normal",
         "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz.sha256.txt"
       }]
+  },
+  {
+    "release_name": "amazon-corretto-8.232.09.2",
+    "binaries": [
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://corretto.aws/downloads/resources/8.232.09.2/amazon-corretto-8.232.09.2-macosx-x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.2-macosx-x64.tar.gz.sha256.txt"
+      }
+    ]
   }
 ]
