@@ -1,5 +1,5 @@
 language: c
-script: asdf plugin-test java $TRAVIS_BUILD_DIR
+script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT"
 before_script:
 - git clone https://github.com/asdf-vm/asdf.git
 - . asdf/asdf.sh

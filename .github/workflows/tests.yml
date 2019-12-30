@@ -15,13 +15,16 @@ jobs:
     env:
       TERM: dumb
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: mstksg/get-package@v1
       with:
         brew: coreutils
     - name: Install asdf
-      run: git clone --quiet https://github.com/asdf-vm/asdf.git
+      uses: actions/checkout@v2
+      with:
+        repository: asdf-vm/asdf
+        path: asdf
     - name: Run tests
       run: |
         . asdf/asdf.sh
-        asdf plugin-test java $GITHUB_WORKSPACE
+        asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA"
