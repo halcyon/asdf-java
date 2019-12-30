@@ -143,6 +143,26 @@
       }]
   },
   {
+    "release_name": "azul-zulufx-8.42.0.23-jdk8.0.232",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.23-ca-fx-jdk8.0.232-linux_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.23-ca-fx-jdk8.0.232-linux_x64.tar.gz.sha256.txt"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.23-ca-fx-jdk8.0.232-macosx_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.23-ca-fx-jdk8.0.232-macosx_x64.tar.gz.sha256.txt"
+      }]
+  },
+  {
     "release_name": "azul-zulu-7u222",
     "binaries": [
       {
