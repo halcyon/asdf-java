@@ -1,6 +1,6 @@
 [
   {
-    "release_name": "azul-zulu-13.0.1",
+    "release_name": "azul-zulu-13.28.11-jdk13.0.1",
     "binaries": [
       {
         "os": "linux",
@@ -21,7 +21,7 @@
     ]
   },
   {
-    "release_name": "azul-zulu-13.27.9",
+    "release_name": "azul-zulu-13.27.9-jdk13",
     "binaries": [
       {
         "os": "linux",
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "release_name": "azul-zulu-12.0.1",
+    "release_name": "azul-zulu-12.2.3-jdk12.0.1",
     "binaries": [
       {
         "os": "linux",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "release_name": "azul-zulu-11.0.3",
+    "release_name": "azul-zulu-11.31.11-jdk11.0.3",
     "binaries": [
       {
         "os": "linux",
@@ -83,7 +83,7 @@
       }]
   },
   {
-    "release_name": "azul-zulu-11.0.5",
+    "release_name": "azul-zulu-11.35.13-jdk11.0.5",
     "binaries": [
       {
         "os": "linux",
@@ -123,7 +123,7 @@
       }]
   },
   {
-    "release_name": "azul-zulu-8u232b18",
+    "release_name": "azul-zulu-8.42.0.21-jdk8.0.232",
     "binaries": [
       {
         "os": "linux",
@@ -163,7 +163,7 @@
       }]
   },
   {
-    "release_name": "azul-zulu-7u222",
+    "release_name": "azul-zulu-7.29.0.5-jdk7.0.222",
     "binaries": [
       {
         "os": "linux",
