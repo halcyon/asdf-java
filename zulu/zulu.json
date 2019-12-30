@@ -103,6 +103,26 @@
       }]
   },
   {
+    "release_name": "azul-zulufx-11.35.15-jdk11.0.5",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu11.35.15-ca-fx-jdk11.0.5-linux_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.15-ca-fx-jdk11.0.5-linux_x64.tar.gz.sha256.txt"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "openjdk_impl": "hotspot",
+        "binary_link": "https://cdn.azul.com/zulu/bin/zulu11.35.15-ca-fx-jdk11.0.5-macosx_x64.tar.gz",
+        "heap_size": "normal",
+        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.15-ca-fx-jdk11.0.5-macosx_x64.tar.gz.sha256.txt"
+      }]
+  },
+  {
     "release_name": "azul-zulu-8u232b18",
     "binaries": [
       {
