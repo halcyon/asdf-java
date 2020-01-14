@@ -30,7 +30,7 @@ case $(uname -m) in
     x86_64) ARCHITECTURE="x64" ;;
 esac
 
-trap "cd ${PWD}; rm -rf ${TEMP_DIR}" EXIT
+trap "rm -rf ${TEMP_DIR}" EXIT
 
 
 function check-jq() {
