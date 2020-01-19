@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PLUGIN_HOME=$(dirname $(dirname "${0}"))
-CACHE_DIR="/tmp/asdf-java.cache"
+CACHE_DIR="${TMPDIR:-/tmp/}asdf-java.cache"
 mkdir -p ${CACHE_DIR}
 
 case $(uname -s) in
@@ -44,7 +44,7 @@ function check-jq() {
   fi
 }
 
-function retrieve-json() {
+function retrieve-adoptopenjdk() {
     URLS=("https://api.adoptopenjdk.net/v2/info/releases/{openjdk8}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk9}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk10}?type=jdk"
@@ -52,20 +52,53 @@ function retrieve-json() {
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk12}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk13}?type=jdk")
 
-    if [[ -z "$(ls -A ${CACHE_DIR})" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
+    if [[ -z "$(ls -A ${CACHE_DIR}/adopt-*.json)" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
     then
         for url in "${URLS[@]}"
         do
             curl -s -L ${url} -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" 2>&1 >> /dev/null
         done
-        for i in `ls ${CACHE_DIR}`
+        for i in `ls ${CACHE_DIR}/adopt-*.json`
         do
             jq '(.[].release_name) |= sub("jdk-";"adopt-openjdk-") | (.[].release_name) |= sub("^jdk";"adopt-openjdk-")' \
-               ${CACHE_DIR}/${i} > ${CACHE_DIR}/${i}.temp
-            mv ${CACHE_DIR}/${i}.temp ${CACHE_DIR}/${i}
+               ${i} > ${i}.temp
+            mv ${i}.temp ${i}
         done
     fi
 }
+
+function retrieve-sapmachine() {
+    args=('-s' '-f')
+    if [ -n "$GITHUB_API_TOKEN" ]; then
+        args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
+    fi
+    local cache_file="${CACHE_DIR}/sapmachine.json"
+    local filter='[
+.[] | select(.prerelease == false and .draft == false)
+| {
+  release_name: .name,
+  binaries: [ .assets[]
+    | select(.content_type == "application/x-tar")
+    | select(.name | startswith("sapmachine-jdk"))
+    | select(.name | endswith("linux-x64_bin.tar.gz") or endswith("osx-x64_bin.tar.gz"))
+    | {
+      binary_link: .browser_download_url,
+      checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt")),
+      os: (if .name | "osx-x64" then "mac" else "linux" end),
+      architecture: "x64",
+      openjdk_impl: "hotspot",
+      heap_size: "normal"
+    }
+  ]}
+]'
+    if [[ -z "$(ls -A ${cache_file})" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
+    then
+        curl "${args[@]}" -L 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
+        jq "${filter}" "${cache_file}" > "${cache_file}.temp"
+        mv "${cache_file}.temp" "${cache_file}"
+    fi
+}
+
 
 function all-json() {
   check-jq
@@ -75,7 +108,8 @@ function all-json() {
 
 function list-all() {
     check-jq
-    retrieve-json
+    retrieve-adoptopenjdk
+    retrieve-sapmachine
     local hotspot="map(select(.binaries[].openjdk_impl == \"hotspot\")) \
                    | map(.release_name) | unique[]"
     local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\")) \
