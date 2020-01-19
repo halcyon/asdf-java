@@ -1,0 +1,1 @@
+13870b5d6124ac78654197acc403e6c628c2c6ad5e52d3f1cd61480242cd642f  amazon-corretto-8.242.07.1-macosx-x64.tar.gz
