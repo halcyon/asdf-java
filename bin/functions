@@ -27,8 +27,13 @@ case ${ASDF_INSTALL_VERSION} in
 esac
 
 case $(uname -m) in
-    x86_64) ARCHITECTURE="x64" ;;
+    x86_64) ARCHITECTURE="x64" 
+	    ;;
+    arm*)   ARCHITECTURE="arm" 
+	    ;;
+    *) echo "Unsupported architecture" ;;
 esac
+echo $ARCHITECTURE
 
 trap "rm -rf ${TEMP_DIR}" EXIT
 
@@ -78,9 +83,9 @@ function list-all() {
     retrieve-json
     local hotspot="map(select(.binaries[].openjdk_impl == \"hotspot\")) \
                    | map(.release_name) | unique[]"
-    local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\")) \
+    local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\" and .binaries[].architecture == \"${ARCHITECTURE}\")) \
                               | map(.release_name) | unique[] | select(contains(\"openj9\"))"
-    local openj9_large_heap="map(select(.binaries[].heap_size == \"large\")) \
+    local openj9_large_heap="map(select(.binaries[].heap_size == \"large\" and .binaries[].architecture == \"${ARCHITECTURE}\")) \
                              | map(.release_name + \"_large-heap\") | unique[] | select(contains(\"openj9\"))"
     echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}")
 }
