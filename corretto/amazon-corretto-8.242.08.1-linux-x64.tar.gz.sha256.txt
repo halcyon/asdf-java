@@ -1,0 +1,1 @@
+e302fbd2d7354a2a8c5fa7491f4de1d73967104078da9671abada260b2f02fcd  amazon-corretto-8.242.08.1-linux-x64.tar.gz
