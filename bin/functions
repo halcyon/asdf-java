@@ -84,7 +84,7 @@ function retrieve-sapmachine() {
     | {
       binary_link: .browser_download_url,
       checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt")),
-      os: (if .name | "osx-x64" then "mac" else "linux" end),
+      os: (if .name | endswith("osx-x64_bin.tar.gz") then "mac" else "linux" end),
       architecture: "x64",
       openjdk_impl: "hotspot",
       heap_size: "normal"
