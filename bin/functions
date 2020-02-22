@@ -125,7 +125,8 @@ function list-legacy-filenames() {
 
 function install {
     check-jq
-    retrieve-json
+    retrieve-adoptopenjdk
+    retrieve-sapmachine
     local select_release="map(select(.release_name==\"${RELEASE}\")) | unique[] | .binaries[]"
     local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")"
     local binary=$(all-json | jq "$select_release | $select_binary")
