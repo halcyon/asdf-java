@@ -1,0 +1,1 @@
+b8c19acc20d44bb13e4716d4aeafa6d97f4bf47e750d0fa2ac31356738a1a917  zulu11.37.19-ca-fx-jdk11.0.6-linux_x64.tar.gz
