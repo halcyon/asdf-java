@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
+set -e
+set -Euo pipefail
 
-PLUGIN_HOME=$(dirname $(dirname "${0}"))
+PLUGIN_HOME="$(dirname "$(dirname "${0}")")"
 CACHE_DIR="${TMPDIR:-/tmp/}asdf-java.cache"
-mkdir -p ${CACHE_DIR}
+trap 'rm -rf ${TEMP_DIR}' EXIT
+
+if [ ! -d "${CACHE_DIR}" ]
+then
+    mkdir -p "${CACHE_DIR}"
+fi
 
 case $(uname -s) in
     Darwin) OS="mac"
@@ -17,29 +24,15 @@ case $(uname -s) in
            ;;
 esac
 
-case ${ASDF_INSTALL_VERSION} in
-    *_large-heap) RELEASE=${ASDF_INSTALL_VERSION%%_large-heap}
-                  HEAP_SIZE="large"
-                  ;;
-    *) RELEASE=${ASDF_INSTALL_VERSION}
-       HEAP_SIZE="normal"
-       ;;
-esac
-
 case $(uname -m) in
     x86_64) ARCHITECTURE="x64" ;;
 esac
 
-trap "rm -rf ${TEMP_DIR}" EXIT
-
-
 function check-jq() {
-  bold=`tput bold`
-  nc=`tput sgr0`
-  USAGE="Install ${bold}jq${nc} to continue. Aborting."
+  USAGE="Install jq to continue. Aborting."
 
   if ! [ -x "$(command -v jq)" ]; then
-    printf "$USAGE" >&2
+    echo "${USAGE}" >&2
     exit 1;
   fi
 }
@@ -52,24 +45,26 @@ function retrieve-adoptopenjdk() {
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk12}?type=jdk"
           "https://api.adoptopenjdk.net/v2/info/releases/{openjdk13}?type=jdk")
 
-    if [[ -z "$(ls -A ${CACHE_DIR}/adopt-*.json)" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
+    # shellcheck disable=SC2046
+    if [[ -z "$(ls -A "${CACHE_DIR}"/adopt-*.json 2>/dev/null)" ]] || [[ $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
     then
         for url in "${URLS[@]}"
         do
-            curl -s -L ${url} -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" 2>&1 >> /dev/null
+            curl -s -L "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
         done
-        for i in `ls ${CACHE_DIR}/adopt-*.json`
+        for i in "${CACHE_DIR}"/adopt-*.json
         do
+            [[ -e "$i" ]] || break
             jq '(.[].release_name) |= sub("jdk-";"adopt-openjdk-") | (.[].release_name) |= sub("^jdk";"adopt-openjdk-")' \
-               ${i} > ${i}.temp
-            mv ${i}.temp ${i}
+               "${i}" > "${i}.temp"
+            mv "${i}.temp" "${i}"
         done
     fi
 }
 
 function retrieve-sapmachine() {
     args=('-s' '-f')
-    if [ -n "$GITHUB_API_TOKEN" ]; then
+    if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
         args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
     fi
     local cache_file="${CACHE_DIR}/sapmachine.json"
@@ -91,7 +86,8 @@ function retrieve-sapmachine() {
     }
   ]}
 ]'
-    if [[ -z "$(ls -A ${cache_file})" ]] || [[  $(set -- $(${STAT}) && echo ${1}) -le $(( `date +%s` - 3600)) ]]
+    # shellcheck disable=SC2046
+    if [[ ! -r "${cache_file}" ]] || [[  $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
     then
         curl "${args[@]}" -L 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
         jq "${filter}" "${cache_file}" > "${cache_file}.temp"
@@ -102,7 +98,7 @@ function retrieve-sapmachine() {
 
 function all-json() {
   check-jq
-  jq -s 'add' ${CACHE_DIR}/*.json ${PLUGIN_HOME}/corretto/corretto.json ${PLUGIN_HOME}/zulu/zulu.json
+  jq -s 'add' "${CACHE_DIR}"/*.json "${PLUGIN_HOME}"/corretto/corretto.json "${PLUGIN_HOME}"/zulu/zulu.json
 }
 
 
@@ -116,6 +112,7 @@ function list-all() {
                               | map(.release_name) | unique[] | select(contains(\"openj9\"))"
     local openj9_large_heap="map(select(.binaries[].heap_size == \"large\")) \
                              | map(.release_name + \"_large-heap\") | unique[] | select(contains(\"openj9\"))"
+    # shellcheck disable=SC2046
     echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}")
 }
 
@@ -125,44 +122,57 @@ function list-legacy-filenames() {
 
 function install {
     check-jq
+    case "${ASDF_INSTALL_VERSION}" in
+        *_large-heap) RELEASE="${ASDF_INSTALL_VERSION%%_large-heap}"
+                      HEAP_SIZE="large"
+                      ;;
+        *) RELEASE="${ASDF_INSTALL_VERSION}"
+           HEAP_SIZE="normal"
+           ;;
+    esac
+
     retrieve-adoptopenjdk
     retrieve-sapmachine
     local select_release="map(select(.release_name==\"${RELEASE}\")) | unique[] | .binaries[]"
     local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")"
-    local binary=$(all-json | jq "$select_release | $select_binary")
-    local binary_link=$(set -- $(echo ${binary} | jq -r ".binary_link") ; echo ${1})
-    local checksum_link=$(set -- $(echo ${binary} | jq -r ".checksum_link") ; echo ${1})
+    local binary
+    local binary_link
+    local checksum_link
+    binary=$(all-json | jq "$select_release | $select_binary")
+    binary_link=$(set -- "$(echo "${binary}" | jq -r ".binary_link")" ; echo "${1}")
+    checksum_link=$(set -- "$(echo "${binary}" | jq -r ".checksum_link")" ; echo "${1}")
 
-    cd ${TEMP_DIR}
-    curl -LO -# -w "%{filename_effective}\n" ${binary_link}
-    if [ $? -ne 0 ]
+    cd "${TEMP_DIR}"
+    if ! curl -LO -# -w "%{filename_effective}\n" "${binary_link}";
     then
         exit 1
     fi
 
-    curl -LO -# -w "%{filename_effective}\n" ${checksum_link}
-    if [ $? -ne 0 ]
+    if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
     then
         exit 1
     fi
 
-    ${SHA256SUM} -c $(basename ${checksum_link})
+    ${SHA256SUM} -c "$(basename "${checksum_link}")"
 
-    tar zxf $(basename ${binary_link})
-    dir=$(set -- $(ls -d */) ; echo ${1})
-    cd ${dir}
-    mkdir -p ${ASDF_INSTALL_PATH}
+    tar -zxf "$(basename "${binary_link}")"
+    dir=$(set -- "$(ls -d ./*/)" ; echo "${1}")
+    cd "${dir}"
+    if [ ! -d "${ASDF_INSTALL_PATH}" ]
+    then
+        mkdir -p "${ASDF_INSTALL_PATH}"
+    fi
 
     case ${OS} in
         mac) case ${RELEASE} in
-                 azul*) mv * ${ASDF_INSTALL_PATH} ;;
-                 *) mv Contents/Home/* ${ASDF_INSTALL_PATH} ;;
+                 azul*) mv ./* "${ASDF_INSTALL_PATH}" ;;
+                 *) mv Contents/Home/* "${ASDF_INSTALL_PATH}" ;;
              esac ;;
-        *) mv * ${ASDF_INSTALL_PATH} ;;
+        *) mv ./* "${ASDF_INSTALL_PATH}" ;;
     esac
 }
 
-case `basename ${0}` in
+case "$(basename "${0}")" in
     list-all) list-all
               ;;
     list-legacy-filenames) list-legacy-filenames
