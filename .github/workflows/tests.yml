@@ -18,13 +18,16 @@ jobs:
     - uses: actions/checkout@v2
     - uses: mstksg/get-package@v1
       with:
-        brew: coreutils
+        brew: coreutils jq
+        apt-get: jq
     - name: Install asdf
       uses: actions/checkout@v2
       with:
         repository: asdf-vm/asdf
         path: asdf
     - name: Run tests
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         . asdf/asdf.sh
         asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA"
