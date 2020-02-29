@@ -18,8 +18,12 @@ jobs:
     - uses: actions/checkout@v2
     - uses: mstksg/get-package@v1
       with:
-        brew: coreutils jq
-        apt-get: jq
+        brew: coreutils jq shellcheck
+        apt-get: jq shellcheck
+    - name: Run ShellCheck
+      run: |
+        shellcheck -V
+        shellcheck ./bin/functions
     - name: Install asdf
       uses: actions/checkout@v2
       with:
@@ -30,4 +34,4 @@ jobs:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         . asdf/asdf.sh
-        asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA"
+        asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version azul-zulu-8.44.0.11-jdk8.0.242
