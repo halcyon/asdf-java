@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -Eeuo pipefail
+set -e
+set -Euo pipefail
 
 PLUGIN_HOME="$(dirname "$(dirname "${0}")")"
 CACHE_DIR="${TMPDIR:-/tmp/}asdf-java.cache"
@@ -49,7 +50,7 @@ function retrieve-adoptopenjdk() {
     then
         for url in "${URLS[@]}"
         do
-            curl -skL "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
+            curl -s -L "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
         done
         for i in "${CACHE_DIR}"/adopt-*.json
         do
@@ -62,7 +63,7 @@ function retrieve-adoptopenjdk() {
 }
 
 function retrieve-sapmachine() {
-    args=('-skfL')
+    args=('-s' '-f')
     if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
         args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
     fi
@@ -88,7 +89,7 @@ function retrieve-sapmachine() {
     # shellcheck disable=SC2046
     if [[ ! -r "${cache_file}" ]] || [[  $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
     then
-        curl "${args[@]}" 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
+        curl "${args[@]}" -L 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
         jq "${filter}" "${cache_file}" > "${cache_file}.temp"
         mv "${cache_file}.temp" "${cache_file}"
     fi
@@ -142,12 +143,12 @@ function install {
     checksum_link=$(set -- "$(echo "${binary}" | jq -r ".checksum_link")" ; echo "${1}")
 
     cd "${TEMP_DIR}"
-    if ! curl -kLO -# -w "%{filename_effective}\n" "${binary_link}";
+    if ! curl -LO -# -w "%{filename_effective}\n" "${binary_link}";
     then
         exit 1
     fi
 
-    if ! curl -kLO -# -w "%{filename_effective}\n" "${checksum_link}";
+    if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
     then
         exit 1
     fi
