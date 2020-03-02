@@ -5,18 +5,22 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/amazon-corretto-8.212.04.2-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.212.04.2-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/amazon-corretto-8.212.04.2-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.212.04.2-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/amazon-corretto-8.212.04.2-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.212.04.2-macosx-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://d3pxv6yz143wms.cloudfront.net/8.212.04.2/amazon-corretto-8.212.04.2-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.212.04.2-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       }
     ]
   },
@@ -26,18 +30,22 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/amazon-corretto-8.232.09.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/amazon-corretto-8.232.09.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/amazon-corretto-8.232.09.1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.1-macosx-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/amazon-corretto-8.232.09.1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       }
     ]
   },
@@ -47,10 +55,12 @@
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/8.232.09.2/amazon-corretto-8.232.09.2-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.2-macosx-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.232.09.2/amazon-corretto-8.232.09.2-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.232.09.2-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       }
     ]
   },
@@ -60,18 +70,22 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/8.242.07.1/amazon-corretto-8.242.07.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.07.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.242.07.1/amazon-corretto-8.242.07.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.07.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/8.242.07.1/amazon-corretto-8.242.07.1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.07.1-macosx-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.242.07.1/amazon-corretto-8.242.07.1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.07.1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       }
     ]
   },
@@ -81,18 +95,22 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/8.242.08.1/amazon-corretto-8.242.08.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.08.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.242.08.1/amazon-corretto-8.242.08.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.08.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/8.242.08.1/amazon-corretto-8.242.08.1-1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.08.1-1-macosx-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.242.08.1/amazon-corretto-8.242.08.1-1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-8.242.08.1-1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       }
     ]
   },
@@ -102,19 +120,24 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.3.7.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz.sha256.txt"
-      }]
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://d3pxv6yz143wms.cloudfront.net/11.0.3.7.1/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.3.7.1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
+      }
+    ]
   },
   {
     "release_name": "amazon-corretto-11.0.4.11.1",
@@ -122,19 +145,24 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.4.11.1/amazon-corretto-11.0.4.11.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.4.11.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.4.11.1/amazon-corretto-11.0.4.11.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.4.11.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.4.11.1/amazon-corretto-11.0.4.11.1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.4.11.1-macosx-x64.tar.gz.sha256.txt"
-      }]
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.4.11.1/amazon-corretto-11.0.4.11.1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.4.11.1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
+      }
+    ]
   },
   {
     "release_name": "amazon-corretto-11.0.5.10.1",
@@ -142,19 +170,24 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.5.10.1/amazon-corretto-11.0.5.10.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.5.10.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.5.10.1/amazon-corretto-11.0.5.10.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.5.10.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.5.10.1/amazon-corretto-11.0.5.10.1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.5.10.1-macosx-x64.tar.gz.sha256.txt"
-      }]
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.5.10.1/amazon-corretto-11.0.5.10.1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.5.10.1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
+      }
+    ]
   },
   {
     "release_name": "amazon-corretto-11.0.5.10.2",
@@ -162,11 +195,14 @@
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.5.10.2/amazon-corretto-11.0.5.10.2-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.5.10.2-macosx-x64.tar.gz.sha256.txt"
-      }]
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.5.10.2/amazon-corretto-11.0.5.10.2-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.5.10.2-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
+      }
+    ]
   },
   {
     "release_name": "amazon-corretto-11.0.6.10.1",
@@ -174,19 +210,24 @@
       {
         "os": "linux",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.6.10.1/amazon-corretto-11.0.6.10.1-linux-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.6.10.1-linux-x64.tar.gz.sha256.txt"
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.6.10.1/amazon-corretto-11.0.6.10.1-linux-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.6.10.1-linux-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
       },
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.6.10.1/amazon-corretto-11.0.6.10.1-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.6.10.1-macosx-x64.tar.gz.sha256.txt"
-      }]
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.6.10.1/amazon-corretto-11.0.6.10.1-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.6.10.1-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
+      }
+    ]
   },
   {
     "release_name": "amazon-corretto-11.0.6.10.1-2",
@@ -194,10 +235,13 @@
       {
         "os": "mac",
         "architecture": "x64",
-        "openjdk_impl": "hotspot",
-        "binary_link": "https://corretto.aws/downloads/resources/11.0.6.10.1/amazon-corretto-11.0.6.10.1-2-macosx-x64.tar.gz",
-        "heap_size": "normal",
-        "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.6.10.1-2-macosx-x64.tar.gz.sha256.txt"
-      }]
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.6.10.1/amazon-corretto-11.0.6.10.1-2-macosx-x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/corretto/amazon-corretto-11.0.6.10.1-2-macosx-x64.tar.gz.sha256.txt"
+        },
+        "heap_size": "normal"
+      }
+    ]
   }
 ]

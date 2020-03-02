@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-set -Eeuo pipefail
+set -e
+set -Euo pipefail
 
 PLUGIN_HOME="$(dirname "$(dirname "${0}")")"
 CACHE_DIR="${TMPDIR:-/tmp/}asdf-java.cache"
@@ -37,19 +38,19 @@ function check-jq() {
 }
 
 function retrieve-adoptopenjdk() {
-    URLS=("https://api.adoptopenjdk.net/v2/info/releases/{openjdk8}?type=jdk"
-          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk9}?type=jdk"
-          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk10}?type=jdk"
-          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk11}?type=jdk"
-          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk12}?type=jdk"
-          "https://api.adoptopenjdk.net/v2/info/releases/{openjdk13}?type=jdk")
+    URLS=("https://api.adoptopenjdk.net/v3/assets/feature_releases/{8}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{9}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{10}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{11}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{12}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{13}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk")
 
     # shellcheck disable=SC2046
     if [[ -z "$(ls -A "${CACHE_DIR}"/adopt-*.json 2>/dev/null)" ]] || [[ $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
     then
         for url in "${URLS[@]}"
         do
-            curl -skL "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
+            curl -f -s -H "Accept: application/json" -L "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
         done
         for i in "${CACHE_DIR}"/adopt-*.json
         do
@@ -62,7 +63,7 @@ function retrieve-adoptopenjdk() {
 }
 
 function retrieve-sapmachine() {
-    args=('-skfL')
+    args=('-s' '-f')
     if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
         args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
     fi
@@ -76,11 +77,13 @@ function retrieve-sapmachine() {
     | select(.name | startswith("sapmachine-jdk"))
     | select(.name | endswith("linux-x64_bin.tar.gz") or endswith("osx-x64_bin.tar.gz"))
     | {
-      binary_link: .browser_download_url,
-      checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt")),
+      package: {
+        binary_link: .browser_download_url,
+        checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt"))
+      },
       os: (if .name | endswith("osx-x64_bin.tar.gz") then "mac" else "linux" end),
       architecture: "x64",
-      openjdk_impl: "hotspot",
+      jvm_impl: "hotspot",
       heap_size: "normal"
     }
   ]}
@@ -88,7 +91,7 @@ function retrieve-sapmachine() {
     # shellcheck disable=SC2046
     if [[ ! -r "${cache_file}" ]] || [[  $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
     then
-        curl "${args[@]}" 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
+        curl "${args[@]}" -L 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
         jq "${filter}" "${cache_file}" > "${cache_file}.temp"
         mv "${cache_file}.temp" "${cache_file}"
     fi
@@ -105,7 +108,7 @@ function list-all() {
     check-jq
     retrieve-adoptopenjdk
     retrieve-sapmachine
-    local hotspot="map(select(.binaries[].openjdk_impl == \"hotspot\")) \
+    local hotspot="map(select(.binaries[].jvm_impl == \"hotspot\")) \
                    | map(.release_name) | unique[]"
     local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\")) \
                               | map(.release_name) | unique[] | select(contains(\"openj9\"))"
@@ -138,16 +141,16 @@ function install {
     local binary_link
     local checksum_link
     binary=$(all-json | jq "$select_release | $select_binary")
-    binary_link=$(set -- "$(echo "${binary}" | jq -r ".binary_link")" ; echo "${1}")
-    checksum_link=$(set -- "$(echo "${binary}" | jq -r ".checksum_link")" ; echo "${1}")
+    binary_link=$(set -- "$(echo "${binary}" | jq -r ".package.link")" ; echo "${1}")
+    checksum_link=$(set -- "$(echo "${binary}" | jq -r ".package.checksum_link")" ; echo "${1}")
 
     cd "${TEMP_DIR}"
-    if ! curl -kLO -# -w "%{filename_effective}\n" "${binary_link}";
+    if ! curl -LO -# -w "%{filename_effective}\n" "${binary_link}";
     then
         exit 1
     fi
 
-    if ! curl -kLO -# -w "%{filename_effective}\n" "${checksum_link}";
+    if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
     then
         exit 1
     fi
