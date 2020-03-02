@@ -1,10 +1,14 @@
 language: c
-script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT" --asdf-tool-version azul-zulu-8.44.0.11-jdk8.0.242
+script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT"
+  --asdf-tool-version azul-zulu-8.44.0.11-jdk8.0.242
 before_script:
 - git clone https://github.com/asdf-vm/asdf.git
-- . asdf/asdf.sh
+- ". asdf/asdf.sh"
 matrix:
   include:
-    - os: linux
-    - os: osx
-      install: HOMEBREW_NO_AUTO_UPDATE=1 brew install jq
+  - os: linux
+  - os: osx
+    install: HOMEBREW_NO_AUTO_UPDATE=1 brew install jq
+env:
+  global:
+    secure: bkAmm4x8tN/J9iC35Gh+qlyfve5DjsxivSrEIMGf2tTla0hDbV/j02eIbMgib+MprRGW7HtMqO0P29UtCrdr6qE8CdkEaqf2d2H99Fw1W3OAHNaMgt50nSEQcm/c5Ypnb5JYCXxzkbyLYc2i3pQCYi1B2BzHKEcqGwmqwduFcZfBu0+g4ngPKZszf4P32KGb+/Z5xqqOCtrpLsPWtFbJ7zq8qLrtm6Xmp9qwMmaQRic2CuUjgFvmLegTOCSBkiILRJ85GNnTR+01gTb/o20F2Q+P343uBsbmLAQW5xLNzf2Zc1g6wfW2jgPxDSJuHVI1Zf+z1VOv7WKX6xvocYkXhQejaHpgE6NxQiE+5+qquZb+Pa7LnyWXTeC3QroHkhRlXJfA8bRr1E23F18FIFu9jRpMppTlVp63Z43lPvcLJgDpHF/J8lrDED5H2qTHMZnLUUzBJ+U65TL6bSJJ+5VV16IZgG6O12RYShw9y7V1wPcniSZbF3ER0+krNtfTZoh71wifCniTFq/OsCX4cA5pjKFVN52NoL57XwPX+u6ndys7nYhBKRCKhsA4lniDDUGB4UAcMTaa9xkMtlGTTFExxSoB+xgwmZnmxDcP+5Jo6q7QYOmQNyrBzrbuj1J2DGM8ZcxFKNPpSBDVaX22yEMXFnOxnDRHtHGX7r9N5Cygb4A=
