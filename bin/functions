@@ -133,7 +133,8 @@ function install {
     retrieve-adoptopenjdk
     retrieve-sapmachine
     local select_release="map(select(.release_name==\"${RELEASE}\")) | unique[] | .binaries[]"
-    local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")"
+    local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")" \
+                         and .openjdk_impl!=\"testimage\")"
     local binary
     local binary_link
     local checksum_link
