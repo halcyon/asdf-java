@@ -3,8 +3,8 @@ set -e
 set -Euo pipefail
 
 PLUGIN_HOME="$(dirname "$(dirname "${0}")")"
-CACHE_DIR="${TMPDIR:-/tmp/}asdf-java.cache"
-trap 'rm -rf ${TEMP_DIR}' EXIT
+CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
+trap 'test -d "${TEMP_DIR}" && rm -rf "${TEMP_DIR}"' EXIT
 
 if [ ! -d "${CACHE_DIR}" ]
 then
