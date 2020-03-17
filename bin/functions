@@ -4,14 +4,14 @@ set -Euo pipefail
 
 PLUGIN_HOME="$(dirname "$(dirname "${0}")")"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
-trap 'test -d "${TEMP_DIR}" && rm -rf "${TEMP_DIR}"' EXIT
 
 if [ ! -d "${CACHE_DIR}" ]
 then
     mkdir -p "${CACHE_DIR}"
 fi
 
-case $(uname -s) in
+KERNEL_NAME="$(uname -s)"
+case "${KERNEL_NAME}" in
     Darwin) OS="mac"
             SHA256SUM="gsha256sum"
             STAT="/usr/bin/stat -f %c ${CACHE_DIR}/*"
@@ -22,10 +22,17 @@ case $(uname -s) in
            STAT="stat -c %Z ${CACHE_DIR}/*"
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
            ;;
+    *) echo "Unknown operating system: ${KERNEL_NAME}"
+       exit 1
 esac
 
-case $(uname -m) in
+trap 'test -d "${TEMP_DIR}" && rm -rf "${TEMP_DIR}"' EXIT
+
+MACHINE="$(uname -m)"
+case "${MACHINE}" in
     x86_64) ARCHITECTURE="x64" ;;
+    *) echo "Unknown machine architecture: ${MACHINE}"
+       exit 1
 esac
 
 function check-jq() {
