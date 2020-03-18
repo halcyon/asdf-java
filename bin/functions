@@ -50,7 +50,8 @@ function retrieve-adoptopenjdk() {
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{10}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{11}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{12}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{13}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk")
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{13}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{14}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk")
 
     # shellcheck disable=SC2046
     if [[ -z "$(ls -A "${CACHE_DIR}"/adopt-*.json 2>/dev/null)" ]] || [[ $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
