@@ -1,5 +1,29 @@
 [
   {
+    "release_name": "azul-zulu-14.27.1-jdk14",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "heap_size": "normal",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-linux_x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu14.27.1-ca-jdk14-linux_x64.tar.gz.sha256.txt"
+        }
+      }, {
+        "os": "mac",
+        "architecture": "x64",
+        "heap_size": "normal",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-macosx_x64.tar.gz",
+          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu14.27.1-ca-jdk14-macosx_x64.tar.gz.sha256.txt"
+        }
+      }
+    ]
+  },
+  {
     "release_name": "azul-zulu-13.29.9-jdk13.0.2",
     "binaries": [
       {
