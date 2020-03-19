@@ -1,0 +1,11 @@
+#
+# Excludes
+.idea/
+
+.DS_Store
+Thumbs.db
+*.iml
+
+
+#
+# Includes
