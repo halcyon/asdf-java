@@ -158,12 +158,16 @@ function install {
         exit 1
     fi
 
-    if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
-    then
-        exit 1
-    fi
-
-    ${SHA256SUM} -c "$(basename "${checksum_link}")"
+    if [ -z "${checksum_link}" ] || [ "null" == "${checksum_link}" ]; then
+        checksum_text=$(set -- "$(echo "${binary}" | jq -r ".package.checksum")" ; echo "${1}")
+        echo ${checksum_text} $(basename ${binary_link}) | ${SHA256SUM} -c
+    else
+        if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
+        then
+            exit 1
+        fi
+        ${SHA256SUM} -c "$(basename "${checksum_link}")"
+    fi    
 
     tar -zxf "$(basename "${binary_link}")"
     dir=$(set -- "$(ls -d ./*/)" ; echo "${1}")
