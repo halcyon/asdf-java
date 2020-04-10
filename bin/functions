@@ -148,22 +148,27 @@ function install {
     local binary
     local binary_link
     local checksum_link
+    local checksum_file
     binary=$(all-json | jq "$select_release | $select_binary")
     binary_link=$(set -- "$(echo "${binary}" | jq -r ".package.link")" ; echo "${1}")
     checksum_link=$(set -- "$(echo "${binary}" | jq -r ".package.checksum_link")" ; echo "${1}")
-
+    checksum_file="${binary_link##*/}.sha256.txt"
+    
     cd "${TEMP_DIR}"
+
+    jq -r -e '[
+      .package.checksum, .package.name
+      | if . == null then halt_error(1) else . end
+    ] 
+    | join(" ")' <<<"${binary}" >"${checksum_file}" \
+      || curl -L -# -w "%{filename_effective}\n" -o "${checksum_file}" "${checksum_link}"
+
     if ! curl -LO -# -w "%{filename_effective}\n" "${binary_link}";
     then
         exit 1
     fi
 
-    if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
-    then
-        exit 1
-    fi
-
-    ${SHA256SUM} -c "$(basename "${checksum_link}")"
+    ${SHA256SUM} -c "${checksum_file}"
 
     tar -zxf "$(basename "${binary_link}")"
     dir=$(set -- "$(ls -d ./*/)" ; echo "${1}")
