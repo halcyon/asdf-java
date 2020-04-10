@@ -58,7 +58,7 @@ function retrieve-adoptopenjdk() {
     then
         for url in "${URLS[@]}"
         do
-            curl -f -s -H "Accept: application/json" -L "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
+            curl -f -s -H "Accept: application/json" -L "${url}" -# -w "%{filename_effective}\\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
         done
         for i in "${CACHE_DIR}"/adopt-*.json
         do
@@ -153,16 +153,16 @@ function install {
     checksum_link=$(set -- "$(echo "${binary}" | jq -r ".package.checksum_link")" ; echo "${1}")
 
     cd "${TEMP_DIR}"
-    if ! curl -LO -# -w "%{filename_effective}\n" "${binary_link}";
+    if ! curl -LO -# -w "%{filename_effective}\\n" "${binary_link}";
     then
         exit 1
     fi
 
     if [ -z "${checksum_link}" ] || [ "null" == "${checksum_link}" ]; then
         checksum_text=$(set -- "$(echo "${binary}" | jq -r ".package.checksum")" ; echo "${1}")
-        echo ${checksum_text} $(basename ${binary_link}) | ${SHA256SUM} -c
+        echo "${checksum_text}" "$(basename "${binary_link}")" | ${SHA256SUM} -c
     else
-        if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
+        if ! curl -LO -# -w "%{filename_effective}\\n" "${checksum_link}";
         then
             exit 1
         fi
