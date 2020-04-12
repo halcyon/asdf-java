@@ -36,8 +36,12 @@ Select an installed candidate for use like this:
 ## JAVA_HOME
 To set JAVA_HOME in your shell's initialization add the following:
 
-`. ~/.asdf/plugins/java/set-java-home.sh`
+`. ~/.asdf/plugins/java/set-java-home.bash`
 
-for fish shell, instead use:
+For zsh shell, instead use:
+
+`. ~/.asdf/plugins/java/set-java-home.zsh`
+
+For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
