@@ -86,7 +86,7 @@ function retrieve-sapmachine() {
     | select(.name | endswith("linux-x64_bin.tar.gz") or endswith("osx-x64_bin.tar.gz"))
     | {
       package: {
-        binary_link: .browser_download_url,
+        link: .browser_download_url,
         checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt"))
       },
       os: (if .name | endswith("osx-x64_bin.tar.gz") then "mac" else "linux" end),
@@ -131,7 +131,9 @@ function list-legacy-filenames() {
 }
 
 function install {
-    check-jq
+    local package_link package_filename checksum checksum_or_checksum_link
+    local -a package sum dirs
+
     case "${ASDF_INSTALL_VERSION}" in
         *_large-heap) RELEASE="${ASDF_INSTALL_VERSION%%_large-heap}"
                       HEAP_SIZE="large"
@@ -141,35 +143,37 @@ function install {
            ;;
     esac
 
+    check-jq
     retrieve-adoptopenjdk
     retrieve-sapmachine
-    local select_release="map(select(.release_name==\"${RELEASE}\")) | unique[] | .binaries[]"
-    local select_binary="select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")"
-    local binary
-    local binary_link
-    local checksum_link
-    binary=$(all-json | jq "$select_release | $select_binary")
-    binary_link=$(set -- "$(echo "${binary}" | jq -r ".package.link")" ; echo "${1}")
-    checksum_link=$(set -- "$(echo "${binary}" | jq -r ".package.checksum_link")" ; echo "${1}")
+    read -r -a package \
+         <<<"$(jq -r "map(select(.release_name==\"${RELEASE}\"))
+                      | unique[]
+                      | .binaries[]
+                      | select(.os==\"${OS}\" and .architecture==\"${ARCHITECTURE}\" and .heap_size==\"${HEAP_SIZE}\")
+                      | \"\(.package.link) \(.package.checksum // .package.checksum_link) \"" <<<"$(all-json)")"
+    package_link="${package[0]}"
+    checksum_or_checksum_link="${package[1]}"
+    package_filename=$(basename "${package_link}")
+
+    if base64 -d > /dev/null 2>&1 <<<"${checksum_or_checksum_link}"; then
+        checksum="${checksum_or_checksum_link}"
+    else
+        read -r -a sum<<<"$(curl -sL "${checksum_or_checksum_link}")"
+        checksum="${sum[0]}"
+    fi
 
     cd "${TEMP_DIR}"
-    if ! curl -LO -# -w "%{filename_effective}\n" "${binary_link}";
-    then
+    if ! curl -LO -# -w "${package_filename}\n" "${package_link}"; then
         exit 1
     fi
 
-    if ! curl -LO -# -w "%{filename_effective}\n" "${checksum_link}";
-    then
-        exit 1
-    fi
+    ${SHA256SUM} -c <<<"${checksum} ${package_filename}"
 
-    ${SHA256SUM} -c "$(basename "${checksum_link}")"
-
-    tar -zxf "$(basename "${binary_link}")"
-    dir=$(set -- "$(ls -d ./*/)" ; echo "${1}")
-    cd "${dir}"
-    if [ ! -d "${ASDF_INSTALL_PATH}" ]
-    then
+    tar xf "${package_filename}"
+    read -r -a dirs <<<"$(ls -d ./*/)"
+    cd "${dirs[0]}"
+    if [ ! -d "${ASDF_INSTALL_PATH}" ]; then
         mkdir -p "${ASDF_INSTALL_PATH}"
     fi
 
