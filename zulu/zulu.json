@@ -8,7 +8,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu13.29.9-ca-jdk13.0.2-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.29.9-ca-jdk13.0.2-linux_x64.tar.gz.sha256.txt"
+          "checksum": "ecb3f9626a9bc810daeb0f4e7d69474b7ae19fe0634658713e009ca6b1f1be98"
         },
         "heap_size": "normal"
       },
@@ -18,7 +18,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu13.29.9-ca-jdk13.0.2-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.29.9-ca-jdk13.0.2-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "ee86200843b38b263fd547982e99cabb491a3ecf6d9dc8f38f410184fa5012f5"
         },
         "heap_size": "normal"
       }
@@ -33,7 +33,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu13.28.11-ca-jdk13.0.1-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.28.11-ca-jdk13.0.1-linux_x64.tar.gz.sha256.txt"
+          "checksum": "9532b53972b36f64e5bc9fbadc73be25c75b5b1a06dbc84f8934086d57cbaf48"
         },
         "heap_size": "normal"
       },
@@ -43,7 +43,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu13.28.11-ca-jdk13.0.1-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.28.11-ca-jdk13.0.1-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "eb8c3cc0b83da8305add0bb6cc3d8df5a8691e06fe2b9dbc510df27df0432448"
         },
         "heap_size": "normal"
       }
@@ -58,7 +58,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu13.27.9-ca-jdk13-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.27.9-ca-jdk13-linux_x64.tar.gz.sha256.txt"
+          "checksum": "539489cb9309941ca940c2c1b3227bb10ad7a788eb89e663a6dc0d8def6efe86"
         },
         "heap_size": "normal"
       },
@@ -68,7 +68,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu13.27.9-ca-jdk13-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu13.27.9-ca-jdk13-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "620c02559836ebbe42a8ca17e27d5f25261523b5af364cc4c32f21c57398e287"
         },
         "heap_size": "normal"
       }
@@ -83,7 +83,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu12.2.3-ca-jdk12.0.1-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu12.2.3-ca-jdk12.0.1-linux_x64.tar.gz.sha256.txt"
+          "checksum": "529c99841d69e11a85aea967ccfb9d0fd40b98c5b68dbe1d059002655e0a9c13"
         },
         "heap_size": "normal"
       },
@@ -93,7 +93,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu12.2.3-ca-jdk12.0.1-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu12.2.3-ca-jdk12.0.1-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "67ca9d285056132ebb19fa237a14affda52132142e1171fe1c20e18974b3b8a5"
         },
         "heap_size": "normal"
       }
@@ -108,7 +108,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.31.11-ca-jdk11.0.3-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.31.11-ca-jdk11.0.3-linux_x64.tar.gz.sha256.txt"
+          "checksum": "ddb0fd4526089cf1ce2db36282c282263f587a9e8be373fa02f511a12923cc48"
         },
         "heap_size": "normal"
       },
@@ -118,7 +118,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.31.11-ca-jdk11.0.3-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.31.11-ca-jdk11.0.3-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "98df91fa49f16b73dbc09e153628190640ff6c3fac2322b8142bc00077a0f738"
         },
         "heap_size": "normal"
       }
@@ -133,7 +133,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.35.13-ca-jdk11.0.5-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.13-ca-jdk11.0.5-linux_x64.tar.gz.sha256.txt"
+          "checksum": "074a063576f5941c9b28d6fa2dbc9cedf3182ec2761393adfe081cf2980383e4"
         },
         "heap_size": "normal"
       },
@@ -143,7 +143,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.35.13-ca-jdk11.0.5-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.13-ca-jdk11.0.5-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "0f22814d49313d1bb46c0406509a78ced1d9b32c2e58257a297ee43faf90e3a6"
         },
         "heap_size": "normal"
       }
@@ -158,7 +158,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.35.15-ca-jdk11.0.5-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.15-ca-jdk11.0.5-linux_x64.tar.gz.sha256.txt"
+          "checksum": "1f46f59020dc61f8b80bb0fe82cf3f38e515cadc47e1f88f4d504107251e6abc"
         },
         "heap_size": "normal"
       },
@@ -168,7 +168,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.35.15-ca-jdk11.0.5-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.15-ca-jdk11.0.5-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "a81a79379a4a367e2e26b22bb240a1eb77f45362fe8c532bbf914e39906d8104"
         },
         "heap_size": "normal"
       }
@@ -183,7 +183,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz.sha256.txt"
+          "checksum": "360626cc19063bc411bfed2914301b908a8f77a7919aaea007a977fa8fb3cde1"
         },
         "heap_size": "normal"
       },
@@ -193,7 +193,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.37.17-ca-jdk11.0.6-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.37.17-ca-jdk11.0.6-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "e1fe56769f32e2aaac95e0a8f86b5a323da5af3a3b4bba73f3086391a6cc056f"
         },
         "heap_size": "normal"
       }
@@ -208,7 +208,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.35.15-ca-fx-jdk11.0.5-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.15-ca-fx-jdk11.0.5-linux_x64.tar.gz.sha256.txt"
+          "checksum": "20d4c5a8ceea8cb821d3ddbee16d8174e968c1b0ec7b7dcd25386559a2f861fc"
         },
         "heap_size": "normal"
       },
@@ -218,7 +218,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.35.15-ca-fx-jdk11.0.5-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.35.15-ca-fx-jdk11.0.5-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "615156926f207c8f3a30c4c130f8e1610894bcd49efc634c3f73f6ae6d3b30ce"
         },
         "heap_size": "normal"
       }
@@ -233,7 +233,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.37.19-ca-fx-jdk11.0.6-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.37.19-ca-fx-jdk11.0.6-linux_x64.tar.gz.sha256.txt"
+          "checksum": "b8c19acc20d44bb13e4716d4aeafa6d97f4bf47e750d0fa2ac31356738a1a917"
         },
         "heap_size": "normal"
       },
@@ -243,7 +243,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.37.19-ca-fx-jdk11.0.6-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu11.37.19-ca-fx-jdk11.0.6-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "8ede7dc8570ac3256e2f8cb673d9689be09338c4aa610b54f2c6bba68ea2f616"
         },
         "heap_size": "normal"
       }
@@ -258,7 +258,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.21-ca-jdk8.0.232-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.21-ca-jdk8.0.232-linux_x64.tar.gz.sha256.txt"
+          "checksum": "7502597c47b1f50c3030635703cf01c1db9e67e1e8714e6b35759fc7b55cb71e"
         },
         "heap_size": "normal"
       },
@@ -268,7 +268,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "309da1f6c5f26f4ecaa381e277b13dd1ccadc43141e058a6a4455d5461cbb0b8"
         },
         "heap_size": "normal"
       }
@@ -283,7 +283,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.44.0.9-ca-jdk8.0.242-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.44.0.9-ca-jdk8.0.242-linux_x64.tar.gz.sha256.txt"
+          "checksum": "7731f08723cac4ad3d5e2fab4e80b275577ecf07a174033fdda5fc8bdaddaeea"
         },
         "heap_size": "normal"
       },
@@ -293,7 +293,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.44.0.9-ca-jdk8.0.242-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.44.0.9-ca-jdk8.0.242-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "5855443780e71f3b74cdd6f644010abb9c3be7c185474f0ecaedd5271be46f63"
         },
         "heap_size": "normal"
       }
@@ -308,7 +308,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.23-ca-jdk8.0.232-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.23-ca-jdk8.0.232-linux_x64.tar.gz.sha256.txt"
+          "checksum": "e6a9d177933d45f9f1d38bf14e098b5a3fe4806d9efb549066d1cfb4b03fe56f"
         },
         "heap_size": "normal"
       },
@@ -318,7 +318,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.23-ca-jdk8.0.232-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.23-ca-jdk8.0.232-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "7f6a554df83d4043744443534284216ffeae3d9907b5adedc8cf23dd36ab70fa"
         },
         "heap_size": "normal"
       }
@@ -333,7 +333,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.23-ca-fx-jdk8.0.232-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.23-ca-fx-jdk8.0.232-linux_x64.tar.gz.sha256.txt"
+          "checksum": "da21123fd70eba312e71d934e7db760c7c40942c70d382bceef832530be46979"
         },
         "heap_size": "normal"
       },
@@ -343,7 +343,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.42.0.23-ca-fx-jdk8.0.232-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.42.0.23-ca-fx-jdk8.0.232-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "93d499c0355a71951ab0e837d782708bc8a9daf9eb382e326ef5564a7a6770a6"
         },
         "heap_size": "normal"
       }
@@ -358,7 +358,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.44.0.13-ca-fx-jdk8.0.242-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.44.0.13-ca-fx-jdk8.0.242-linux_x64.tar.gz.sha256.txt"
+          "checksum": "e35bad183b6309384fd440890b4c7888b30670006a6e10ce3d4fefb40fbefc93"
         },
         "heap_size": "normal"
       },
@@ -368,7 +368,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.44.0.13-ca-fx-jdk8.0.242-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.44.0.13-ca-fx-jdk8.0.242-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "1f1c3927ce3b3cdcbfb5b482eba7c8f6100f7e51b1dd15dcc47fcbac3e2dc98d"
         },
         "heap_size": "normal"
       }
@@ -383,7 +383,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.44.0.11-ca-jdk8.0.242-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.44.0.11-ca-jdk8.0.242-linux_x64.tar.gz.sha256.txt"
+          "checksum": "2db117fcaeec0ccd00d08fc3bb374aa15d871a01120d7090cf91fe9764756ae9"
         },
         "heap_size": "normal"
       },
@@ -393,7 +393,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu8.44.0.11-ca-jdk8.0.242-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu8.44.0.11-ca-jdk8.0.242-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "6146b7fa7552a1853b7b0f228b1f4802d4ffb704f83eb0b1a74b1649d10194cd"
         },
         "heap_size": "normal"
       }
@@ -408,7 +408,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu7.29.0.5-ca-jdk7.0.222-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu7.29.0.5-ca-jdk7.0.222-linux_x64.tar.gz.sha256.txt"
+          "checksum": "2eb69c315beaa6d804647ff33f931f19ca076daa65808cd9fa285d557c00b677"
         },
         "heap_size": "normal"
       }
@@ -423,7 +423,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu7.34.0.5-ca-jdk7.0.242-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu7.34.0.5-ca-jdk7.0.242-linux_x64.tar.gz.sha256.txt"
+          "checksum": "de1c544fafaf351b878e890a5571055f5650ae1db05c1f46a6bd51dcbeaa120f"
         },
         "heap_size": "normal"
       },
@@ -433,7 +433,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu7.34.0.5-ca-jdk7.0.242-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu7.34.0.5-ca-jdk7.0.242-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "3dbdcfea1935222810363e17f0e611ff61297b4c62df8b9134328532983764c8"
         },
         "heap_size": "normal"
       }
@@ -448,7 +448,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu7.36.0.5-ca-jdk7.0.252-linux_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu7.36.0.5-ca-jdk7.0.252-linux_x64.tar.gz.sha256.txt"
+          "checksum": "e0f34c242e6d456dac3e2c8a9eaeacfa8ea75c4dfc3e8818190bf0326e839d82"
         },
         "heap_size": "normal"
       },
@@ -458,7 +458,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu7.36.0.5-ca-jdk7.0.252-macosx_x64.tar.gz",
-          "checksum_link": "https://raw.githubusercontent.com/halcyon/asdf-java/master/zulu/zulu7.36.0.5-ca-jdk7.0.252-macosx_x64.tar.gz.sha256.txt"
+          "checksum": "06231394d07faebffe388f6cbd0821db9a6cc6180a9b2f92e00c448d9f21c1d5"
         },
         "heap_size": "normal"
       }
