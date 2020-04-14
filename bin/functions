@@ -12,12 +12,14 @@ fi
 
 KERNEL_NAME="$(uname -s)"
 case "${KERNEL_NAME}" in
-    Darwin) OS="mac"
+    Darwin) BASE64_OPTS="-D"
+            OS="mac"
             SHA256SUM="gsha256sum"
             STAT="/usr/bin/stat -f %c ${CACHE_DIR}/*"
             TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
             ;;
-    Linux) OS="linux"
+    Linux) BASE64_OPTS="-d"
+           OS="linux"
            SHA256SUM="sha256sum"
            STAT="stat -c %Z ${CACHE_DIR}/*"
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
@@ -156,7 +158,7 @@ function install {
     checksum_or_checksum_link="${package[1]}"
     package_filename=$(basename "${package_link}")
 
-    if base64 -d > /dev/null 2>&1 <<<"${checksum_or_checksum_link}"; then
+    if base64 "${BASE64_OPTS}" > /dev/null 2>&1 <<<"${checksum_or_checksum_link}"; then
         checksum="${checksum_or_checksum_link}"
     else
         read -r -a sum<<<"$(curl -sL "${checksum_or_checksum_link}")"
