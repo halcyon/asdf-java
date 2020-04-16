@@ -5,6 +5,7 @@
 [Java](https://www.java.com/en/) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
 ## Requirements
+- [bash v5.0](https://www.gnu.org/software/bash/)
 - [jq](https://stedolan.github.io/jq/)
 - [curl](https://curl.haxx.se/)
 - [sha256sum](https://www.gnu.org/software/coreutils/)

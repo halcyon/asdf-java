@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: mstksg/get-package@v1
       with:
-        brew: coreutils jq shellcheck
+        brew: bash coreutils jq shellcheck
         apt-get: jq shellcheck
     - name: Run ShellCheck
       run: |

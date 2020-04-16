@@ -15,13 +15,13 @@ case "${KERNEL_NAME}" in
     Darwin) BASE64_OPTS="-D"
             OS="mac"
             SHA256SUM="gsha256sum"
-            STAT="/usr/bin/stat -f %c ${CACHE_DIR}/*"
+            STAT_OPTS="-f %c"
             TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
             ;;
     Linux) BASE64_OPTS="-d"
            OS="linux"
            SHA256SUM="sha256sum"
-           STAT="stat -c %Z ${CACHE_DIR}/*"
+           STAT_OPTS="-c %Z"
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
            ;;
     *) echo "Unknown operating system: ${KERNEL_NAME}"
@@ -47,6 +47,8 @@ function check-jq() {
 }
 
 function retrieve-adoptopenjdk() {
+  local -a cache_files cache_timestamps
+
     URLS=("https://api.adoptopenjdk.net/v3/assets/feature_releases/{8}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{9}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{10}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
@@ -55,8 +57,12 @@ function retrieve-adoptopenjdk() {
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{13}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
           "https://api.adoptopenjdk.net/v3/assets/feature_releases/{14}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk")
 
-    # shellcheck disable=SC2046
-    if [[ -z "$(ls -A "${CACHE_DIR}"/adopt-*.json 2>/dev/null)" ]] || [[ $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
+    if ls "${CACHE_DIR}"/adopt-*.json > /dev/null 2>&1; then
+      mapfile -t cache_files <<<"$(ls "${CACHE_DIR}")"
+      mapfile -t cache_timestamps <<<"$(stat "${STAT_OPTS}" "${CACHE_DIR}"/*)"
+    fi
+
+    if [[ ! -v cache_files ]] || (( cache_timestamps[0] <= $(date +%s) - 3600 ))
     then
         for url in "${URLS[@]}"
         do
@@ -77,6 +83,7 @@ function retrieve-sapmachine() {
     if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
         args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
     fi
+    local cache_timestamp
     local cache_file="${CACHE_DIR}/sapmachine.json"
     local filter='[
 .[] | select(.prerelease == false and .draft == false)
@@ -98,8 +105,12 @@ function retrieve-sapmachine() {
     }
   ]}
 ]'
-    # shellcheck disable=SC2046
-    if [[ ! -r "${cache_file}" ]] || [[  $(set -- $(${STAT}) && echo "${1}") -le $(( $(date +%s) - 3600)) ]]
+
+    if [[ -r "${cache_file}" ]]; then
+      cache_timestamp="$(stat "${STAT_OPTS}" "${cache_file}")"
+    fi
+
+    if [[ ! -r "${cache_file}" ]] || (( cache_timestamp <= $(date +%s) - 3600 ))
     then
         curl "${args[@]}" -L 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
         jq "${filter}" "${cache_file}" > "${cache_file}.temp"
