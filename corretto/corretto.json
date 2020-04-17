@@ -243,5 +243,30 @@
         "heap_size": "normal"
       }
     ]
+  },
+  {
+    "release_name": "amazon-corretto-11.0.7.10.1",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.7.10.1/amazon-corretto-11.0.7.10.1-linux-x64.tar.gz",
+          "checksum": "24a487d594d10df540383c4c642444f969a00e616331d3dc3bdc4815ada71c0e"
+        },
+        "heap_size": "normal"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/11.0.7.10.1/amazon-corretto-11.0.7.10.1-macosx-x64.tar.gz",
+          "checksum": "4e7c028b71328ee5853c67563c1f8b3e727f03b9b21c8b88c6dbb4f304a0ad0d"
+        },
+        "heap_size": "normal"
+      }
+    ]
   }
 ]
