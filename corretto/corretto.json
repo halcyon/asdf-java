@@ -115,6 +115,31 @@
     ]
   },
   {
+    "release_name": "amazon-corretto-8.252.09.1",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.252.09.1/amazon-corretto-8.252.09.1-linux-x64.tar.gz",
+          "checksum": "7f08bc6097a14424bf09eb693304d48812099f29edb1d7326c6372a85b86b1df"
+        },
+        "heap_size": "normal"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://corretto.aws/downloads/resources/8.252.09.1/amazon-corretto-8.252.09.1-macosx-x64.tar.gz",
+          "checksum": "f0204183832f590689055fcd98366ebb43196c84442a9bcb768ac230"
+        },
+        "heap_size": "normal"
+      }
+    ]
+  },
+  {
     "release_name": "amazon-corretto-11.0.3.7.1",
     "binaries": [
       {
