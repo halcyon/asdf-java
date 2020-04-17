@@ -224,6 +224,31 @@
     ]
   },
   {
+    "release_name": "azul-zulu-11.39.15-jdk11.0.7",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu11.39.15-ca-jdk11.0.7-linux_x64.tar.gz",
+          "checksum": "df0de67998ac0c58b3c9e83c86e2a81daca05dc5adc189d942bc5d3f4691e749"
+        },
+        "heap_size": "normal"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu11.39.15-ca-jdk11.0.7-macosx_x64.tar.gz",
+          "checksum": "936505ab1826c5db3dbd09efa0b9b453198860cad38f32881aaea00920cc54d7"
+        },
+        "heap_size": "normal"
+      }
+    ]
+  },
+  {
     "release_name": "azul-zulufx-11.35.15-jdk11.0.5",
     "binaries": [
       {
@@ -268,6 +293,31 @@
         "package": {
           "link": "https://cdn.azul.com/zulu/bin/zulu11.37.19-ca-fx-jdk11.0.6-macosx_x64.tar.gz",
           "checksum": "8ede7dc8570ac3256e2f8cb673d9689be09338c4aa610b54f2c6bba68ea2f616"
+        },
+        "heap_size": "normal"
+      }
+    ]
+  },
+  {
+    "release_name": "azul-zulufx-11.37.19-jdk11.0.6",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu11.39.15-ca-fx-jdk11.0.7-linux_x64.tar.gz",
+          "checksum": "10779acfec2001a069a131ae7e508580792762f9cb54f70bcb29b47c43d84480"
+        },
+        "heap_size": "normal"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu11.39.15-ca-fx-jdk11.0.7-macosx_x64.tar.gz",
+          "checksum": "73f9836c47fe913781e0525f46435e1e8d8e434eb77a12d7bb836ad4633e98d1"
         },
         "heap_size": "normal"
       }
