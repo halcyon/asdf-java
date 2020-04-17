@@ -474,6 +474,56 @@
     ]
   },
   {
+    "release_name": "azul-zulufx-8.46.0.19-jdk8.0.252",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu8.46.0.19-ca-fx-jdk8.0.252-linux_x64.tar.gz",
+          "checksum": "03fa80b425b909c64b20157853d66347839ddff1112cce92ec35aa04dbb3432f"
+        },
+        "heap_size": "normal"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu8.46.0.19-ca-fx-jdk8.0.252-macosx_x64.tar.gz",
+          "checksum": "daec2a3d07d12c23ca4ccc30f3e734459742275e94578fc1cd674a98586efee6"
+        },
+        "heap_size": "normal"
+      }
+    ]
+  },
+  {
+    "release_name": "azul-zulu-8.46.0.19-jdk8.0.252",
+    "binaries": [
+      {
+        "os": "linux",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu8.46.0.19-ca-jdk8.0.252-linux_x64.tar.gz",
+          "checksum": "ab8a4194006f12dd48bf7f176ca7879706d3f8fc7d3208313a46cc9ee2270716"
+        },
+        "heap_size": "normal"
+      },
+      {
+        "os": "mac",
+        "architecture": "x64",
+        "jvm_impl": "hotspot",
+        "package": {
+          "link": "https://cdn.azul.com/zulu/bin/zulu8.46.0.19-ca-jdk8.0.252-macosx_x64.tar.gz",
+          "checksum": "43570b0a6455a02d25b0c4937164560fdb0a9478f9010c583f510fa80881ce0b"
+        },
+        "heap_size": "normal"
+      }
+    ]
+  },
+  {
     "release_name": "azul-zulu-7.29.0.5-jdk7.0.222",
     "binaries": [
       {
