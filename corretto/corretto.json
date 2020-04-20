@@ -133,7 +133,7 @@
         "jvm_impl": "hotspot",
         "package": {
           "link": "https://corretto.aws/downloads/resources/8.252.09.1/amazon-corretto-8.252.09.1-macosx-x64.tar.gz",
-          "checksum": "f0204183832f590689055fcd98366ebb43196c84442a9bcb768ac230"
+          "checksum": "91988dbfac788eda6b1fbc6a885eb45f0f7873c8b478276b6a5c9fda3141448c"
         },
         "heap_size": "normal"
       }
