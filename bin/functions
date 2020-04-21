@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-set -e
-set -Euo pipefail
 
 PLUGIN_HOME="$(dirname "$(dirname "${0}")")"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
+CURL_OPTS=('-f' '-s')
+
+shopt -s nullglob
+CACHE_FILES=("${CACHE_DIR}"/*)
+shopt -u nullglob
 
 if [ ! -d "${CACHE_DIR}" ]
 then
@@ -12,16 +15,16 @@ fi
 
 KERNEL_NAME="$(uname -s)"
 case "${KERNEL_NAME}" in
-    Darwin) BASE64_OPTS="-D"
+    Darwin) BASE64_OPTS=('-D')
             OS="mac"
             SHA256SUM="gsha256sum"
-            STAT_OPTS="-f %c"
+            STAT_OPTS=('-f' '%c')
             TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
             ;;
-    Linux) BASE64_OPTS="-d"
+    Linux) BASE64_OPTS=('-d')
            OS="linux"
            SHA256SUM="sha256sum"
-           STAT_OPTS="-c %Z"
+           STAT_OPTS=('-c' '%Z')
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
            ;;
     *) echo "Unknown operating system: ${KERNEL_NAME}"
@@ -47,77 +50,59 @@ function check-jq() {
 }
 
 function retrieve-adoptopenjdk() {
-  local -a cache_files cache_timestamps
+  local -a urls
+  local min_java=8
+  local max_java=14
+  local adopt_openjdk_url="https://api.adoptopenjdk.net/v3/assets/feature_releases/"
+  local github_curl_opts=("${CURL_OPTS[@]}" '-H' "Authorization: token $GITHUB_API_TOKEN")
 
-    URLS=("https://api.adoptopenjdk.net/v3/assets/feature_releases/{8}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{9}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{10}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{11}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{12}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{13}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
-          "https://api.adoptopenjdk.net/v3/assets/feature_releases/{14}/ga?architecture=${ARCHITECTURE}&os=${OS}&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk")
+  for i in $(seq "${min_java}" "${max_java}")
+  do
+    local adopt_openjdk_options="&image_type=jdk&page=0&page_size=100&project=jdk&sort_order=ASC&vendor=adoptopenjdk"
+    local url="${adopt_openjdk_url}{${i}}/ga?architecture=${ARCHITECTURE}&os=${OS}${adopt_openjdk_options}"
+    urls+=("${url}")
+  done
+  urls+=('https://api.github.com/repos/SAP/SapMachine/releases')
 
-    if ls "${CACHE_DIR}"/adopt-*.json > /dev/null 2>&1; then
-      mapfile -t cache_files <<<"$(ls "${CACHE_DIR}")"
-      mapfile -t cache_timestamps <<<"$(stat "${STAT_OPTS}" "${CACHE_DIR}"/*)"
-    fi
-
-    if [[ ! -v cache_files ]] || (( cache_timestamps[0] <= $(date +%s) - 3600 ))
-    then
-        for url in "${URLS[@]}"
-        do
-            curl -f -s -H "Accept: application/json" -L "${url}" -# -w "%{filename_effective}\n" -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
-        done
-        for i in "${CACHE_DIR}"/adopt-*.json
-        do
-            [[ -e "$i" ]] || break
-            jq '(.[].release_name) |= sub("jdk-";"adopt-openjdk-") | (.[].release_name) |= sub("^jdk";"adopt-openjdk-")' \
-               "${i}" > "${i}.temp"
-            mv "${i}.temp" "${i}"
-        done
-    fi
+  if (( ${#CACHE_FILES[@]} == 0 )) || (( $(stat "${STAT_OPTS[@]}" "${CACHE_FILES[0]}") <= $(date +%s) - 3600 )) ; then
+    for url in "${urls[@]}"
+    do
+      case "${url}" in
+        *"api.adoptopenjdk.net"*)
+          curl "${CURL_OPTS[@]}" -L "${url}" -w "%{filename_effective}\n" \
+               -o "${CACHE_DIR}/adopt-#1.json" > /dev/null 2>&1
+          [[ "${url}" =~ \{([0-9]*)\} ]]
+          jq '(.[].release_name) |= sub("jdk-";"adopt-openjdk-") | (.[].release_name) |= sub("^jdk";"adopt-openjdk-")' \
+             "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".json > "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".temp
+          mv "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".temp "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".json
+          ;;
+        *"api.github.com"*)
+          curl "${github_curl_opts[@]}" "${url}" -o "${CACHE_DIR}/sapmachine.json" > /dev/null 2>&1
+          jq '[.[]
+               | select(.prerelease == false and .draft == false)
+               | {
+                   release_name: .name,
+                   binaries: [
+                     .assets[]
+                     | select(.content_type == "application/x-tar")
+                     | select(.name | startswith("sapmachine-jdk"))
+                     | select(.name | endswith("linux-x64_bin.tar.gz") or endswith("osx-x64_bin.tar.gz"))
+                     | {
+                         package: {
+                           link: .browser_download_url,
+                           checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt"))
+                         },
+                         os: (if .name | endswith("osx-x64_bin.tar.gz") then "mac" else "linux" end),
+                         architecture: "x64",
+                         jvm_impl: "hotspot",
+                         heap_size: "normal"
+                       }]}]' "${CACHE_DIR}/sapmachine.json" > "${CACHE_DIR}/sapmachine.temp"
+          mv "${CACHE_DIR}"/sapmachine.temp "${CACHE_DIR}"/sapmachine.json
+          ;;
+      esac
+    done
+  fi
 }
-
-function retrieve-sapmachine() {
-    args=('-s' '-f')
-    if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
-        args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
-    fi
-    local cache_timestamp
-    local cache_file="${CACHE_DIR}/sapmachine.json"
-    local filter='[
-.[] | select(.prerelease == false and .draft == false)
-| {
-  release_name: .name,
-  binaries: [ .assets[]
-    | select(.content_type == "application/x-tar")
-    | select(.name | startswith("sapmachine-jdk"))
-    | select(.name | endswith("linux-x64_bin.tar.gz") or endswith("osx-x64_bin.tar.gz"))
-    | {
-      package: {
-        link: .browser_download_url,
-        checksum_link: (.browser_download_url | sub("tar\\.gz$"; "sha256.txt"))
-      },
-      os: (if .name | endswith("osx-x64_bin.tar.gz") then "mac" else "linux" end),
-      architecture: "x64",
-      jvm_impl: "hotspot",
-      heap_size: "normal"
-    }
-  ]}
-]'
-
-    if [[ -r "${cache_file}" ]]; then
-      cache_timestamp="$(stat "${STAT_OPTS}" "${cache_file}")"
-    fi
-
-    if [[ ! -r "${cache_file}" ]] || (( cache_timestamp <= $(date +%s) - 3600 ))
-    then
-        curl "${args[@]}" -L 'https://api.github.com/repos/SAP/SapMachine/releases' -o "${cache_file}"
-        jq "${filter}" "${cache_file}" > "${cache_file}.temp"
-        mv "${cache_file}.temp" "${cache_file}"
-    fi
-}
-
 
 function all-json() {
   check-jq
@@ -128,7 +113,6 @@ function all-json() {
 function list-all() {
     check-jq
     retrieve-adoptopenjdk
-    retrieve-sapmachine
     local hotspot="map(select(.binaries[].jvm_impl == \"hotspot\")) \
                    | map(.release_name) | unique[]"
     local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\")) \
@@ -158,7 +142,6 @@ function install {
 
     check-jq
     retrieve-adoptopenjdk
-    retrieve-sapmachine
     read -r -a package \
          <<<"$(jq -r "map(select(.release_name==\"${RELEASE}\"))
                       | unique[]
@@ -169,14 +152,14 @@ function install {
     checksum_or_checksum_link="${package[1]}"
     package_filename=$(basename "${package_link}")
 
-    if base64 "${BASE64_OPTS}" > /dev/null 2>&1 <<<"${checksum_or_checksum_link}"; then
+    if base64 "${BASE64_OPTS[@]}" > /dev/null 2>&1 <<<"${checksum_or_checksum_link}"; then
         checksum="${checksum_or_checksum_link}"
     else
         read -r -a sum<<<"$(curl -sL "${checksum_or_checksum_link}")"
         checksum="${sum[0]}"
     fi
 
-    cd "${TEMP_DIR}"
+    cd "${TEMP_DIR}" || return 1
     if ! curl -LO -# -w "${package_filename}\n" "${package_link}"; then
         exit 1
     fi
@@ -185,7 +168,7 @@ function install {
 
     tar xf "${package_filename}"
     read -r -a dirs <<<"$(ls -d ./*/)"
-    cd "${dirs[0]}"
+    cd "${dirs[0]}" || return 1
     if [ ! -d "${ASDF_INSTALL_PATH}" ]; then
         mkdir -p "${ASDF_INSTALL_PATH}"
     fi
