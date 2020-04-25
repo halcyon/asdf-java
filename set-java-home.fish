@@ -3,6 +3,6 @@ function asdf_update_java_home --on-event fish_prompt
   if test -n "$java_path"
     set --local full_path (realpath "$java_path")
     set --local full_path_dir (dirname "$full_path")
-    set --export JAVA_HOME (dirname "$full_path_dir")
+    set -gx JAVA_HOME (dirname "$full_path_dir")
   end
 end
