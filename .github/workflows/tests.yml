@@ -24,6 +24,7 @@ jobs:
       run: |
         shellcheck -V
         shellcheck ./bin/functions
+        shellcheck ./update_data.bash
     - name: Install asdf
       uses: actions/checkout@v2
       with:
