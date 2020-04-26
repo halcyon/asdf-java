@@ -1,0 +1,44 @@
+name: Update Java release data
+on:
+  schedule:
+    - cron: '30 */8 * * *'
+  # TODO: Remove before merging
+  push:
+    branches:
+    - master
+  # TODO: Remove before merging
+  pull_request:
+    branches:
+    - master
+jobs:
+  update:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v2
+    - uses: mstksg/get-package@v1
+      with:
+        apt-get: curl
+    - name: Install jq 1.6
+      run: |
+        curl -Lo jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+        chmod +x jq
+        jq --version
+    - name: Run update script
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        export PATH=".:$PATH"
+        ./update_data.bash
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/*.tsv
+        git clean -f
+        git commit -m "Update Java release data" || true
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # TODO: Remove before merging
+        branch: java-metadata
