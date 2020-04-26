@@ -34,4 +34,4 @@ jobs:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         . asdf/asdf.sh
-        asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version azul-zulu-8.44.0.11-jdk8.0.242
+        asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version adoptopenjdk-8.0.252+9.1.openj9-0.20.0 java -version
