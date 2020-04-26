@@ -6,9 +6,10 @@
 
 ## Requirements
 - [bash v5.0](https://www.gnu.org/software/bash/)
-- [jq](https://stedolan.github.io/jq/)
 - [curl](https://curl.haxx.se/)
 - [sha256sum](https://www.gnu.org/software/coreutils/)
+- [unzip](http://infozip.sourceforge.net/UnZip.html)
+- [jq](https://stedolan.github.io/jq/) (only for updating the release data)
 
 ## Install
 
