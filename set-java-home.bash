@@ -11,4 +11,5 @@ prompt_command() {
   asdf_update_java_home
 }
 
-export PROMPT_COMMAND="${PROMPT_COMMAND}; prompt_command"
+export PROMPT_COMMAND="${PROMPT_COMMAND:+${PROMPT_COMMAND}; prompt_command}"
+export PROMPT_COMMAND="${PROMPT_COMMAND:-prompt_command}"
