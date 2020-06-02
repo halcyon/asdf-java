@@ -61,7 +61,8 @@ function retrieve-adoptopenjdk() {
     local url="${adopt_openjdk_url}{${i}}/ga?architecture=${ARCHITECTURE}&os=${OS}${adopt_openjdk_options}"
     urls+=("${url}")
   done
-  urls+=('https://api.github.com/repos/SAP/SapMachine/releases')
+  urls+=('https://api.github.com/repos/SAP/SapMachine/releases'
+         'https://api.github.com/repos/graalvm/graalvm-ce-builds/releases')
 
   if (( ${#CACHE_FILES[@]} == 0 )) || (( $(stat "${STAT_OPTS[@]}" "${CACHE_FILES[0]}") <= $(date +%s) - 3600 )) ; then
     for url in "${urls[@]}"
@@ -75,7 +76,36 @@ function retrieve-adoptopenjdk() {
              "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".json > "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".temp
           mv "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".temp "${CACHE_DIR}"/adopt-"${BASH_REMATCH[1]}".json
           ;;
-        *"api.github.com"*)
+
+        *"api.github.com/repos/graalvm/graalvm-ce-builds"*)
+          curl "${CURL_OPTS[@]}" ${GITHUB_API_TOKEN:+-H "Authorization: token $GITHUB_API_TOKEN"} -L "${url}" -o "${CACHE_DIR}/graalvm.json" > /dev/null 2>&1
+          # shellcheck disable=SC2016
+          jq '[
+                .[] | select(.prerelease == false and .draft == false)
+                | (.assets[].name | capture(".+-(?<jdk>java[0-9]+)-.+") | ."jdk") as $jdkv
+                | {
+                  release_name: ("graalvm-ce-" + $jdkv + (.tag_name | sub("vm"; "")) ),
+                  binaries: [ .assets[]
+                    | select(.content_type == "application/binary")
+                    | select(.name | startswith("graalvm-ce"))
+                    | select(.name | endswith("tar.gz"))
+                    | select(.name | contains("linux-amd64") or contains("darwin-amd64"))
+                    | select(.name | contains($jdkv))
+                    | {
+                      package: {
+                        link: .browser_download_url
+                      },
+                      os: (if .name | contains("darwin-amd64") then "mac" else "linux" end),
+                      architecture: "x64",
+                      jvm_impl: "graalvm-ce",
+                      heap_size: "normal"
+                    }
+                  ]}
+              ]' "${CACHE_DIR}/graalvm.json" > "${CACHE_DIR}/graalvm.temp"
+          mv "${CACHE_DIR}"/graalvm.temp "${CACHE_DIR}"/graalvm.json
+          ;;
+
+        *"api.github.com/repos/SAP/SapMachine"*)
           curl "${CURL_OPTS[@]}" ${GITHUB_API_TOKEN:+-H "Authorization: token $GITHUB_API_TOKEN"} -L "${url}" -o "${CACHE_DIR}/sapmachine.json" > /dev/null 2>&1
           jq '[.[]
                | select(.prerelease == false and .draft == false)
@@ -114,12 +144,14 @@ function list-all() {
     retrieve-adoptopenjdk
     local hotspot="map(select(.binaries[].jvm_impl == \"hotspot\")) \
                    | map(.release_name) | unique[]"
+    local graalvm="map(select(.binaries[].jvm_impl == \"graalvm-ce\")) \
+                   | map(.release_name) | unique[]"
     local openj9_normal_heap="map(select(.binaries[].heap_size == \"normal\")) \
                               | map(.release_name) | unique[] | select(contains(\"openj9\"))"
     local openj9_large_heap="map(select(.binaries[].heap_size == \"large\")) \
                              | map(.release_name + \"_large-heap\") | unique[] | select(contains(\"openj9\"))"
     # shellcheck disable=SC2046
-    echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}")
+    echo $(all-json | jq -r "${hotspot}" ; all-json | jq -r "${openj9_normal_heap}" ; all-json | jq -r "${openj9_large_heap}" ; all-json | jq -r "${graalvm}")
 }
 
 function list-legacy-filenames() {
