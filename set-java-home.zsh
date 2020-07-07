@@ -1,4 +1,9 @@
 asdf_update_java_home() {
+  if [[ $L_PWD == $PWD ]]; then
+    return
+  fi
+  export L_PWD=$PWD
+  
   local java_path
   java_path="$(asdf which java)"
   if [[ -n "${java_path}" ]]; then
