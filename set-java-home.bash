@@ -8,6 +8,10 @@ asdf_update_java_home() {
 }
 
 prompt_command() {
+  if [[ "${PWD}" == "${LAST_PWD}" ]]; then
+    return
+  fi
+  LAST_PWD="${PWD}"
   asdf_update_java_home
 }
 
