@@ -55,4 +55,4 @@ For example, you you have installed asdf using brew, the scripts will be located
 
 The commands must be altered accordingly, e.g.
 
-`. $(brew --prefix asdf)/plugins/java/set-java-home.zsh`
+`. "$(brew --prefix asdf)/plugins/java/set-java-home.zsh"`
