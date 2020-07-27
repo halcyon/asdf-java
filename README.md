@@ -51,7 +51,7 @@ For fish shell, instead use:
 Note that the location of the scripts will be different if you installed asdf with a package manager.
 For example, you you have installed asdf using brew, the scripts will be located in
 
-`/usr/local/opt/asdf/plugins/java/`
+`$(brew --prefix asdf)/plugins/java/`
 
 The commands must be altered accordingly, e.g.
 
