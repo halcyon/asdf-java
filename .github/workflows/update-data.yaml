@@ -1,5 +1,6 @@
 name: Update Java release data
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 */8 * * *'
 jobs:
