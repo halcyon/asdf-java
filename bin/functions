@@ -10,13 +10,15 @@ KERNEL_NAME="$(uname -s)"
 case "${KERNEL_NAME}" in
     Darwin)
             OS="macosx"
-            SHA256SUM="gsha256sum"
+            SHA256SUM="shasum -a 256"
+            STAT="/usr/bin/stat"
             STAT_OPTS=('-f' '%c')
             TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
             ;;
     Linux)
            OS="linux"
            SHA256SUM="sha256sum"
+           STAT="stat"
            STAT_OPTS=('-c' '%Z')
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
            ;;
@@ -46,7 +48,7 @@ function retrieve-release-data() {
     local cache_file="${CACHE_DIR}/releases.tsv"
 
     # shellcheck disable=SC2046
-    if [[ ! -r "${cache_file}" ]] || (( $(stat "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
+    if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
         curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
     fi
 }
@@ -85,7 +87,7 @@ function install {
         exit 1
     fi
 
-    ${SHA256SUM} -c <<<"${checksum} ${package_filename}"
+    ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
 
     case "${package_filename}" in
         *zip) unzip "${package_filename}"
