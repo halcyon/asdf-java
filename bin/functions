@@ -120,6 +120,7 @@ function install {
 function uninstall {
     rm -rf "${ASDF_INSTALL_PATH}"
     if [ -z ${ASDF_INSTALL_VERSION+x} ]; then 
+        true
         # printf "ASDF_INSTALL_VERSION is unset"; 
     else 
         remove_macOS_integration
@@ -127,16 +128,16 @@ function uninstall {
 }
 
 function remove_macOS_integration {
-    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}\n"
+    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
     sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
 }
 
 function macOS_integration {
     printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
-    sudo mkdir -p /Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents
-    sudo cp -R Contents/MacOS /Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/
-    sudo cp -R Contents/Info.plist /Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/
-    sudo ln -s "${ASDF_INSTALL_PATH}" /Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home
+    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
+    sudo cp -R Contents/MacOS "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+    sudo cp -R Contents/Info.plist "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
 }
 
 case "$(basename "${0}")" in
