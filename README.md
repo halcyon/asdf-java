@@ -47,3 +47,12 @@ For zsh shell, instead use:
 For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
+
+Note that the location of the scripts will be different if you installed asdf with a package manager.
+For example, you you have installed asdf using brew, the scripts will be located in
+
+`$(brew --prefix asdf)/plugins/java/`
+
+The commands must be altered accordingly, e.g.
+
+`. "$(brew --prefix asdf)/plugins/java/set-java-home.zsh"`
