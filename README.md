@@ -47,3 +47,7 @@ For zsh shell, instead use:
 For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
+
+For xonsh shell, instead use:
+
+`source ~/.asdf/plugins/java/set-java-home.xsh`
