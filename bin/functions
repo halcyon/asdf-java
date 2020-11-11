@@ -118,8 +118,7 @@ function install {
 }
 
 function uninstall {
-    rm -rf "${ASDF_INSTALL_PATH}"
-    if [ -z ${ASDF_INSTALL_VERSION+x} ]; then 
+    if [ -z "${ASDF_INSTALL_VERSION}" ]; then 
         true
         # printf "ASDF_INSTALL_VERSION is unset"; 
     else 
