@@ -124,6 +124,7 @@ function uninstall {
     else 
         remove_macOS_integration
     fi
+    rm -rf "${ASDF_INSTALL_PATH}"
 }
 
 function remove_macOS_integration {
