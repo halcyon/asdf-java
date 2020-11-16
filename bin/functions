@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck source=/dev/null
+source "$ASDF_DIR/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
 if [ ! -d "${CACHE_DIR}" ]
@@ -108,12 +110,55 @@ function install {
     case ${OS} in
         macosx)
             case ${ASDF_INSTALL_VERSION} in
-                zulu*) mv ./* "${ASDF_INSTALL_PATH}" ;;
+                zulu*)
+                    mv ./* "${ASDF_INSTALL_PATH}" 
+                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                        local macOS_integration_path
+                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(realpath "${ASDF_INSTALL_PATH}/release")")")")"
+                        java_macos_integration_install "$macOS_integration_path"
+                    fi
+                    ;;
                 liberica*) mv ./* "${ASDF_INSTALL_PATH}" ;;
-                *) mv Contents/Home/* "${ASDF_INSTALL_PATH}" ;;
+                *) 
+                    mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
+                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                        local macOS_integration_path
+                        macOS_integration_path="$(realpath .)"
+                        java_macos_integration_install "$macOS_integration_path"
+                    fi
+                    ;;
             esac ;;
         *) mv ./* "${ASDF_INSTALL_PATH}" ;;
     esac
+}
+
+function uninstall {
+    case ${OS} in
+        macosx)
+        if [ -z "${ASDF_INSTALL_VERSION}" ]; then 
+                true
+        else 
+            if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                    java_macos_integration_remove
+            fi
+        fi
+    esac
+    rm -rf "${ASDF_INSTALL_PATH}"
+}
+
+function java_macos_integration_remove {
+    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
+    sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+}
+
+function java_macos_integration_install {
+    local macOS_files_path
+    macOS_files_path="$1"
+    printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
+    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
+    sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+    sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
 }
 
 case "$(basename "${0}")" in
@@ -123,4 +168,5 @@ case "$(basename "${0}")" in
                            ;;
     install) install
              ;;
+    uninstall) uninstall ;;
 esac
