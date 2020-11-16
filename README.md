@@ -47,3 +47,14 @@ For zsh shell, instead use:
 For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
+
+## macOS Integration
+Some applications in macOS use `/usr/libexec/java_home` to set java home.
+
+Setting java_macos_integration_enable to yes on `.asdfrc` file enables this integration.
+
+```
+java_macos_integration_enable = yes
+```
+
+_Note: Not all distributions of Java JDK packages offer this integration (eg. liberica). This option only works for packages that **do offer** that integration._
