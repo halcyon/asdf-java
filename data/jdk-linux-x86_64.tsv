@@ -440,6 +440,7 @@ zulu-7.36.0.5	zulu7.36.0.5-ca-jdk7.0.252-linux_x64.tar.gz	https://static.azul.co
 zulu-7.38.0.11	zulu7.38.0.11-ca-jdk7.0.262-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.38.0.11-ca-jdk7.0.262-linux_x64.tar.gz	105ff96d4c5d8902436e7e42f41e85f4bab7916c7ea7affa0af70749668b4bd8
 zulu-7.40.0.15	zulu7.40.0.15-ca-jdk7.0.272-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.40.0.15-ca-jdk7.0.272-linux_x64.tar.gz	5efbf721a4335a19c8c3fbf2cf2fce8d1c6b4a766fb93e98f9303845f89d901e
 zulu-7.42.0.13	zulu7.42.0.13-ca-jdk7.0.282-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.42.0.13-ca-jdk7.0.282-linux_x64.tar.gz	38ec78e7f41f9130cecce5c8c9963d066f7deee5b3ba4dfcca32e197fd933bf9
+zulu-7.42.0.51	zulu7.42.0.51-ca-jdk7.0.285-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.42.0.51-ca-jdk7.0.285-linux_x64.tar.gz	3aa93056dbb5f0439ff687a2ec9f80a577fda8d9d7e347ccc778968f37929d0d
 zulu-8.0.0.3	zulu8.0.0.3-ca-jdk8.0.0-linux_x64.zip	https://static.azul.com/zulu/bin/zulu8.0.0.3-ca-jdk8.0.0-linux_x64.zip	84d50b02aeeff86ac4a6b8e5b5f2bf85cd6ce2cabcdaecfe92d132d5482c6b6e
 zulu-8.1.0.6	zulu8.1.0.6-ca-jdk8.0.5-linux_x64.zip	https://static.azul.com/zulu/bin/zulu8.1.0.6-ca-jdk8.0.5-linux_x64.zip	aa8bd45554aa97ca8a62a2d827e1264e4bd1b89d8b4dddf764c3ed603ec6140b
 zulu-8.2.0.1	zulu8.2.0.1-ca-jdk8.0.11-linux_x64.zip	https://static.azul.com/zulu/bin/zulu8.2.0.1-ca-jdk8.0.11-linux_x64.zip	03e32b5a481e54bc561621d5917a51a9efbe1c86eaaf38288fdf5b67877ea0df
@@ -552,6 +553,8 @@ zulu-13.33.25	zulu13.33.25-ca-jdk13.0.4-linux_x64.tar.gz	https://static.azul.com
 zulu-13.33.25	zulu13.33.25-ca-jdk13.0.4-linux_x64.zip	https://static.azul.com/zulu/bin/zulu13.33.25-ca-jdk13.0.4-linux_x64.zip	085056a1011c71d036e4cb09518382d3a74d1a048566ac923027cd9d6157a130
 zulu-13.35.17	zulu13.35.17-ca-jdk13.0.5-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.35.17-ca-jdk13.0.5-linux_x64.tar.gz	98032f75751255ba01284f4e79796b3942db73e23eb899847a7c768f7547b9f0
 zulu-13.35.17	zulu13.35.17-ca-jdk13.0.5-linux_x64.zip	https://static.azul.com/zulu/bin/zulu13.35.17-ca-jdk13.0.5-linux_x64.zip	b5b378c2c02611da40a38be42059da23ed8778fd05ad7d40464531e389507df5
+zulu-13.35.51	zulu13.35.51-ca-jdk13.0.5.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.35.51-ca-jdk13.0.5.1-linux_x64.tar.gz	bc578f5d3ea84b7ee1013a7eee15adcd79b5e18156b0db89c841e4b939e5acbf
+zulu-13.35.51	zulu13.35.51-ca-jdk13.0.5.1-linux_x64.zip	https://static.azul.com/zulu/bin/zulu13.35.51-ca-jdk13.0.5.1-linux_x64.zip	2882134f5eb03d42aff52363d27ed18f95df2c5bb621339073fe1a78824fc03b
 zulu-14.27.1	zulu14.27.1-ca-jdk14-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-linux_x64.tar.gz	e92b27bcaed8190af798409895153701cd9aebe2b91de88dd76fc39dad1cbbd3
 zulu-14.27.1	zulu14.27.1-ca-jdk14.0.0-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.27.1-ca-jdk14.0.0-linux_x64.tar.gz	e92b27bcaed8190af798409895153701cd9aebe2b91de88dd76fc39dad1cbbd3
 zulu-14.28.21	zulu14.28.21-ca-jdk14.0.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.28.21-ca-jdk14.0.1-linux_x64.tar.gz	48bb8947034cd079ad1ef83335e7634db4b12a26743a0dc314b6b861480777aa
@@ -569,6 +572,7 @@ zulu-javafx-8.46.0.19	zulu8.46.0.19-ca-fx-jdk8.0.252-linux_x64.tar.gz	https://st
 zulu-javafx-8.48.0.51	zulu8.48.0.51-ca-fx-jdk8.0.262-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.48.0.51-ca-fx-jdk8.0.262-linux_x64.tar.gz	dca027c2fc2c373ce0050431ad048b2bfc48064057617465fb619c0666555d20
 zulu-javafx-8.48.0.53	zulu8.48.0.53-ca-fx-jdk8.0.265-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.48.0.53-ca-fx-jdk8.0.265-linux_x64.tar.gz	119c2d80077518885fe47b66c06fb1c6feb9fd6bad02d208e8d3171c3c3862a3
 zulu-javafx-8.50.0.21	zulu8.50.0.21-ca-fx-jdk8.0.272-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.50.0.21-ca-fx-jdk8.0.272-linux_x64.tar.gz	9c46b353852b6a3a224e5cfd8b278e2beebb678f3f4cb7b743170481bc505c74
+zulu-javafx-8.50.0.53	zulu8.50.0.53-ca-fx-jdk8.0.275-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.50.0.53-ca-fx-jdk8.0.275-linux_x64.tar.gz	9e0bf49e1e49835a34e3537941a0459fdaa42f3b16539a5740c0053d1af11230
 zulu-javafx-11.2.5	zulu11.2.5-ca-fx-jdk11.0.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.2.5-ca-fx-jdk11.0.1-linux_x64.tar.gz	144bdcfdca4d1bc782f7c770294ccdf0ad55481bd3b4c672059ed4abbb7d70d6
 zulu-javafx-11.29.3	zulu11.29.3-ca-fx-jdk11.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.29.3-ca-fx-jdk11.0.2-linux_x64.tar.gz	7c6675e0905021a3270739abfc46a43b4a6fb5dc2315205f1b49f4f1fed16a8c
 zulu-javafx-11.31.11	zulu11.31.11-ca-fx-jdk11.0.3-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.31.11-ca-fx-jdk11.0.3-linux_x64.tar.gz	bd0d8e862e58faa803e5858b7dffe37d69621ec66440c015eeb6c9b50d349e3a
@@ -579,10 +583,12 @@ zulu-javafx-11.37.19	zulu11.37.19-ca-fx-jdk11.0.6-linux_x64.tar.gz	https://stati
 zulu-javafx-11.39.15	zulu11.39.15-ca-fx-jdk11.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.39.15-ca-fx-jdk11.0.7-linux_x64.tar.gz	10779acfec2001a069a131ae7e508580792762f9cb54f70bcb29b47c43d84480
 zulu-javafx-11.41.23	zulu11.41.23-ca-fx-jdk11.0.8-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.41.23-ca-fx-jdk11.0.8-linux_x64.tar.gz	85cc4601c96b175d10f9327098805f04621c7f5b22b782ef698670964506ee9e
 zulu-javafx-11.43.21	zulu11.43.21-ca-fx-jdk11.0.9-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.43.21-ca-fx-jdk11.0.9-linux_x64.tar.gz	efcc3bab207535e2463fe0734defa7653603e64025aee354c5fd29a31216aa60
+zulu-javafx-11.43.55	zulu11.43.55-ca-fx-jdk11.0.9.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.43.55-ca-fx-jdk11.0.9.1-linux_x64.tar.gz	ca24a2883a9be89ff03bd163091f4e06b5464f04b452d6fb91d8181c1f1018ab
 zulu-javafx-13.29.11	zulu13.29.11-ca-fx-jdk13.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.29.11-ca-fx-jdk13.0.2-linux_x64.tar.gz	9c67b3ca46d7ff93213c35f4aad975937cfd97792f66574d7d5a05b10a556193
 zulu-javafx-13.31.11	zulu13.31.11-ca-fx-jdk13.0.3-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.31.11-ca-fx-jdk13.0.3-linux_x64.tar.gz	d38e5ac9fd8306f30228dc6cddf56baba9d53b467a57b7215b68fcaffd288a95
 zulu-javafx-13.33.25	zulu13.33.25-ca-fx-jdk13.0.4-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.33.25-ca-fx-jdk13.0.4-linux_x64.tar.gz	30df312767eb484b2faf591e1210fcfaeb4660de7e881428b8a7914d314ba310
 zulu-javafx-13.35.17	zulu13.35.17-ca-fx-jdk13.0.5-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.35.17-ca-fx-jdk13.0.5-linux_x64.tar.gz	af94213eb3c9dbb94acb8c5d7339d13d83b1396fd394711783f59dec061a4e6e
+zulu-javafx-13.35.51	zulu13.35.51-ca-fx-jdk13.0.5.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.35.51-ca-fx-jdk13.0.5.1-linux_x64.tar.gz	45c94f77368a621a23a4fd673dbb9f93223071a796b35f3675a0e4f36a05ecdb
 zulu-javafx-14.29.23	zulu14.29.23-ca-fx-jdk14.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.29.23-ca-fx-jdk14.0.2-linux_x64.tar.gz	502f7c9b93affb46eed532b5c18277bb5747987ce7356c21514ef630634788cc
 zulu-javafx-15.27.17	zulu15.27.17-ca-fx-jdk15.0.0-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu15.27.17-ca-fx-jdk15.0.0-linux_x64.tar.gz	fbe677047325112b5a570f21757589fb0dbe147fdbebf0f3100e843a5ed75f18
 zulu-javafx-15.28.13	zulu15.28.13-ca-fx-jdk15.0.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu15.28.13-ca-fx-jdk15.0.1-linux_x64.tar.gz	4d49342ed0005b998d8b3ae6a9595e1bf71be0249ebfb6dbee34f514babea8b9
@@ -628,6 +634,7 @@ zulu-musl-13.29.9	zulu13.29.9-ca-jdk13.0.2-linux_musl_x64.tar.gz	https://static.
 zulu-musl-13.31.11	zulu13.31.11-ca-jdk13.0.3-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.31.11-ca-jdk13.0.3-linux_musl_x64.tar.gz	ceafd6930d7189272a6483e6ea1dbb812de3def4ccbafaeec1df2c6eec36ca3b
 zulu-musl-13.33.25	zulu13.33.25-ca-jdk13.0.4-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.33.25-ca-jdk13.0.4-linux_musl_x64.tar.gz	e547357ba9d7fa9d614c224a0b00618ef80025e100a3ce3b77ecdb773aca8b58
 zulu-musl-13.35.17	zulu13.35.17-ca-jdk13.0.5-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.35.17-ca-jdk13.0.5-linux_musl_x64.tar.gz	9a694693e215c3543b21dd59d498cc1d7d5818279ad40c56e54ca0568594d56c
+zulu-musl-13.35.51	zulu13.35.51-ca-jdk13.0.5.1-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.35.51-ca-jdk13.0.5.1-linux_musl_x64.tar.gz	879f229bc5660b32c70331aa4a27e1546487d033b4a92f8f6e82bbea71c879af
 zulu-musl-14.27.1	zulu14.27.1-ca-jdk14-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.27.1-ca-jdk14-linux_musl_x64.tar.gz	e4c4a654d3a1921300283f50bbeb31c8e4709c63b88b645e643593da5ec9ec4c
 zulu-musl-14.27.1	zulu14.27.1-ca-jdk14.0.0-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.27.1-ca-jdk14.0.0-linux_musl_x64.tar.gz	e4c4a654d3a1921300283f50bbeb31c8e4709c63b88b645e643593da5ec9ec4c
 zulu-musl-14.28.21	zulu14.28.21-ca-jdk14.0.1-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.28.21-ca-jdk14.0.1-linux_musl_x64.tar.gz	e66921378a3ef9bc6a21fe5351da3770d5f5826279c2f0a2704fc7a04dd2ac3a
