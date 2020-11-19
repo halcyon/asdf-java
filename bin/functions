@@ -162,10 +162,9 @@ function java_macos_integration_install {
 }
 
 function absolute_dir_path {
-    local relative_path absolute_path
-    relative_path="$1"
+    local absolute_path
     absolute_path="$( cd -P "$( dirname "$1" )" && pwd )"
-    echo $absolute_path
+    echo "$absolute_path"
 }
 
 case "$(basename "${0}")" in
