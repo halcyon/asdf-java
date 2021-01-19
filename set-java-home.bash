@@ -13,7 +13,7 @@ asdf_update_java_home() {
   fi
 }
 
-prompt_command() {
+asdf_java_prompt_command() {
   if [[ "${PWD}" == "${LAST_PWD}" ]]; then
     return
   fi
@@ -21,5 +21,5 @@ prompt_command() {
   asdf_update_java_home
 }
 
-export PROMPT_COMMAND="${PROMPT_COMMAND:+${PROMPT_COMMAND}; prompt_command}"
-export PROMPT_COMMAND="${PROMPT_COMMAND:-prompt_command}"
+PROMPT_COMMAND="${PROMPT_COMMAND:+${PROMPT_COMMAND} asdf_java_prompt_command;}"
+PROMPT_COMMAND="${PROMPT_COMMAND:-asdf_java_prompt_command;}"
