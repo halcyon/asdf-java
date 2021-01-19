@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck source=/dev/null
+source "$ASDF_DIR/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
 if [ ! -d "${CACHE_DIR}" ]
@@ -10,13 +12,15 @@ KERNEL_NAME="$(uname -s)"
 case "${KERNEL_NAME}" in
     Darwin)
             OS="macosx"
-            SHA256SUM="gsha256sum"
+            SHA256SUM="shasum -a 256"
+            STAT="/usr/bin/stat"
             STAT_OPTS=('-f' '%c')
             TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
             ;;
     Linux)
            OS="linux"
            SHA256SUM="sha256sum"
+           STAT="stat"
            STAT_OPTS=('-c' '%Z')
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
            ;;
@@ -46,7 +50,7 @@ function retrieve-release-data() {
     local cache_file="${CACHE_DIR}/releases.tsv"
 
     # shellcheck disable=SC2046
-    if [[ ! -r "${cache_file}" ]] || (( $(stat "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
+    if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
         curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
     fi
 }
@@ -85,7 +89,7 @@ function install {
         exit 1
     fi
 
-    ${SHA256SUM} -c <<<"${checksum} ${package_filename}"
+    ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
 
     case "${package_filename}" in
         *zip) unzip "${package_filename}"
@@ -106,12 +110,55 @@ function install {
     case ${OS} in
         macosx)
             case ${ASDF_INSTALL_VERSION} in
-                zulu*) mv ./* "${ASDF_INSTALL_PATH}" ;;
+                zulu*)
+                    mv ./* "${ASDF_INSTALL_PATH}" 
+                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                        local macOS_integration_path
+                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(realpath "${ASDF_INSTALL_PATH}/release")")")")"
+                        java_macos_integration_install "$macOS_integration_path"
+                    fi
+                    ;;
                 liberica*) mv ./* "${ASDF_INSTALL_PATH}" ;;
-                *) mv Contents/Home/* "${ASDF_INSTALL_PATH}" ;;
+                *) 
+                    mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
+                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                        local macOS_integration_path
+                        macOS_integration_path="$(realpath .)"
+                        java_macos_integration_install "$macOS_integration_path"
+                    fi
+                    ;;
             esac ;;
         *) mv ./* "${ASDF_INSTALL_PATH}" ;;
     esac
+}
+
+function uninstall {
+    case ${OS} in
+        macosx)
+        if [ -z "${ASDF_INSTALL_VERSION}" ]; then 
+                true
+        else 
+            if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                    java_macos_integration_remove
+            fi
+        fi
+    esac
+    rm -rf "${ASDF_INSTALL_PATH}"
+}
+
+function java_macos_integration_remove {
+    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
+    sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+}
+
+function java_macos_integration_install {
+    local macOS_files_path
+    macOS_files_path="$1"
+    printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
+    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
+    sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+    sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
 }
 
 case "$(basename "${0}")" in
@@ -121,4 +168,5 @@ case "$(basename "${0}")" in
                            ;;
     install) install
              ;;
+    uninstall) uninstall ;;
 esac

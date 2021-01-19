@@ -7,7 +7,7 @@
 ## Requirements
 - [bash v5.0](https://www.gnu.org/software/bash/)
 - [curl](https://curl.haxx.se/)
-- [sha256sum](https://www.gnu.org/software/coreutils/)
+- [sha256sum](https://www.gnu.org/software/coreutils/) (only on Linux)
 - [unzip](http://infozip.sourceforge.net/UnZip.html)
 - [jq](https://stedolan.github.io/jq/) (only for updating the release data)
 
@@ -51,3 +51,14 @@ For fish shell, instead use:
 For xonsh shell, instead use:
 
 `source ~/.asdf/plugins/java/set-java-home.xsh`
+
+## macOS Integration
+Some applications in macOS use `/usr/libexec/java_home` to set java home.
+
+Setting java_macos_integration_enable to yes on `.asdfrc` file enables this integration.
+
+```
+java_macos_integration_enable = yes
+```
+
+_Note: Not all distributions of Java JDK packages offer this integration (eg. liberica). This option only works for packages that **do offer** that integration._
