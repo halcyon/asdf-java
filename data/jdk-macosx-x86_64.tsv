@@ -324,6 +324,7 @@ trava-11.0.7+3	java11-openjdk-dcevm-osx.tar.gz	https://github.com/TravaOpenJDK/t
 trava-11.0.7+4	java11-openjdk-dcevm-osx.tar.gz	https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.7+4/java11-openjdk-dcevm-osx.tar.gz	5f7275c26cc3a41cdbba91f078dedd567fec6a3290dcb747507f2426ba655d74
 trava-11.0.8+1	java11-openjdk-dcevm-osx.tar.gz	https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.8+1/java11-openjdk-dcevm-osx.tar.gz	ac3246525f6d15069016f15b837c99670131e7a22ac2ecf84a58d430ad7018e3
 trava-11.0.9+2	java11-openjdk-dcevm-osx.tar.gz	https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.9+2/java11-openjdk-dcevm-osx.tar.gz	064c3e1f94794fde86a457e822fe42ef779d417dd523dd39534cff032d4d1bde
+trava-11.0.10+1	java11-openjdk-dcevm-osx.tar.gz	https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.10+1/java11-openjdk-dcevm-osx.tar.gz	3f9631d4029bcd825a30cbd361e135510fc73a588e6fee17cad0ff030c828763
 zulu-7.4.0.7	zulu7.4.0.7-ca-jdk7.0.55-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.4.0.7-ca-jdk7.0.55-macosx_x64.tar.gz	be8154abbf8db0c9d49b9ebbdd2991880fe8e3ce37c5976de18c48005da2b458
 zulu-7.4.0.7	zulu7.4.0.7-ca-jdk7.0.55-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu7.4.0.7-ca-jdk7.0.55-macosx_x64.zip	
 zulu-7.5.0.1	zulu7.5.0.1-ca-jdk7.0.60-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.5.0.1-ca-jdk7.0.60-macosx_x64.tar.gz	369e6b0541e76523742d5a86f15041938722509c0a8705c71c0701e1e971b474
@@ -600,6 +601,8 @@ zulu-15.28.13	zulu15.28.13-ca-jdk15.0.1-macosx_x64.tar.gz	https://static.azul.co
 zulu-15.28.13	zulu15.28.13-ca-jdk15.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu15.28.13-ca-jdk15.0.1-macosx_x64.zip	79c3a1c38e1bbfd45fa4efba704e6c67f6bc51899936f91b9d145036c7243890
 zulu-15.28.51	zulu15.28.51-ca-jdk15.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu15.28.51-ca-jdk15.0.1-macosx_x64.tar.gz	704f65544c35b33428f3802227bc2edc1689bffa3e7b0caebcc7326ed745e340
 zulu-15.28.51	zulu15.28.51-ca-jdk15.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu15.28.51-ca-jdk15.0.1-macosx_x64.zip	084c67b6ada87e8ba1f8abf35af2c8a56b204ccf513600af6e09ae7880824a84
+zulu-15.29.15	zulu15.29.15-ca-jdk15.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu15.29.15-ca-jdk15.0.2-macosx_x64.tar.gz	
+zulu-15.29.15	zulu15.29.15-ca-jdk15.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu15.29.15-ca-jdk15.0.2-macosx_x64.zip	
 zulu-javafx-8.33.0.1	zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	9c191562160b0b4b77dad5fe0c29ed9c39b4bd1e27df6986c1d665eb538524fa
 zulu-javafx-8.36.0.1	zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	162eb8befcab27be58bc3fa9f7ac21c0bcf4b48c9c39e9ebb4ffe0f3c9b54335
 zulu-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	
