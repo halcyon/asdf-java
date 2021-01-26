@@ -1,19 +1,20 @@
 asdf_update_java_home() {
   local java_path
-  java_path="$(asdf which java)"
+  java_path="$(asdf where java)"
   if [[ -n "${java_path}" ]]; then
     export JAVA_HOME
-   JAVA_HOME="$(dirname "$(dirname "$(realpath "${java_path}")")")"
+    JAVA_HOME="${java_path}"
   fi
 }
 
-prompt_command() {
-  if [[ "${PWD}" == "${LAST_PWD}" ]]; then
-    return
-  fi
-  LAST_PWD="${PWD}"
+preexec () {
   asdf_update_java_home
 }
 
-export PROMPT_COMMAND="${PROMPT_COMMAND:+${PROMPT_COMMAND}; prompt_command}"
-export PROMPT_COMMAND="${PROMPT_COMMAND:-prompt_command}"
+preexec_invoke_exec () {
+    [ -n "${COMP_LINE}" ] && return  # do nothing if completing
+    [ "${BASH_COMMAND}" = "${PROMPT_COMMAND}" ] && return # don't cause a preexec for $PROMPT_COMMAND
+    preexec
+}
+
+trap 'preexec_invoke_exec' DEBUG
