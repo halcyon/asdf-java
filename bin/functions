@@ -114,7 +114,7 @@ function install {
                     mv ./* "${ASDF_INSTALL_PATH}" 
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
-                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(realpath "${ASDF_INSTALL_PATH}/release")")")")"
+                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/release")")")")"
                         java_macos_integration_install "$macOS_integration_path"
                     fi
                     ;;
@@ -123,7 +123,7 @@ function install {
                     mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
-                        macOS_integration_path="$(realpath .)"
+                        macOS_integration_path="$(absolute_dir_path ".")"
                         java_macos_integration_install "$macOS_integration_path"
                     fi
                     ;;
@@ -159,6 +159,12 @@ function java_macos_integration_install {
     sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
     sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
     sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
+}
+
+function absolute_dir_path {
+    local absolute_path
+    absolute_path="$( cd -P "$( dirname "$1" )" && pwd )"
+    echo "$absolute_path"
 }
 
 case "$(basename "${0}")" in
