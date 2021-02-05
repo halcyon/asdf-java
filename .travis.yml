@@ -1,5 +1,5 @@
 language: c
-script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT" --asdf-tool-version azul-zulu-8.44.0.11-jdk8.0.242
+script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT" --asdf-tool-version zulu-11.45.27
 before_script:
 - git clone https://github.com/asdf-vm/asdf.git
 - . asdf/asdf.sh
