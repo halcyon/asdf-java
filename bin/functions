@@ -34,6 +34,7 @@ MACHINE="$(uname -m)"
 case "${MACHINE}" in
     x86_64) ARCHITECTURE="x86_64" ;;
     aarch64) ARCHITECTURE="aarch64" ;;
+    armv7l) ARCHITECTURE="arm32-vfp-hflt" ;;
     *) echo "Unknown machine architecture: ${MACHINE}"
        exit 1
 esac

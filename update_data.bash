@@ -4,7 +4,7 @@ set -Euo pipefail
 
 # See https://joschi.github.io/java-metadata/ for supported values
 LIST_OS="linux macosx"
-LIST_ARCH="x86_64 aarch64"
+LIST_ARCH="x86_64 aarch64 arm32-vfp-hflt"
 
 DATA_DIR="./data"
 
