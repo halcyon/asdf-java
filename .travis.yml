@@ -1,10 +1,14 @@
-language: c
-script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT" --asdf-tool-version zulu-11.45.27
+language: minimal
+script: asdf plugin-test java "$TRAVIS_BUILD_DIR" --asdf-plugin-gitref "$TRAVIS_COMMIT" --asdf-tool-version "adoptopenjdk-15.0.2+7"
 before_script:
 - git clone https://github.com/asdf-vm/asdf.git
 - . asdf/asdf.sh
 matrix:
   include:
     - os: linux
+      dist: focal
+    - os: linux
+      arch: arm64
+      dist: focal
     - os: osx
       install: HOMEBREW_NO_AUTO_UPDATE=1 brew install jq
