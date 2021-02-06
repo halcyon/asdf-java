@@ -52,7 +52,7 @@ function retrieve-release-data() {
 
     # shellcheck disable=SC2046
     if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
-        curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
+        curl -s -f --compressed -L "https://raw.githubusercontent.com/joschi/asdf-java/aarch64-support/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
     fi
 }
 
