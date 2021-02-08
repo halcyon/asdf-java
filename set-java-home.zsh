@@ -9,7 +9,7 @@ asdf_update_java_home() {
   java_path="$(asdf which java)"
   if [[ -n "${java_path}" ]]; then
     export JAVA_HOME
-    JAVA_HOME="$(dirname "$(dirname "$(absolute_dir_path "${java_path}")")")"
+    JAVA_HOME="$(dirname "$(absolute_dir_path "${java_path}")")"
   fi
 }
 
