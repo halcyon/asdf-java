@@ -48,6 +48,10 @@ For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
 
+For xonsh shell, instead use:
+
+`source ~/.asdf/plugins/java/set-java-home.xsh`
+
 ## macOS Integration
 Some applications in macOS use `/usr/libexec/java_home` to set java home.
 
