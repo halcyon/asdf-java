@@ -1,7 +1,5 @@
 function absolute_dir_path {
-    local absolute_path
-    absolute_path="$( cd -P "$( dirname "$1" )" && pwd )"
-    echo "$absolute_path"
+    echo "$1:A"
 }
 
 asdf_update_java_home() {
