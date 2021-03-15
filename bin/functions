@@ -116,7 +116,7 @@ function install {
                     mv ./* "${ASDF_INSTALL_PATH}" 
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
-                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/release")")")")"
+                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
                         java_macos_integration_install "$macOS_integration_path"
                     fi
                     ;;
