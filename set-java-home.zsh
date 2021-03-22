@@ -1,5 +1,5 @@
 function absolute_dir_path {
-    echo "$1:A"
+    echo "$(dirname $1:A)"
 }
 
 asdf_update_java_home() {
