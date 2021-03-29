@@ -36,6 +36,16 @@ jobs:
       run: |
         . asdf/asdf.sh
         asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version adoptopenjdk-8.0.252+9.1.openj9-0.20.0 java -version
+    - name: Check update_data.bash
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ./update_data.bash
+        grep adoptopenjdk-openj9-11 data/jdk-linux-x86_64.tsv
+        grep adoptopenjdk-openj9-large_heap-11 data/jdk-macosx-x86_64.tsv
+        grep zulu-musl-11 data/jdk-linux-x86_64.tsv
+        grep liberica-javafx-16 data/jdk-linux-arm32-vfp-hflt.tsv
+        grep liberica-lite-11 data/jdk-macosx-x86_64.tsv
     - name: macOS Check java_home integration
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
