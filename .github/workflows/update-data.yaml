@@ -5,6 +5,7 @@ on:
     - cron: '30 */8 * * *'
 jobs:
   update:
+    if: github.repository == 'halcyon/asdf-java'
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v2
