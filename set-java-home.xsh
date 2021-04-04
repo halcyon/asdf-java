@@ -3,7 +3,13 @@
 def asdf_update_java_home() -> None:
     $java_path=$(asdf which java)
     if len($java_path) > 0:
-        $JAVA_HOME=$(dirname $(dirname $(realpath $java_path))).rstrip('\n')
+        if xonsh.platform.ON_DARWIN:
+            if $java_path == "/usr/bin/java":
+                $JAVA_HOME=$(/usr/libexec/java_home)
+            else
+                $JAVA_HOME=$(dirname $(dirname $(realpath $java_path))).rstrip('\n')
+        else
+            $JAVA_HOME=$(dirname $(dirname $(realpath $java_path))).rstrip('\n')
     del $java_path
 
 @events.on_chdir
