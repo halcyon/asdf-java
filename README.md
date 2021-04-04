@@ -11,17 +11,19 @@
 - [unzip](http://infozip.sourceforge.net/UnZip.html)
 - [jq](https://stedolan.github.io/jq/) (only for updating the release data)
 
+_Besides bash (the shell used by the maintainer) this plugin **should** work on Fish, Zsh and Xonsh_
+
 ## Install
 
 ```
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin-add java
 ```
 
 ## Use
 
 Check [asdf](https://asdf-vm.github.io/asdf/) for instructions on how to install & manage versions of Java.
 
-## Install
+## Install new Java version
 
 List candidate JDKs:
 
@@ -29,28 +31,31 @@ List candidate JDKs:
 
 Install a candidate listed from the previous command like this:
 
-`asdf install java adopt-openjdk-12.0.2+10.2`
+`asdf install java adoptopenjdk-12.0.2+10.1`
 
 Select an installed candidate for use like this:
 
-`asdf global java adopt-openjdk-12.0.2+10.2`
+`asdf global java adoptopenjdk-12.0.2+10.1`
 
 ## JAVA_HOME
 To set JAVA_HOME in your shell's initialization add the following:
 
-`. ~/.asdf/plugins/java/set-java-home.bash`
+### Bash
+`echo ". ~/.asdf/plugins/java/set-java-home.bash" >> ~/.bashrc`
 
-For zsh shell, instead use:
+### Zsh
+`echo ". ~/.asdf/plugins/java/set-java-home.zsh" >> ~/.zshrc`
 
-`. ~/.asdf/plugins/java/set-java-home.zsh`
+### Fish
+```
+mkdir ~/.config/fish/functions/
+ln -s ~/.asdf/plugins/java/set-java-home.fish ~/.config/fish/functions/asdf_update_java_home.fish
+echo "asdf_update_java_home" >> ~/.config/fish/config.fish
+```
+_the mkdir is only needed in case you didn't add any functions yet_
 
-For fish shell, instead use:
-
-`. ~/.asdf/plugins/java/set-java-home.fish`
-
-For xonsh shell, instead use:
-
-`source ~/.asdf/plugins/java/set-java-home.xsh`
+### Xonsh
+`echo "source ~/.asdf/plugins/java/set-java-home.xsh" >> ~/.xonshrc`
 
 ## macOS Integration
 Some applications in macOS use `/usr/libexec/java_home` to set java home.

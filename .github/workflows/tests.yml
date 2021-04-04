@@ -36,3 +36,84 @@ jobs:
       run: |
         . asdf/asdf.sh
         asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version adoptopenjdk-8.0.252+9.1.openj9-0.20.0 java -version
+    - name: Run JAVA_HOME setting tests ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        . asdf/asdf.sh
+        apt install -y zsh fish xonsh bash
+        echo ". ~/.asdf/plugins/java/set-java-home.bash" >> ~/.bashrc
+        echo ". ~/.asdf/plugins/java/set-java-home.zsh" >> ~/.zshrc
+        echo "source ~/.asdf/plugins/java/set-java-home.xsh" >> ~/.xonshrc
+        mkdir ~/.config/fish/functions/
+        ln -s ~/.asdf/plugins/java/set-java-home.fish ~/.config/fish/functions/asdf_update_java_home.fish
+        echo "asdf_update_java_home" >> ~/.config/fish/config.fish
+        asdf global use adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        unset JAVA_HOME; /usr/bin/fish
+        echo $JAVA_HOME
+        exit
+        unset JAVA_HOME; /usr/bin/bash
+        echo $JAVA_HOME
+        exit
+        unset JAVA_HOME; /usr/bin/xonsh
+        echo $JAVA_HOME
+        exit
+        unset JAVA_HOME; /usr/bin/zsh
+        echo $JAVA_HOME
+        exit
+    - name: Run JAVA_HOME setting tests macOS
+      if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        . asdf/asdf.sh
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        brew install fish xonsh bash zsh
+        echo ". ~/.asdf/plugins/java/set-java-home.bash" >> ~/.bashrc
+        echo ". ~/.asdf/plugins/java/set-java-home.zsh" >> ~/.zshrc
+        echo "source ~/.asdf/plugins/java/set-java-home.xsh" >> ~/.xonshrc
+        mkdir ~/.config/fish/functions/
+        ln -s ~/.asdf/plugins/java/set-java-home.fish ~/.config/fish/functions/asdf_update_java_home.fish
+        echo "asdf_update_java_home" >> ~/.config/fish/config.fish
+        asdf global use adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        unset JAVA_HOME; /usr/local/bin/fish
+        echo $JAVA_HOME
+        exit
+        unset JAVA_HOME; /usr/local/bin/bash
+        echo $JAVA_HOME
+        exit
+        unset JAVA_HOME; /usr/local/bin/xonsh
+        echo $JAVA_HOME
+        exit
+        unset JAVA_HOME; /usr/local/bin/zsh
+        echo $JAVA_HOME
+        exit
+
+    - name: Run system tool-version test on macOS
+      if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        . asdf/asdf.sh
+        mkdir system
+        cd system
+        asdf local java system
+        cd ..
+
+        unset JAVA_HOME; /usr/local/bin/fish
+        cd system
+        java -version
+        exit
+        unset JAVA_HOME; /usr/local/bin/bash
+        cd system
+        java -version
+        exit
+        unset JAVA_HOME; /usr/local/bin/xonsh
+        cd system
+        java -version
+        exit
+        unset JAVA_HOME; /usr/local/bin/zsh
+        cd system
+        java -version
+
