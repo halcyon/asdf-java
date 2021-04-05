@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+# If a command fails we want to abort right away, and we do not want to use unset variables
+set -euo pipefail
+
 # shellcheck source=/dev/null
-source "$ASDF_DIR/lib/utils.bash"
+source "${ASDF_DIR}/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
-if [ ! -d "${CACHE_DIR}" ]
+if [[ ! -d "${CACHE_DIR}" ]]
 then
     mkdir -p "${CACHE_DIR}"
 fi
@@ -24,7 +27,7 @@ case "${KERNEL_NAME}" in
            STAT_OPTS=('-c' '%Z')
            TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
            ;;
-    *) echo "Unknown operating system: ${KERNEL_NAME}"
+    *) >&2 printf "Unknown operating system: %s\n" "${KERNEL_NAME}"
        exit 1
 esac
 
@@ -35,17 +38,17 @@ case "${MACHINE}" in
     x86_64) ARCHITECTURE="x86_64" ;;
     aarch64|arm64) ARCHITECTURE="aarch64" ;;
     armv7l) ARCHITECTURE="arm32-vfp-hflt" ;;
-    *) echo "Unknown machine architecture: ${MACHINE}"
+    *) >&2 printf "Unknown machine architecture: %s\n" "${MACHINE}"
        exit 1
 esac
 
 function check-unzip() {
-  USAGE="Install unzip to continue. Aborting."
+    USAGE="Install unzip to continue. Aborting."
 
-  if ! [ -x "$(command -v unzip)" ]; then
-    echo "${USAGE}" >&2
-    exit 1;
-  fi
+    if ! [[ -x "$(command -v unzip)" ]]; then
+        >&2 printf "%s\n" "${USAGE}"
+        exit 1
+    fi
 }
 
 function retrieve-release-data() {
@@ -63,7 +66,7 @@ function list-all() {
 }
 
 function list-legacy-filenames() {
-    echo ".java-version"
+    printf ".java-version\n"
 }
 
 function install {
@@ -74,7 +77,7 @@ function install {
 
     release_data=$(grep "^${ASDF_INSTALL_VERSION}	" "${CACHE_DIR}/releases.tsv" | tail -n 1)
     if [[ -z "${release_data}" ]]; then
-        echo "Unknown release: ${ASDF_INSTALL_VERSION}"
+        >&2 printf "Unknown release: %s\n" "${ASDF_INSTALL_VERSION}"
         exit 1
     fi
 
@@ -82,30 +85,56 @@ function install {
     package_link=$(cut -d $'\t' -f 3 <<<"${release_data}")
     checksum=$(cut -d $'\t' -f 4 <<<"${release_data}")
 
-    if [[ "${package_filename}" =~ "zip$" ]]; then
+    if [[ "${package_filename: -4}" == ".zip" ]]; then
         check-unzip
     fi
 
-    cd "${TEMP_DIR}" || return 1
-    if ! curl -LO -# -w "${package_filename}\n" "${package_link}"; then
-        exit 1
+    cd "${TEMP_DIR}"
+
+    if [[ "${OS}" == "macosx" &&
+          "${ASDF_INSTALL_VERSION}" == "liberica"* &&
+          "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
+        # change package_filename, link and checksum
+        new_package_filename="${package_filename/tar.gz/pkg}"
+        new_package_filename="${new_package_filename/zip/pkg}"
+        http_status=$(curl -s -o sha256 -w "%{http_code}" "https://joschi.github.io/java-metadata/checksums/liberica/${new_package_filename}.sha256")
+        new_checksum=$(cat sha256)
+        rm sha256
+        if [[ "${http_status}" = "200" && "${#new_checksum}" -gt 0 ]]; then
+            package_filename=${new_package_filename}
+            package_link=${package_link/tar.gz/pkg}
+            package_link=${package_link/zip/pkg}
+            IFS=" " read -r -a checksum_parts <<< "${new_checksum}"
+            checksum=${checksum_parts[0]}
+        else
+            >&2 printf "Could not find a PKG version of %s so the macOS java_home integration will not work for this version\nSee https://github.com/halcyon/asdf-java/blob/master/README.md for more information\n" "${ASDF_INSTALL_VERSION}"
+        fi
     fi
+
+    curl -LO -# -w "${package_filename}\n" "${package_link}"
 
     ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
 
     case "${package_filename}" in
-        *zip) unzip "${package_filename}"
+        *zip) unzip -q "${package_filename}"
               ;;
         *tar.gz) tar xf "${package_filename}"
                  ;;
-        *) echo "Cannot extract ${package_filename}"
+        *pkg) mkdir "${ASDF_INSTALL_VERSION}"
+              cd "${ASDF_INSTALL_VERSION}"
+              pkgutil --expand "../${package_filename}" tmp
+              gunzip -dc < tmp/*.pkg/Payload | cpio -i
+              rm -r tmp
+              cd ..
+              ;;
+        *) >&2 printf "Cannot extract %s\n" "${package_filename}"
            exit 1
            ;;
     esac
 
     read -r -a dirs <<<"$(ls -d ./*/)"
-    cd "${dirs[0]}" || return 1
-    if [ ! -d "${ASDF_INSTALL_PATH}" ]; then
+    cd "${dirs[0]}"
+    if [[ ! -d "${ASDF_INSTALL_PATH}" ]]; then
         mkdir -p "${ASDF_INSTALL_PATH}"
     fi
 
@@ -114,21 +143,26 @@ function install {
             case ${ASDF_INSTALL_VERSION} in
                 zulu*)
                     mv ./* "${ASDF_INSTALL_PATH}" 
-                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                    if [[ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
                         local macOS_integration_path
                         macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
                         java_macos_integration_install "$macOS_integration_path"
                     fi
                     ;;
                 liberica*)
-                    mv ./* "${ASDF_INSTALL_PATH}"
-                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
-                        echo "The ZIP packages of liberica do not contain the required files (Info.plist and the MacOS folder) to make /usr/libexec/java_home work correctly. You need the .pkg version to get those files."
+                    if [[ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" &&
+                          "${package_filename}" = *".pkg" ]]; then
+                        mv Contents/Home/* "${ASDF_INSTALL_PATH}"
+                        local macOS_integration_path
+                        macOS_integration_path="$(absolute_dir_path ".")"
+                        java_macos_integration_install "$macOS_integration_path"
+                    else
+                        mv ./* "${ASDF_INSTALL_PATH}"
                     fi
                     ;;
-                *)
+                *) 
                     mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
-                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                    if [[ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
                         local macOS_integration_path
                         macOS_integration_path="$(absolute_dir_path ".")"
                         java_macos_integration_install "$macOS_integration_path"
@@ -142,20 +176,18 @@ function install {
 function uninstall {
     case ${OS} in
         macosx)
-        if [ -z "${ASDF_INSTALL_VERSION}" ]; then 
-                true
-        else 
-            if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
-                    java_macos_integration_remove
-            fi
-        fi
+          if [[ -n "${ASDF_INSTALL_VERSION}" && "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
+              java_macos_integration_remove
+          fi
     esac
     rm -rf "${ASDF_INSTALL_PATH}"
 }
 
 function java_macos_integration_remove {
-    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
-    sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+    if [[ -d "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}" ]]; then
+        printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
+        sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+    fi
 }
 
 function java_macos_integration_install {
@@ -181,5 +213,6 @@ case "$(basename "${0}")" in
                            ;;
     install) install
              ;;
-    uninstall) uninstall ;;
+    uninstall) uninstall
+               ;;
 esac
