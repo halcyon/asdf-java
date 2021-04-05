@@ -62,6 +62,6 @@ java_macos_integration_enable = yes
 ```
 
 ### Liberica
-The Liberica distributions this plugin uses do not [contain the needed files for the macOS integration](https://github.com/bell-sw/Liberica/issues/42).
+The Liberica distributions this plugin uses [do not contain the needed files for the macOS integration](https://github.com/bell-sw/Liberica/issues/42).
 The plugin will try to download the `.pkg` distribution for the same version, but this does not always exist. 
 If it doesn't exist this plugin cannot provide the macOS Integration for that version. It will log a warning when that happens.
