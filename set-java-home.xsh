@@ -1,9 +1,16 @@
 #!/usr/bin/env xonsh
 
 def asdf_update_java_home() -> None:
-    $java_path=$(asdf which java)
+    import xonsh.platform
+    $java_path=$(asdf which java).rstrip('\n')
     if len($java_path) > 0:
-        $JAVA_HOME=$(dirname $(dirname $(realpath $java_path))).rstrip('\n')
+        if xonsh.platform.ON_DARWIN:
+            if $java_path == '/usr/bin/java':
+                $JAVA_HOME=$(/usr/libexec/java_home).rstrip('\n')
+            else:
+                $JAVA_HOME=$(dirname $(dirname $(realpath $java_path))).rstrip('\n')
+        else:
+            $JAVA_HOME=$(dirname $(dirname $(realpath $java_path))).rstrip('\n')
     del $java_path
 
 @events.on_chdir
