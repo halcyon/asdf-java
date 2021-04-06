@@ -5,38 +5,38 @@ CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
 if [ ! -d "${CACHE_DIR}" ]
 then
-    mkdir -p "${CACHE_DIR}"
+  mkdir -p "${CACHE_DIR}"
 fi
 
 KERNEL_NAME="$(uname -s)"
 case "${KERNEL_NAME}" in
-    Darwin)
-            OS="macosx"
-            SHA256SUM="shasum -a 256"
-            STAT="/usr/bin/stat"
-            STAT_OPTS=('-f' '%c')
-            TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
-            ;;
-    Linux)
-           OS="linux"
-           SHA256SUM="sha256sum"
-           STAT="stat"
-           STAT_OPTS=('-c' '%Z')
-           TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
-           ;;
-    *) echo "Unknown operating system: ${KERNEL_NAME}"
-       exit 1
+  Darwin)
+          OS="macosx"
+          SHA256SUM="shasum -a 256"
+          STAT="/usr/bin/stat"
+          STAT_OPTS=('-f' '%c')
+          TEMP_DIR=$(/usr/bin/mktemp -dt asdf-java)
+          ;;
+  Linux)
+         OS="linux"
+         SHA256SUM="sha256sum"
+         STAT="stat"
+         STAT_OPTS=('-c' '%Z')
+         TEMP_DIR=$(mktemp -dp /tmp asdf-java.XXXXXXXX)
+         ;;
+  *) echo "Unknown operating system: ${KERNEL_NAME}"
+     exit 1
 esac
 
 trap 'test -d "${TEMP_DIR}" && rm -rf "${TEMP_DIR}"' EXIT
 
 MACHINE="$(uname -m)"
 case "${MACHINE}" in
-    x86_64) ARCHITECTURE="x86_64" ;;
-    aarch64|arm64) ARCHITECTURE="aarch64" ;;
-    armv7l) ARCHITECTURE="arm32-vfp-hflt" ;;
-    *) echo "Unknown machine architecture: ${MACHINE}"
-       exit 1
+  x86_64) ARCHITECTURE="x86_64" ;;
+  aarch64|arm64) ARCHITECTURE="aarch64" ;;
+  armv7l) ARCHITECTURE="arm32-vfp-hflt" ;;
+  *) echo "Unknown machine architecture: ${MACHINE}"
+     exit 1
 esac
 
 function check-unzip() {
@@ -49,137 +49,137 @@ function check-unzip() {
 }
 
 function retrieve-release-data() {
-    local cache_file="${CACHE_DIR}/releases.tsv"
+  local cache_file="${CACHE_DIR}/releases.tsv"
 
-    # shellcheck disable=SC2046
-    if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
-        curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
-    fi
+  # shellcheck disable=SC2046
+  if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
+    curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
+  fi
 }
 
 function list-all() {
-    retrieve-release-data
-    cut -d $'\t' -f 1 "${CACHE_DIR}/releases.tsv" | uniq | tr '\n' ' '
+  retrieve-release-data
+  cut -d $'\t' -f 1 "${CACHE_DIR}/releases.tsv" | uniq | tr '\n' ' '
 }
 
 function list-legacy-filenames() {
-    echo ".java-version"
+  echo ".java-version"
 }
 
 function install {
-    local release_data package_link package_filename checksum
-    local -a dirs
+  local release_data package_link package_filename checksum
+  local -a dirs
 
-    retrieve-release-data
+  retrieve-release-data
 
-    release_data=$(grep "^${ASDF_INSTALL_VERSION}	" "${CACHE_DIR}/releases.tsv" | tail -n 1)
-    if [[ -z "${release_data}" ]]; then
-        echo "Unknown release: ${ASDF_INSTALL_VERSION}"
-        exit 1
-    fi
+  release_data=$(grep "^${ASDF_INSTALL_VERSION}	" "${CACHE_DIR}/releases.tsv" | tail -n 1)
+  if [[ -z "${release_data}" ]]; then
+    echo "Unknown release: ${ASDF_INSTALL_VERSION}"
+    exit 1
+  fi
 
-    package_filename=$(cut -d $'\t' -f 2 <<<"${release_data}")
-    package_link=$(cut -d $'\t' -f 3 <<<"${release_data}")
-    checksum=$(cut -d $'\t' -f 4 <<<"${release_data}")
+  package_filename=$(cut -d $'\t' -f 2 <<<"${release_data}")
+  package_link=$(cut -d $'\t' -f 3 <<<"${release_data}")
+  checksum=$(cut -d $'\t' -f 4 <<<"${release_data}")
 
-    if [[ "${package_filename}" =~ "zip$" ]]; then
-        check-unzip
-    fi
+  if [[ "${package_filename}" =~ "zip$" ]]; then
+    check-unzip
+  fi
 
-    cd "${TEMP_DIR}" || return 1
-    if ! curl -LO -# -w "${package_filename}\n" "${package_link}"; then
-        exit 1
-    fi
+  cd "${TEMP_DIR}" || return 1
+  if ! curl -LO -# -w "${package_filename}\n" "${package_link}"; then
+    exit 1
+  fi
 
-    ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
+  ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
 
-    case "${package_filename}" in
-        *zip) unzip "${package_filename}"
-              ;;
-        *tar.gz) tar xf "${package_filename}"
-                 ;;
-        *) echo "Cannot extract ${package_filename}"
-           exit 1
-           ;;
-    esac
+  case "${package_filename}" in
+    *zip) unzip "${package_filename}"
+          ;;
+    *tar.gz) tar xf "${package_filename}"
+             ;;
+    *) echo "Cannot extract ${package_filename}"
+       exit 1
+       ;;
+  esac
 
-    read -r -a dirs <<<"$(ls -d ./*/)"
-    cd "${dirs[0]}" || return 1
-    if [ ! -d "${ASDF_INSTALL_PATH}" ]; then
-        mkdir -p "${ASDF_INSTALL_PATH}"
-    fi
+  read -r -a dirs <<<"$(ls -d ./*/)"
+  cd "${dirs[0]}" || return 1
+  if [ ! -d "${ASDF_INSTALL_PATH}" ]; then
+    mkdir -p "${ASDF_INSTALL_PATH}"
+  fi
 
-    case ${OS} in
-        macosx)
-            case ${ASDF_INSTALL_VERSION} in
-                zulu*)
-                    mv ./* "${ASDF_INSTALL_PATH}" 
-                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
-                        local macOS_integration_path
-                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
-                        java_macos_integration_install "$macOS_integration_path"
-                    fi
-                    ;;
-                liberica*)
-                    mv ./* "${ASDF_INSTALL_PATH}"
-                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
-                        echo "The ZIP packages of liberica do not contain the required files (Info.plist and the MacOS folder) to make /usr/libexec/java_home work correctly. You need the .pkg version to get those files."
-                    fi
-                    ;;
-                *)
-                    mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
-                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
-                        local macOS_integration_path
-                        macOS_integration_path="$(absolute_dir_path ".")"
-                        java_macos_integration_install "$macOS_integration_path"
-                    fi
-                    ;;
-            esac ;;
-        *) mv ./* "${ASDF_INSTALL_PATH}" ;;
-    esac
+  case ${OS} in
+    macosx)
+      case ${ASDF_INSTALL_VERSION} in
+        zulu*)
+          mv ./* "${ASDF_INSTALL_PATH}"
+          if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+              local macOS_integration_path
+              macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
+              java_macos_integration_install "$macOS_integration_path"
+          fi
+          ;;
+        liberica*)
+          mv ./* "${ASDF_INSTALL_PATH}"
+          if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+              echo "The ZIP packages of liberica do not contain the required files (Info.plist and the MacOS folder) to make /usr/libexec/java_home work correctly. You need the .pkg version to get those files."
+          fi
+          ;;
+        *)
+          mv Contents/Home/* "${ASDF_INSTALL_PATH}"
+          if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+              local macOS_integration_path
+              macOS_integration_path="$(absolute_dir_path ".")"
+              java_macos_integration_install "$macOS_integration_path"
+          fi
+          ;;
+      esac ;;
+    *) mv ./* "${ASDF_INSTALL_PATH}" ;;
+  esac
 }
 
 function uninstall {
-    case ${OS} in
-        macosx)
-        if [ -z "${ASDF_INSTALL_VERSION}" ]; then 
-                true
-        else 
-            if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
-                    java_macos_integration_remove
-            fi
-        fi
-    esac
-    rm -rf "${ASDF_INSTALL_PATH}"
+  case ${OS} in
+    macosx)
+    if [ -z "${ASDF_INSTALL_VERSION}" ]; then
+      true
+    else
+      if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+        java_macos_integration_remove
+      fi
+    fi
+  esac
+  rm -rf "${ASDF_INSTALL_PATH}"
 }
 
 function java_macos_integration_remove {
-    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
-    sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+  printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
+  sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
 }
 
 function java_macos_integration_install {
-    local macOS_files_path
-    macOS_files_path="$1"
-    printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
-    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
-    sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
-    sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
-    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
+  local macOS_files_path
+  macOS_files_path="$1"
+  printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
+  sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
+  sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+  sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+  sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
 }
 
 function absolute_dir_path {
-    local absolute_path
-    absolute_path="$( cd -P "$( dirname "$1" )" && pwd )"
-    echo "$absolute_path"
+  local absolute_path
+  absolute_path="$( cd -P "$( dirname "$1" )" && pwd )"
+  echo "$absolute_path"
 }
 
 case "$(basename "${0}")" in
-    list-all) list-all
-              ;;
-    list-legacy-filenames) list-legacy-filenames
-                           ;;
-    install) install
-             ;;
-    uninstall) uninstall ;;
+  list-all) list-all
+            ;;
+  list-legacy-filenames) list-legacy-filenames
+                         ;;
+  install) install
+           ;;
+  uninstall) uninstall ;;
 esac
