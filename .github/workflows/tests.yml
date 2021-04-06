@@ -51,6 +51,8 @@ jobs:
         echo "Found liberica-javafx-16"
         grep -q liberica-lite-11 data/jdk-macosx-x86_64.tsv
         echo "Found liberica-lite-11"
+        grep "graalvm-21" data/jdk-linux-aarch64.tsv | grep -q -v "graalvm-graalvm-21"
+        echo "Found graalvm-21"
     - name: macOS Check java_home integration
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
