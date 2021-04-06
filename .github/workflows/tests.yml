@@ -74,15 +74,16 @@ jobs:
         . $PWD/asdf/asdf.sh
         . set-java-home.bash
         _asdf_java_prompt_command
-        echo $JAVA_HOME | grep adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        echo $JAVA_HOME | grep -q adoptopenjdk-8.0.252+9.1.openj9-0.20.0
       shell: bash {0}
-    - name: Run JAVA_HOME setting test xonsh (returns success even though it might fail!)
+    - name: Run JAVA_HOME setting test xonsh
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        $RAISE_SUBPROC_ERROR = True
         source-bash $PWD/asdf/asdf.sh
         source set-java-home.xsh
-        echo $JAVA_HOME | grep adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        echo $JAVA_HOME | grep -q adoptopenjdk-8.0.252+9.1.openj9-0.20.0
       shell: xonsh {0}
     - name: Run JAVA_HOME setting test zsh
       env:
@@ -90,7 +91,7 @@ jobs:
       run: |
         source $HOME/.zshrc
         asdf_update_java_home
-        echo $JAVA_HOME | grep adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        echo $JAVA_HOME | grep -q adoptopenjdk-8.0.252+9.1.openj9-0.20.0
       shell: zsh {0}
     - name: Setup system tool-version test on macOS
       if: matrix.os == 'macOS-latest'
@@ -112,7 +113,7 @@ jobs:
       run: |
         cd system
         asdf_update_java_home
-        echo $JAVA_HOME | grep "/Library/Java/JavaVirtualMachines/"
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
       shell: fish {0}
     - name: Run system tool-version test on macOS with bash
       if: matrix.os == 'macOS-latest'
@@ -123,17 +124,18 @@ jobs:
         . set-java-home.bash
         cd system
         _asdf_java_prompt_command
-        echo $JAVA_HOME | grep "/Library/Java/JavaVirtualMachines/"
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
       shell: bash {0}
-    - name: Run system tool-version test on macOS with xonsh (returns success even though it might fail!)
+    - name: Run system tool-version test on macOS with xonsh
       if: matrix.os == 'macOS-latest'
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        $RAISE_SUBPROC_ERROR = True
         source-bash $PWD/asdf/asdf.sh
         source set-java-home.xsh
         cd system
-        echo $JAVA_HOME | grep "/Library/Java/JavaVirtualMachines/"
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
       shell: xonsh {0}
     - name: Run system tool-version test on macOS with zsh
       if: matrix.os == 'macOS-latest'
@@ -143,5 +145,5 @@ jobs:
         source $HOME/.zshrc
         cd system
         asdf_update_java_home
-        echo $JAVA_HOME | grep "/Library/Java/JavaVirtualMachines/"
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
       shell: zsh {0}
