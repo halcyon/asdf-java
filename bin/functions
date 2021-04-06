@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# If a command fails we want to abort right away, and we do not want to use unset variables
-set -euo pipefail
-
 # shellcheck source=/dev/null
 source "${ASDF_DIR}/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
 if [[ ! -d "${CACHE_DIR}" ]]
 then
-    mkdir -p "${CACHE_DIR}"
+    if ! mkdir -p "${CACHE_DIR}"; then
+      >&2 printf "Could not create cache dir: '%s'. Aborting.\n" "${CACHE_DIR}"
+      exit 1
+    fi
 fi
 
 KERNEL_NAME="$(uname -s)"
@@ -89,7 +89,7 @@ function install {
         check-unzip
     fi
 
-    cd "${TEMP_DIR}"
+    cd "${TEMP_DIR}" || exit 1
 
     if [[ "${OS}" == "macosx" &&
           "${ASDF_INSTALL_VERSION}" == "liberica"* &&
@@ -111,53 +111,72 @@ function install {
         fi
     fi
 
-    curl -LO -# -w "${package_filename}\n" "${package_link}"
+    curl -LO -# -w "${package_filename}\n" "${package_link}" || exit 1
 
-    ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
+    ${SHA256SUM} -c <<<"${checksum}  ${package_filename}" || exit 1
 
     case "${package_filename}" in
-        *zip) unzip -q "${package_filename}"
+        *zip) if ! unzip -q "${package_filename}"; then
+                printf "Could not unzip '%s'. Aborting.\n" "${package_filename}"
+                exit 1
+              fi
               ;;
-        *tar.gz) tar xf "${package_filename}"
+        *tar.gz) if ! tar xf "${package_filename}"; then
+                   printf "Could not extract tar '%s'. Aborting.\n" "${package_filename}"
+                   exit 1
+                 fi
                  ;;
-        *pkg) mkdir "${ASDF_INSTALL_VERSION}"
-              cd "${ASDF_INSTALL_VERSION}"
-              pkgutil --expand "../${package_filename}" tmp
-              gunzip -dc < tmp/*.pkg/Payload | cpio -i
+        *pkg) error="Could not unpack '%s'. Aborting.\n"
+              mkdir "${ASDF_INSTALL_VERSION}"
+              cd "${ASDF_INSTALL_VERSION}" || exit 1
+              if ! pkgutil --expand "../${package_filename}" tmp; then
+                # shellcheck disable=SC2059
+                printf "${error}" "$package_filename"
+                exit 1
+              fi
+              if ! gunzip -dc < tmp/*.pkg/Payload | cpio -i; then
+                # shellcheck disable=SC2059
+                printf "${error}" "$package_filename"
+                exit 1
+              fi
               rm -r tmp
               cd ..
               ;;
-        *) >&2 printf "Cannot extract %s\n" "${package_filename}"
+        *) >&2 printf "Don't know how to extract '%s'\n" "${package_filename}"
            exit 1
            ;;
     esac
 
     read -r -a dirs <<<"$(ls -d ./*/)"
-    cd "${dirs[0]}"
+    cd "${dirs[0]}" || exit 1
     if [[ ! -d "${ASDF_INSTALL_PATH}" ]]; then
-        mkdir -p "${ASDF_INSTALL_PATH}"
+        mkdir -p "${ASDF_INSTALL_PATH}" || exit 1
     fi
 
     case ${OS} in
         macosx)
             case ${ASDF_INSTALL_VERSION} in
                 zulu*)
-                    mv ./* "${ASDF_INSTALL_PATH}" 
+                    mv ./* "${ASDF_INSTALL_PATH}" || exit 1
                     if [[ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
                         local macOS_integration_path
                         macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
-                        java_macos_integration_install "$macOS_integration_path"
+                        if ! java_macos_integration_install "$macOS_integration_path"; then
+                          >&2 printf "Failed to install the /usr/libexec/java_home integration in '%s'" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+                        fi
                     fi
                     ;;
                 liberica*)
                     if [[ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" &&
                           "${package_filename}" = *".pkg" ]]; then
-                        mv Contents/Home/* "${ASDF_INSTALL_PATH}"
+                        mv Contents/Home/* "${ASDF_INSTALL_PATH}" || exit 1
                         local macOS_integration_path
                         macOS_integration_path="$(absolute_dir_path ".")"
-                        java_macos_integration_install "$macOS_integration_path"
+                        if ! java_macos_integration_install "$macOS_integration_path"; then
+                          >&2 printf "Failed to install the /usr/libexec/java_home integration in '%s'" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+                        fi
                     else
-                        mv ./* "${ASDF_INSTALL_PATH}"
+                        mv ./* "${ASDF_INSTALL_PATH}" || exit 1
                     fi
                     ;;
                 *) 
@@ -165,11 +184,14 @@ function install {
                     if [[ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
                         local macOS_integration_path
                         macOS_integration_path="$(absolute_dir_path ".")"
-                        java_macos_integration_install "$macOS_integration_path"
+                        if ! java_macos_integration_install "$macOS_integration_path"; then
+                          >&2 printf "Failed to install the /usr/libexec/java_home integration in '%s'" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+                        fi
                     fi
                     ;;
             esac ;;
-        *) mv ./* "${ASDF_INSTALL_PATH}" ;;
+        *) mv ./* "${ASDF_INSTALL_PATH}" || exit 1
+           ;;
     esac
 }
 
@@ -177,16 +199,18 @@ function uninstall {
     case ${OS} in
         macosx)
           if [[ -n "${ASDF_INSTALL_VERSION}" && "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]]; then
-              java_macos_integration_remove
+              if ! java_macos_integration_remove; then
+                >&2 printf "Removing the macos integration '%s' failed." "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+              fi
           fi
     esac
-    rm -rf "${ASDF_INSTALL_PATH}"
+    rm -rf "${ASDF_INSTALL_PATH}" || exit 1
 }
 
 function java_macos_integration_remove {
     if [[ -d "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}" ]]; then
         printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
-        sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+        sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}" || return 1
     fi
 }
 
@@ -194,10 +218,10 @@ function java_macos_integration_install {
     local macOS_files_path
     macOS_files_path="$1"
     printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
-    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
-    sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
-    sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
-    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
+    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents" || return 1
+    sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/" || sudo rm -r "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}" && return 1
+    sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/" || sudo rm -r "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}" && return 1
+    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home" || sudo rm -r "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}" && return 1
 }
 
 function absolute_dir_path {
