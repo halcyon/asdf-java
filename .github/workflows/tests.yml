@@ -41,11 +41,16 @@ jobs:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         ./update_data.bash
-        grep adoptopenjdk-openj9-11 data/jdk-linux-x86_64.tsv
-        grep adoptopenjdk-openj9-large_heap-11 data/jdk-macosx-x86_64.tsv
-        grep zulu-musl-11 data/jdk-linux-x86_64.tsv
-        grep liberica-javafx-16 data/jdk-linux-arm32-vfp-hflt.tsv
-        grep liberica-lite-11 data/jdk-macosx-x86_64.tsv
+        grep -q adoptopenjdk-openj9-11 data/jdk-linux-x86_64.tsv
+        echo "Found adoptopenjdk-openj9-11"
+        grep -q adoptopenjdk-openj9-large_heap-11 data/jdk-macosx-x86_64.tsv
+        echo "Found adoptopenjdk-openj9-large_heap-11"
+        grep -q zulu-musl-11 data/jdk-linux-x86_64.tsv
+        echo "Found zulu-musl-11 "
+        grep -q liberica-javafx-16 data/jdk-linux-arm32-vfp-hflt.tsv
+        echo "Found liberica-javafx-16"
+        grep -q liberica-lite-11 data/jdk-macosx-x86_64.tsv
+        echo "Found liberica-lite-11"
     - name: macOS Check java_home integration
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
