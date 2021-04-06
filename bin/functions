@@ -116,12 +116,17 @@ function install {
                     mv ./* "${ASDF_INSTALL_PATH}" 
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
-                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/release")")")")"
+                        macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
                         java_macos_integration_install "$macOS_integration_path"
                     fi
                     ;;
-                liberica*) mv ./* "${ASDF_INSTALL_PATH}" ;;
-                *) 
+                liberica*)
+                    mv ./* "${ASDF_INSTALL_PATH}"
+                    if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
+                        echo "The ZIP packages of liberica do not contain the required files (Info.plist and the MacOS folder) to make /usr/libexec/java_home work correctly. You need the .pkg version to get those files."
+                    fi
+                    ;;
+                *)
                     mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
