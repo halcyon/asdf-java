@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if [ -n "$ASDF_INSTALL_PATH" ]; then
+  export JAVA_HOME="$ASDF_INSTALL_PATH"
+fi
