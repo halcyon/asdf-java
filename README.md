@@ -55,7 +55,7 @@ For xonsh shell, instead use:
 ## macOS Integration
 Some applications in macOS use `/usr/libexec/java_home` to set java home.
 
-Setting java_macos_integration_enable to yes on `.asdfrc` file enables this integration.
+Setting java_macos_integration_enable to yes on `.asdfrc` file enables this integration. The `.asdfrc` file must be created before you install asdf-java.
 
 ```
 java_macos_integration_enable = yes
