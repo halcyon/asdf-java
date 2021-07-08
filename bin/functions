@@ -49,8 +49,7 @@ function check-unzip() {
 }
 
 function retrieve-release-data() {
-    local cache_file="${CACHE_DIR}/releases.tsv"
-
+    local cache_file="${CACHE_DIR}/releases-${OS}-${ARCHITECTURE}.tsv"
     # shellcheck disable=SC2046
     if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
         curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
@@ -59,7 +58,7 @@ function retrieve-release-data() {
 
 function list-all() {
     retrieve-release-data
-    cut -d $'\t' -f 1 "${CACHE_DIR}/releases.tsv" | uniq | tr '\n' ' '
+    cut -d $'\t' -f 1 "${CACHE_DIR}/releases-${OS}-${ARCHITECTURE}.tsv" | uniq | tr '\n' ' '
 }
 
 function list-legacy-filenames() {
@@ -72,7 +71,7 @@ function install {
 
     retrieve-release-data
 
-    release_data=$(grep "^${ASDF_INSTALL_VERSION}	" "${CACHE_DIR}/releases.tsv" | tail -n 1)
+    release_data=$(grep "^${ASDF_INSTALL_VERSION}	" "${CACHE_DIR}/releases-${OS}-${ARCHITECTURE}.tsv" | tail -n 1)
     if [[ -z "${release_data}" ]]; then
         echo "Unknown release: ${ASDF_INSTALL_VERSION}"
         exit 1
