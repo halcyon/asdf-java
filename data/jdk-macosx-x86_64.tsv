@@ -688,6 +688,8 @@ zulu-16.28.11	zulu16.28.11-ca-jdk16.0.0-macosx_x64.tar.gz	https://static.azul.co
 zulu-16.28.11	zulu16.28.11-ca-jdk16.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu16.28.11-ca-jdk16.0.0-macosx_x64.zip	73e224b1a87c58a94715761c6b244f8f8960f008b7efafe017a722790aeb0a7b
 zulu-16.30.15	zulu16.30.15-ca-jdk16.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu16.30.15-ca-jdk16.0.1-macosx_x64.tar.gz	1f403942ce9f0ba7bfd3f5e0b2f9cae68fcafd4f08cb048b4fb9d75644b030ca
 zulu-16.30.15	zulu16.30.15-ca-jdk16.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu16.30.15-ca-jdk16.0.1-macosx_x64.zip	194e60b60dfb238c32975c5863c3d306181f964371e2b1327404a56689a34368
+zulu-16.32.15	zulu16.32.15-ca-jdk16.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu16.32.15-ca-jdk16.0.2-macosx_x64.tar.gz	3578018ff2a2c5392768261ba3707eacea35d4d2261f90835085342e14c2b4ca
+zulu-16.32.15	zulu16.32.15-ca-jdk16.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu16.32.15-ca-jdk16.0.2-macosx_x64.zip	61d48b253e57e74f23309632d27ad0b1ef53182a8402445a15c7fa3a76a7560d
 zulu-javafx-8.33.0.1	zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	9c191562160b0b4b77dad5fe0c29ed9c39b4bd1e27df6986c1d665eb538524fa
 zulu-javafx-8.36.0.1	zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	162eb8befcab27be58bc3fa9f7ac21c0bcf4b48c9c39e9ebb4ffe0f3c9b54335
 zulu-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	61c7e2b570af1b222c8451434d7d6a48d53563d87720025806ac4d665785496c
