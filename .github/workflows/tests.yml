@@ -54,6 +54,7 @@ jobs:
         grep "graalvm-21" data/jdk-linux-aarch64.tsv | grep -q -v "graalvm-graalvm-21"
         echo "Found graalvm-21"
     - name: macOS Check java_home integration
+      if: matrix.os == 'macOS-latest'
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -61,4 +62,12 @@ jobs:
         echo "java_macos_integration_enable = yes" > "${ASDF_CONFIG_FILE}"
         . asdf/asdf.sh
         asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version zulu-8.52.0.23 /usr/libexec/java_home -V 2>&1 | grep "Zulu 8.52.0.23"
+    - name: macOS Check java_home integration Liberica
       if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        export ASDF_CONFIG_FILE=${HOME}"/.asdfrc"
+        echo "java_macos_integration_enable = yes" > "${ASDF_CONFIG_FILE}"
+        . asdf/asdf.sh
+        asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version liberica-11.0.4 /usr/libexec/java_home -V 2>&1 | grep "OpenJDK 11.0.4-BellSoft"
