@@ -16,10 +16,10 @@ jobs:
       TERM: dumb
     steps:
     - uses: actions/checkout@v2
-    - uses: mstksg/get-package@v1
+    - uses: delgurth/get-package@v3
       with:
-        brew: bash coreutils jq shellcheck
-        apt-get: jq shellcheck
+        brew: bash coreutils jq shellcheck fish xonsh zsh
+        apt-get: jq shellcheck zsh fish xonsh bash
     - name: Run ShellCheck
       run: |
         shellcheck -V
@@ -34,7 +34,7 @@ jobs:
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        . asdf/asdf.sh
+        . $PWD/asdf/asdf.sh
         asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version adoptopenjdk-8.0.252+9.1.openj9-0.20.0 java -version
     - name: Check update_data.bash
       env:
@@ -54,11 +54,113 @@ jobs:
         grep "graalvm-21" data/jdk-linux-aarch64.tsv | grep -q -v "graalvm-graalvm-21"
         echo "Found graalvm-21"
     - name: macOS Check java_home integration
+      if: matrix.os == 'macOS-latest'
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         export ASDF_CONFIG_FILE=${HOME}"/.asdfrc"
         echo "java_macos_integration_enable = yes" > "${ASDF_CONFIG_FILE}"
-        . asdf/asdf.sh
+        . $PWD/asdf/asdf.sh
         asdf plugin-test java "$GITHUB_WORKSPACE" --asdf-plugin-gitref "$GITHUB_SHA" --asdf-tool-version zulu-8.52.0.23 /usr/libexec/java_home -V 2>&1 | grep "Zulu 8.52.0.23"
+    - name: Setup JAVA_HOME setting
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        export ASDF_CONFIG_FILE=${HOME}"/.asdfrc"
+        echo "java_macos_integration_enable = yes" > "${ASDF_CONFIG_FILE}"
+        . $PWD/asdf/asdf.sh
+        asdf plugin add java "$GITHUB_WORKSPACE"
+        asdf install java adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        asdf global java adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+        echo ". $PWD/asdf/asdf.sh" >> $HOME/.zshrc
+        echo ". $HOME/.asdf/plugins/java/set-java-home.zsh" >> $HOME/.zshrc
+        mkdir -p $HOME/.config/fish/functions/
+        ln -s $HOME/.asdf/plugins/java/set-java-home.fish $HOME/.config/fish/functions/asdf_update_java_home.fish
+        echo "source $PWD/asdf/asdf.fish" >> $HOME/.config/fish/config.fish
+        echo "asdf_update_java_home" >> $HOME/.config/fish/config.fish
+    - name: Run JAVA_HOME setting test fish
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo $JAVA_HOME | grep adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+      shell: fish {0}
+    - name: Run JAVA_HOME setting test bash
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        . $PWD/asdf/asdf.sh
+        . set-java-home.bash
+        _asdf_java_prompt_command
+        echo $JAVA_HOME | grep -q adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+      shell: bash {0}
+    - name: Run JAVA_HOME setting test xonsh
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $RAISE_SUBPROC_ERROR = True
+        source-bash $PWD/asdf/asdf.sh
+        source set-java-home.xsh
+        echo $JAVA_HOME | grep -q adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+      shell: xonsh {0}
+    - name: Run JAVA_HOME setting test zsh
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        source $HOME/.zshrc
+        asdf_update_java_home
+        echo $JAVA_HOME | grep -q adoptopenjdk-8.0.252+9.1.openj9-0.20.0
+      shell: zsh {0}
+    - name: Setup system tool-version test on macOS
       if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        export ASDF_CONFIG_FILE=${HOME}"/.asdfrc"
+        echo "java_macos_integration_enable = yes" > "${ASDF_CONFIG_FILE}"
+        . $PWD/asdf/asdf.sh
+        . set-java-home.bash
+        asdf install java zulu-16.28.11
+        mkdir system
+        cd system
+        echo "java system" > .tool-versions
+    - name: Run system tool-version test on macOS with fish
+      if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        cd system
+        asdf_update_java_home
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
+      shell: fish {0}
+    - name: Run system tool-version test on macOS with bash
+      if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        . $PWD/asdf/asdf.sh
+        . set-java-home.bash
+        cd system
+        _asdf_java_prompt_command
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
+      shell: bash {0}
+    - name: Run system tool-version test on macOS with xonsh
+      if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        $RAISE_SUBPROC_ERROR = True
+        source-bash $PWD/asdf/asdf.sh
+        source set-java-home.xsh
+        cd system
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
+      shell: xonsh {0}
+    - name: Run system tool-version test on macOS with zsh
+      if: matrix.os == 'macOS-latest'
+      env:
+        GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        source $HOME/.zshrc
+        cd system
+        asdf_update_java_home
+        echo $JAVA_HOME | grep -q "/Library/Java/JavaVirtualMachines/"
+      shell: zsh {0}
