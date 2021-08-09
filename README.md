@@ -52,7 +52,10 @@ For xonsh shell, instead use:
 
 `source ~/.asdf/plugins/java/set-java-home.xsh`
 
-## macOS Integration
+## macOS
+
+### `JAVA_HOME` integration
+
 Some applications in macOS use `/usr/libexec/java_home` to set java home.
 
 Setting java_macos_integration_enable to yes on `.asdfrc` file enables this integration.
@@ -61,4 +64,10 @@ Setting java_macos_integration_enable to yes on `.asdfrc` file enables this inte
 java_macos_integration_enable = yes
 ```
 
-_Note: Not all distributions of Java JDK packages offer this integration (eg. liberica). This option only works for packages that **do offer** that integration._
+_Note: Not all distributions of Java JDK packages offer this integration (e.g. liberica). This option only works for packages that **do offer** that integration._
+
+### Apple Silicon integration
+
+If you have an Apple Silicon mac, then you can choose to run either an `arm64` JVM natively, or an `x86_64` JVM under Rosetta translation. If you run the command `arch`, it will print either `arm64` (which means you are running natively) or `x86_64` (which means you are running under Rosetta translation).
+
+When you run `asdf list all java`, it lists only the VMs which are available for the architecture you are currently running under. To switch your terminal from native ARM to Rosetta use `arch -x86_64 /bin/zsh`.
