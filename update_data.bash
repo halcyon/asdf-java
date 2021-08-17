@@ -16,15 +16,17 @@ fi
 function metadata_url {
 	local os=$1
 	local arch=$2
+	local type=$3
 
-	echo "https://joschi.github.io/java-metadata/metadata/ga/${os}/${arch}/jdk.json"
+	echo "https://joschi.github.io/java-metadata/metadata/ga/${os}/${arch}/${type}.json"
 }
 
 function fetch_metadata {
 	local os=$1
 	local arch=$2
+	local type=$3
 	local url
-	url=$(metadata_url "$os" "$arch")
+	url=$(metadata_url "$os" "$arch" "$type")
 
 	local args=('-s' '-f' '--compressed' '-H' "Accept: application/json")
 	if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
@@ -38,14 +40,15 @@ for OS in $LIST_OS
 do
 	for ARCH in $LIST_ARCH
 	do
-		fetch_metadata "$OS" "$ARCH"
+		fetch_metadata "$OS" "$ARCH" "jdk"
+		fetch_metadata "$OS" "$ARCH" "jre"
 	done
 done
 
 RELEASE_QUERY='.[]
   | select(.file_type | IN("tar.gz", "zip"))
   | .["features"] = (.features | map(select(IN("musl", "javafx", "lite", "large_heap"))))
-  | [([.vendor, if (.jvm_impl == "openj9") then .jvm_impl else empty end, if ((.features | length) == 0) then empty else (.features | join("-")) end, .version] | join("-")), .filename, .url, .sha256]
+  | [([.vendor, if (.image_type == "jre") then .image_type else empty end, if (.jvm_impl == "openj9") then .jvm_impl else empty end, if ((.features | length) == 0) then empty else (.features | join("-")) end, .version] | join("-")), .filename, .url, .sha256]
   | @tsv'
 for FILE in "${DATA_DIR}"/*.json
 do
