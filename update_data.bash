@@ -16,17 +16,15 @@ fi
 function metadata_url {
 	local os=$1
 	local arch=$2
-	local type=$3
 
-	echo "https://joschi.github.io/java-metadata/metadata/ga/${os}/${arch}/${type}.json"
+	echo "https://joschi.github.io/java-metadata/metadata/ga/${os}/${arch}.json"
 }
 
 function fetch_metadata {
 	local os=$1
 	local arch=$2
-	local type=$3
 	local url
-	url=$(metadata_url "$os" "$arch" "$type")
+	url=$(metadata_url "$os" "$arch")
 
 	local args=('-s' '-f' '--compressed' '-H' "Accept: application/json")
 	if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
@@ -40,8 +38,7 @@ for OS in $LIST_OS
 do
 	for ARCH in $LIST_ARCH
 	do
-		fetch_metadata "$OS" "$ARCH" "jdk"
-		fetch_metadata "$OS" "$ARCH" "jre"
+		fetch_metadata "$OS" "$ARCH"
 	done
 done
 
