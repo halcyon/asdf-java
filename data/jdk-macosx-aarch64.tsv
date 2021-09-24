@@ -1,3 +1,4 @@
+adoptopenjdk-17.0.0+35	OpenJDK17-jdk_aarch64_mac_hotspot_17_35.tar.gz	https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17%2B35/OpenJDK17-jdk_aarch64_mac_hotspot_17_35.tar.gz	910bb88543211c63298e5b49f7144ac4463f1d903926e94a89bfbf10163bbba1
 liberica-8u282+8	bellsoft-jdk8u282+8-macos-aarch64.zip	https://github.com/bell-sw/Liberica/releases/download/8u282+8/bellsoft-jdk8u282+8-macos-aarch64.zip	abce8a2431c55d28b880eac5696e3034b1b2ac3e3a7fe2899c6d33da03ba76e7
 liberica-8u292+10	bellsoft-jdk8u292+10-macos-aarch64.zip	https://github.com/bell-sw/Liberica/releases/download/8u292+10/bellsoft-jdk8u292+10-macos-aarch64.zip	21ca52f9c292eae70eb695795b830a25eadc0e0a8f07218024b571bf46139f01
 liberica-8u292+11	bellsoft-jdk8u292+11-macos-aarch64.zip	https://github.com/bell-sw/Liberica/releases/download/8u292+11/bellsoft-jdk8u292+11-macos-aarch64.zip	a3328335c4f927f4e9a7c952f31b0dcba33d6990a87d7e2cce2a91a9ea9a675c
