@@ -10,6 +10,7 @@ function _asdf_java_update_java_home() {
   if [[ -n "${java_path}" ]]; then
     export JAVA_HOME
     JAVA_HOME="$(dirname "$(_asdf_java_absolute_dir_path "${java_path}")")"
+    export JDK_HOME=${JAVA_HOME}
   fi
 }
 
