@@ -564,8 +564,10 @@ liberica-lite-17.0.1+12	bellsoft-jdk17.0.1+12-macos-amd64-lite.tar.gz	https://gi
 liberica-lite-17.0.1+12	bellsoft-jdk17.0.1+12-macos-amd64-lite.zip	https://github.com/bell-sw/Liberica/releases/download/17.0.1+12/bellsoft-jdk17.0.1+12-macos-amd64-lite.zip	ed003c378066885ce233611096cb9fab7d3393c1b6f8940ce2b1f8483d645d97
 microsoft-11.0.11.9.1	microsoft-jdk-11.0.11.9.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.11.9.1-macOS-x64.tar.gz	eee723e69717e18c9a2094a1d7a0ee2ab29f38e5ec5fec623bfde1b626827cf5
 microsoft-11.0.12.7.1	microsoft-jdk-11.0.12.7.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.12.7.1-macOS-x64.tar.gz	3ffdeb0b39f010ea0a2c188816f88d3d839f9b945b6c8680adb070d8788ba2c6
+microsoft-11.0.13.8.1	microsoft-jdk-11.0.13.8.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.13.8.1-macOS-x64.tar.gz	5b9e49f0c64b32155ecbd9ce6a0cbfd70f6081091bc9a8c3bf8b7e160cfcae50
 microsoft-16.0.1.9.1	microsoft-jdk-16.0.1.9.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.1.9.1-macOS-x64.tar.gz	21530b843ba3ac7524cb77af725e5f3a607a94f04cc2e9176901a30073a18c38
 microsoft-16.0.2.7.1	microsoft-jdk-16.0.2.7.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.2.7.1-macOS-x64.tar.gz	902ce95b3175ebe7bce52f8a2b6c1e291c6f688bd6da225e079e2ee84b98f7d2
+microsoft-17.0.1.12.1	microsoft-jdk-17.0.1.12.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.1.12.1-macOS-x64.tar.gz	55e1141d01d47b3f486b1ae79e6bcc0406b6696525f7334394d428376fc0d3ee
 microsoft-17.35.1	microsoft-jdk-17.35.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.35.1-macOS-x64.tar.gz	c0f2d4c9b66bd3f73095afe16ae0571dcb479cbc04ce471fe4bb38c037baf1b1
 openjdk-9.0.4	openjdk-9.0.4_osx-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_osx-x64_bin.tar.gz	66415406716fc42cff36e2d74ae991d46c42b3cf317b0425c7bf67697c616716
 openjdk-10	openjdk-10_osx-x64_bin.tar.gz	https://download.java.net/java/GA/jdk10/10/binaries/openjdk-10_osx-x64_bin.tar.gz	ce356672f5432a515438ed4e2b7513003f4be3cc3361019360cefd5137692b77
