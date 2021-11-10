@@ -46,7 +46,7 @@ RELEASE_QUERY='.[]
   | select(.file_type | IN("tar.gz", "zip"))
   | select(.image_type | IN("jdk", "jre"))
   | .["features"] = (.features | map(select(IN("musl", "javafx", "lite", "large_heap"))))
-  | [([.vendor, if (.image_type == "jre") then .image_type else empty end, if (.jvm_impl == "openj9") then .jvm_impl else empty end, if ((.features | length) == 0) then if (.filename | contains("alpine")) then "musl" else empty end else (.features | join("-")) end, .version] | join("-")), .filename, .url, .sha256]
+  | [([.vendor, if (.image_type == "jre") then .image_type else empty end, if (.jvm_impl == "openj9") then .jvm_impl else empty end, if ((.features | length) == 0) then empty else (.features | join("-")) end, .version] | join("-")), .filename, .url, .sha256]
   | @tsv'
 for FILE in "${DATA_DIR}"/*.json
 do
