@@ -4,7 +4,8 @@ source "${ASDF_DIR:-$HOME/.asdf}/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
 if [ ! "${BASH_VERSINFO:-0}" -ge 5 ]; then
-  echo "Bash 5 or higher is required for asdf-java"
+  echo "Bash 5 or higher is required for asdf-java."
+  echo "Please refer to the requirements for more info: https://github.com/halcyon/asdf-java#requirements"
   exit 1
 fi
 
