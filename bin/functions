@@ -3,6 +3,11 @@
 source "${ASDF_DIR:-$HOME/.asdf}/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
+if [ ! "${BASH_VERSINFO:-0}" -ge 5 ]; then
+  echo "Bash 5 or higher is required for asdf-java"
+  exit 1
+fi
+
 if [ ! -d "${CACHE_DIR}" ]
 then
     mkdir -p "${CACHE_DIR}"
