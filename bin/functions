@@ -52,7 +52,16 @@ function retrieve-release-data() {
     local cache_file="${CACHE_DIR}/releases-${OS}-${ARCHITECTURE}.tsv"
     # shellcheck disable=SC2046
     if [[ ! -r "${cache_file}" ]] || (( $($STAT "${STAT_OPTS[@]}" "${cache_file}") <= $(date +%s) - 3600 )) ; then
-        curl -s -f --compressed -L "https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}.tsv" -o "${cache_file}"
+        local base_url="https://raw.githubusercontent.com/halcyon/asdf-java/master/data/jdk-${OS}-${ARCHITECTURE}"
+        local url
+        case "$(get_asdf_config_value "java_release_type")" in
+            ga) url="$base_url-ga.tsv" ;;
+            ea) url="$base_url-ea.tsv" ;;
+            all) url="$base_url.tsv" ;;
+            *) url="$base_url-ga.tsv" ;;
+        esac
+
+        curl -s -f --compressed -L "${url}" -o "${cache_file}"
     fi
 }
 

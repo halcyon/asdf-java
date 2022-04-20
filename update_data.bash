@@ -5,6 +5,7 @@ set -Euo pipefail
 # See https://joschi.github.io/java-metadata/ for supported values
 LIST_OS="linux macosx"
 LIST_ARCH="x86_64 aarch64 arm32-vfp-hflt"
+LIST_RELEASE_TYPE="ga ea"
 
 DATA_DIR="./data"
 
@@ -16,22 +17,28 @@ fi
 function metadata_url {
 	local os=$1
 	local arch=$2
+	local release=$3
 
-	echo "https://joschi.github.io/java-metadata/metadata/ga/${os}/${arch}.json"
+	echo "https://joschi.github.io/java-metadata/metadata/${release}/${os}/${arch}.json"
 }
 
 function fetch_metadata {
 	local os=$1
 	local arch=$2
-	local url
-	url=$(metadata_url "$os" "$arch")
 
 	local args=('-s' '-f' '--compressed' '-H' "Accept: application/json")
 	if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
 		args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
 	fi
 
-	curl "${args[@]}" -o "${DATA_DIR}/jdk-${os}-${arch}.json" "${url}"
+	for RELEASE_TYPE in $LIST_RELEASE_TYPE
+	do
+		local url
+		url=$(metadata_url "$os" "$arch" "$RELEASE_TYPE")
+		curl "${args[@]}" -o "${DATA_DIR}/jdk-${os}-${arch}-${RELEASE_TYPE}.json" "${url}"
+	done
+
+	cat "${DATA_DIR}/jdk-${os}-${arch}"-*.json | jq -s 'add' > "${DATA_DIR}/jdk-${os}-${arch}.json"
 }
 
 for OS in $LIST_OS
@@ -50,5 +57,5 @@ RELEASE_QUERY='.[]
 for FILE in "${DATA_DIR}"/*.json
 do
 	TSV_FILE="$(basename "${FILE}" .json).tsv"
- 	jq -r "${RELEASE_QUERY}" "${FILE}" | sort -V > "${DATA_DIR}/${TSV_FILE}"
+	jq -r "${RELEASE_QUERY}" "${FILE}" | sort -V > "${DATA_DIR}/${TSV_FILE}"
 done
