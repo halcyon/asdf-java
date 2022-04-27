@@ -25,27 +25,27 @@ function metadata_url {
 function fetch_metadata {
 	local os=$1
 	local arch=$2
+	local release=$3
 
 	local args=('-s' '-f' '--compressed' '-H' "Accept: application/json")
 	if [[ -n "${GITHUB_API_TOKEN:-}" ]]; then
 		args+=('-H' "Authorization: token $GITHUB_API_TOKEN")
 	fi
 
-	for RELEASE_TYPE in $LIST_RELEASE_TYPE
-	do
-		local url
-		url=$(metadata_url "$os" "$arch" "$RELEASE_TYPE")
-		curl "${args[@]}" -o "${DATA_DIR}/jdk-${os}-${arch}-${RELEASE_TYPE}.json" "${url}"
-	done
-
-	cat "${DATA_DIR}/jdk-${os}-${arch}"-*.json | jq -s 'add' > "${DATA_DIR}/jdk-${os}-${arch}.json"
+	local url
+	url=$(metadata_url "$os" "$arch" "$release")
+	curl "${args[@]}" -o "${DATA_DIR}/jdk-${os}-${arch}-${release}.json" "${url}"
 }
 
 for OS in $LIST_OS
 do
 	for ARCH in $LIST_ARCH
 	do
-		fetch_metadata "$OS" "$ARCH"
+		for RELEASE_TYPE in $LIST_RELEASE_TYPE
+		do
+			fetch_metadata "$OS" "$ARCH" "$RELEASE_TYPE"
+		done
+		cat "${DATA_DIR}/jdk-${OS}-${ARCH}"-*.json | jq -s 'add' > "${DATA_DIR}/jdk-${OS}-${ARCH}.json"
 	done
 done
 
