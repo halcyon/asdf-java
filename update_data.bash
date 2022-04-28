@@ -45,7 +45,8 @@ do
 		do
 			fetch_metadata "$OS" "$ARCH" "$RELEASE_TYPE"
 		done
-		cat "${DATA_DIR}/jdk-${OS}-${ARCH}"-*.json | jq -s 'add' > "${DATA_DIR}/jdk-${OS}-${ARCH}.json"
+		cat "${DATA_DIR}/jdk-${OS}-${ARCH}"-*.json | jq -s 'add' > "${DATA_DIR}/jdk-${OS}-${ARCH}-all.json"
+		ln -s "jdk-${OS}-${ARCH}-ga.json" "${DATA_DIR}/jdk-${OS}-${ARCH}.json"
 	done
 done
 
