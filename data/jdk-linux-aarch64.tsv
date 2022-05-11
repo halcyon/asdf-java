@@ -548,6 +548,7 @@ mandrel-22.1.0.0-Final+java17	mandrel-java17-linux-aarch64-22.1.0.0-Final.tar.gz
 microsoft-11.0.12.7.1	microsoft-jdk-11.0.12.7.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.12.7.1-linux-aarch64.tar.gz	659fdb96c1cc13a56512b91dc765e43d683e6d211bf83bb7fe29421ad6d5a1bd
 microsoft-11.0.13.8.1	microsoft-jdk-11.0.13.8.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.13.8.1-linux-aarch64.tar.gz	2017ea5ad7c7b4e890a588325c7fb06f8e3495ef0f584ebab9b50e271fcf0c85
 microsoft-11.0.14.9.1	microsoft-jdk-11.0.14.9.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.14.9.1-linux-aarch64.tar.gz	d2f74ffbbc0b728dc6cabe216bf42d82d44add7cb55b543db1f7ffa5f5b069c3
+microsoft-11.0.15	microsoft-jdk-11.0.15-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.15-linux-aarch64.tar.gz	96e8cfbd91d7fb03fa8f1f50f2df6139f53efce2460ba0f5f50b76b63eb551a8
 microsoft-16.0.1.9.1	microsoft-jdk-16.0.1.9.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.1.9.1-linux-aarch64.tar.gz	72a80321714888de6bdbf60ac321eaf3f4f199c195895a268a501409be826a62
 microsoft-16.0.2.7.1	microsoft-jdk-16.0.2.7.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.2.7.1-linux-aarch64.tar.gz	d5636f05a9664bcc04ebffaa694548a74d95ce3ff6e4c56930d15de76ae1ed23
 microsoft-17.0.1.12.1	microsoft-jdk-17.0.1.12.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.1.12.1-linux-aarch64.tar.gz	cd802f8c3a6f230692c56530a2b662bc60252c87ddf2aba2effe5b8d311699a3
