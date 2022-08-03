@@ -2,4 +2,9 @@
 
 if [ -n "$ASDF_INSTALL_PATH" ]; then
   export JAVA_HOME="$ASDF_INSTALL_PATH"
+  # macos jdk
+  if test -d "$JAVA_HOME"/*.jdk; then
+    real_path=("$ASDF_INSTALL_PATH"/*.jdk/Contents/Home)
+    export JAVA_HOME="$real_path"
+  fi
 fi
