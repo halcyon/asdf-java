@@ -15,11 +15,13 @@ function _asdf_java_update_java_home() {
 }
 
 function _asdf_java_prompt_command() {
+  local e=$?
   if [[ "${PWD}" == "${LAST_PWD}" ]]; then
-    return
+    return $e
   fi
   LAST_PWD="${PWD}"
   _asdf_java_update_java_home
+  return $e
 }
 
 if ! [[ "${PROMPT_COMMAND:-}" =~ _asdf_java_prompt_command ]]; then
