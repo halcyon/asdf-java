@@ -61,7 +61,7 @@ function retrieve-release-data() {
             *) url="$base_url-ga.tsv" ;;
         esac
 
-        curl -s -f --compressed -L "${url}" -o "${cache_file}"
+        curl -sS --compressed -L "${url}" -o "${cache_file}"
     fi
 }
 
