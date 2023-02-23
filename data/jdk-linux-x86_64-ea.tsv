@@ -1228,6 +1228,7 @@ zulu-21.0.19	zulu21.0.19-ea-jdk21.0.0-ea.5-linux_x64.tar.gz	https://static.azul.
 zulu-21.0.21	zulu21.0.21-ea-jdk21.0.0-ea.6-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.21-ea-jdk21.0.0-ea.6-linux_x64.tar.gz	90629dffc362eb48b793a76dbd35fbebec3e8c060a224e07a143b75daef74fb8
 zulu-21.0.25	zulu21.0.25-ea-jdk21.0.0-ea.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.25-ea-jdk21.0.0-ea.7-linux_x64.tar.gz	2bf30f609f57ebf7c077265b03bd87a984a0119410c908bd2e8bd7df1e34bcb1
 zulu-21.0.27	zulu21.0.27-ea-jdk21.0.0-ea.8-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.27-ea-jdk21.0.0-ea.8-linux_x64.tar.gz	15d7d2f3a929b1dcbbd8ea6a99c8752610788178f666606299c322efc2f45a8d
+zulu-21.0.29	zulu21.0.29-ea-jdk21.0.0-ea.9-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.29-ea-jdk21.0.0-ea.9-linux_x64.tar.gz	ab8725ee55a199d9f4bdd74a7bf62e809615567940040fe6390bfb1cb62f676a
 zulu-musl-14.0.41	zulu14.0.41-ea-jdk14.0.0-ea.36-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu14.0.41-ea-jdk14.0.0-ea.36-linux_musl_x64.tar.gz	10911b7bd2e72b846d4f829ab164fb449df872dbee38b689befe9a5e23e163a0
 zulu-musl-15.0.23	zulu15.0.23-ea-jdk15.0.0-ea.10-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu15.0.23-ea-jdk15.0.0-ea.10-linux_musl_x64.tar.gz	77ac5b853034acbf4bc02495d920a988c2b5d31dfb2b4c69eaa73e4c1126fe3e
 zulu-musl-15.0.23	zulu15.0.23-ea-jdk15.0.0-ea.10-linux_musl_x64.zip	https://static.azul.com/zulu/bin/zulu15.0.23-ea-jdk15.0.0-ea.10-linux_musl_x64.zip	f6b89e0c66ae517ff4d92c90496ce360dfa341c1ce4ab976c2cbcff051cfdcea
@@ -1416,3 +1417,4 @@ zulu-musl-21.0.19	zulu21.0.19-ea-jdk21.0.0-ea.5-linux_musl_x64.tar.gz	https://st
 zulu-musl-21.0.21	zulu21.0.21-ea-jdk21.0.0-ea.6-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.21-ea-jdk21.0.0-ea.6-linux_musl_x64.tar.gz	7dba48071774b4b022cc13c65f941bffefcdf462e1ffb8166a201c22d92cf30c
 zulu-musl-21.0.25	zulu21.0.25-ea-jdk21.0.0-ea.7-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.25-ea-jdk21.0.0-ea.7-linux_musl_x64.tar.gz	de956863985ffb255efc0342ca2b0661644794171909f35284d6f07a9a7b59c9
 zulu-musl-21.0.27	zulu21.0.27-ea-jdk21.0.0-ea.8-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.27-ea-jdk21.0.0-ea.8-linux_musl_x64.tar.gz	1a57170cda5c5898c23cd5ea1627de4b9d5fc2ad9928c87faa831326d955f8d6
+zulu-musl-21.0.29	zulu21.0.29-ea-jdk21.0.0-ea.9-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.29-ea-jdk21.0.0-ea.9-linux_musl_x64.tar.gz	7b8c86cd53cefc0fb18a881b154f377b71cfb37140aef22c9a6c82ca8d68f6ef
