@@ -384,6 +384,8 @@ corretto-18.0.2.9.1	amazon-corretto-18.0.2.9.1-macosx-x64.tar.gz	https://corrett
 corretto-19.0.0.36.1	amazon-corretto-19.0.0.36.1-macosx-x64.tar.gz	https://corretto.aws/downloads/resources/19.0.0.36.1/amazon-corretto-19.0.0.36.1-macosx-x64.tar.gz	68e685a135f05a09c60b4801e0132545fb2201c62df56df918eb0c1af33a031b
 corretto-19.0.1.10.1	amazon-corretto-19.0.1.10.1-macosx-x64.tar.gz	https://corretto.aws/downloads/resources/19.0.1.10.1/amazon-corretto-19.0.1.10.1-macosx-x64.tar.gz	9de65ad7cfcfcb0f28251f2bf11e0a42ebccd7c645e5df128e10df044ebcccd5
 corretto-19.0.2.7.1	amazon-corretto-19.0.2.7.1-macosx-x64.tar.gz	https://corretto.aws/downloads/resources/19.0.2.7.1/amazon-corretto-19.0.2.7.1-macosx-x64.tar.gz	ea9129fc264155e8fdb5d53a9742cb5f4a3939b5ac8fd66df6d3fac3f87b2020
+corretto-20.0.0.33.1	amazon-corretto-20.0.0.33.1-macosx-x64.tar.gz	https://corretto.aws/downloads/resources/20.0.0.33.1/amazon-corretto-20.0.0.33.1-macosx-x64.tar.gz	a3480413f2a0baf31c06c6bc941302ce8d0e5b1b30f4afaff621c400c415bf87
+corretto-20.0.0.36.1	amazon-corretto-20.0.0.36.1-macosx-x64.tar.gz	https://corretto.aws/downloads/resources/20.0.0.36.1/amazon-corretto-20.0.0.36.1-macosx-x64.tar.gz	c0e2abd2b4236db53ae9bfae83f5488f0c97b2db44c030f2ea33399b15ca6c6c
 graalvm-1.0.0-rc5	graalvm-ce-1.0.0-rc5-macos-amd64.tar.gz	https://github.com/oracle/graal/releases/download/vm-1.0.0-rc5/graalvm-ce-1.0.0-rc5-macos-amd64.tar.gz	2c8a7ec707c9ea011190146387f8f3b702f8e4cadbaeefde88a03a3f508694d7
 graalvm-1.0.0-rc6	graalvm-ce-1.0.0-rc6-macos-amd64.tar.gz	https://github.com/oracle/graal/releases/download/vm-1.0.0-rc6/graalvm-ce-1.0.0-rc6-macos-amd64.tar.gz	4d7a64916b4e07c65fd7ea473f7975a7607cdfd847c462e8d9a89e26932454f0
 graalvm-1.0.0-rc7	graalvm-ce-1.0.0-rc7-macos-amd64.tar.gz	https://github.com/oracle/graal/releases/download/vm-1.0.0-rc7/graalvm-ce-1.0.0-rc7-macos-amd64.tar.gz	30fc2bd678dfc093656fe9ce785d2f66628bb60570ed22ce7dd40634c7fd4fa0
@@ -2950,6 +2952,8 @@ zulu-20.0.79	zulu20.0.79-ea-jdk20.0.0-ea.34-macosx_x64.tar.gz	https://static.azu
 zulu-20.0.79	zulu20.0.79-ea-jdk20.0.0-ea.34-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu20.0.79-ea-jdk20.0.0-ea.34-macosx_x64.zip	2fe5905dbb4cdd86476ea4565bfc7caa54ea0036d9f787270cd8e425e59de1e9
 zulu-20.0.83	zulu20.0.83-ea-jdk20.0.0-ea.36-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu20.0.83-ea-jdk20.0.0-ea.36-macosx_x64.tar.gz	b8fcd2a30a1d239f19f5a8c5e1c02e0008f39b6c6260aa79db202f2e867e2f52
 zulu-20.0.83	zulu20.0.83-ea-jdk20.0.0-ea.36-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu20.0.83-ea-jdk20.0.0-ea.36-macosx_x64.zip	030ef0757b8e3aa93e77c17cdc852a862b4bf03aff9a4713f3c667cc8618bf8a
+zulu-20.28.85	zulu20.28.85-ca-jdk20.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu20.28.85-ca-jdk20.0.0-macosx_x64.tar.gz	fde6cc17a194ea0d9b0c6c0cb6178199d8edfc282d649eec2c86a9796e843f86
+zulu-20.28.85	zulu20.28.85-ca-jdk20.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu20.28.85-ca-jdk20.0.0-macosx_x64.zip	f065f3eb951d15f26856ad8a9c1bb41dfffa9720cf731e13d9a82308ec162fa8
 zulu-21.0.11	zulu21.0.11-ea-jdk21.0.0-ea.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.11-ea-jdk21.0.0-ea.1-macosx_x64.tar.gz	4f26aea252a9c80788943f8efe315f7e50695e5ac1e3d3fd613f88513865c202
 zulu-21.0.11	zulu21.0.11-ea-jdk21.0.0-ea.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.11-ea-jdk21.0.0-ea.1-macosx_x64.zip	2b8d398bbb2d48eeec8ae49285665132d1dd83b6f98c89a2b1621e2cfba36b47
 zulu-21.0.13	zulu21.0.13-ea-jdk21.0.0-ea.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.13-ea-jdk21.0.0-ea.2-macosx_x64.tar.gz	9815e3a69664240128cdc6649a8c2d9fb1bf0c0f411db9403d4a1bfc056dcd08
@@ -3141,6 +3145,7 @@ zulu-javafx-19.30.11	zulu19.30.11-ca-fx-jdk19.0.1-macosx_x64.tar.gz	https://stat
 zulu-javafx-19.30.11	zulu19.30.11-ca-fx-jdk19.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu19.30.11-ca-fx-jdk19.0.1-macosx_x64.zip	d113c6bbe7029d36b29e9a659a8d18d7f08aec8bda01c75df0ce8e609ae0d2fb
 zulu-javafx-19.32.15	zulu19.32.15-ca-fx-jdk19.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu19.32.15-ca-fx-jdk19.0.2-macosx_x64.tar.gz	0302dc208774807e43e83514f02809dea9ca5509b6f0b5d88ab05e5c11f03d81
 zulu-javafx-19.32.15	zulu19.32.15-ca-fx-jdk19.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu19.32.15-ca-fx-jdk19.0.2-macosx_x64.zip	2dd562e3c2a02748795118cad68836eaf906543b3fa45807c5f7bfa41075e25d
+zulu-javafx-20.28.85	zulu20.28.85-ca-fx-jdk20.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu20.28.85-ca-fx-jdk20.0.0-macosx_x64.tar.gz	c04998c28aa6213d10cfdbb8c0b32ffba805db2b6e4b445cef2ecf8a5d75f67b
 zulu-jre-7.36.0.5	zulu7.36.0.5-ca-jre7.0.252-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.36.0.5-ca-jre7.0.252-macosx_x64.tar.gz	66b81970f20ec37f0979e37b4aa578142a3312a5b2de20eb362d160d80584b14
 zulu-jre-7.38.0.11	zulu7.38.0.11-ca-jre7.0.262-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.38.0.11-ca-jre7.0.262-macosx_x64.tar.gz	b65769b14ef89d8220a9d2c36d9ff9a2da148d95d4301117d833bfa3c5adefd5
 zulu-jre-7.40.0.15	zulu7.40.0.15-ca-jre7.0.272-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.40.0.15-ca-jre7.0.272-macosx_x64.tar.gz	7d93d45197eb2c8913d82f3cd53535ca4cd484adee1b55cbd9c160677265d521
@@ -3330,6 +3335,8 @@ zulu-jre-19.30.11	zulu19.30.11-ca-jre19.0.1-macosx_x64.tar.gz	https://static.azu
 zulu-jre-19.30.11	zulu19.30.11-ca-jre19.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu19.30.11-ca-jre19.0.1-macosx_x64.zip	4dc24c108b188c98ed80cd0550da365ae09d17ef7535922bf2f978053df6ab04
 zulu-jre-19.32.13	zulu19.32.13-ca-jre19.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu19.32.13-ca-jre19.0.2-macosx_x64.tar.gz	abd1c7b46def01477b44dfa40528d599345c059c8390bc155805714dd74663c4
 zulu-jre-19.32.13	zulu19.32.13-ca-jre19.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu19.32.13-ca-jre19.0.2-macosx_x64.zip	c305c5c345535e35a230d3a9e1e41399343366421dd1d026dc27d3ecae25cc51
+zulu-jre-20.28.85	zulu20.28.85-ca-jre20.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu20.28.85-ca-jre20.0.0-macosx_x64.tar.gz	effa83b78f1f61f0bbb14b35bf0c0995af7b3855a6aef46a935a89ccfa95b5f3
+zulu-jre-20.28.85	zulu20.28.85-ca-jre20.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu20.28.85-ca-jre20.0.0-macosx_x64.zip	c77401ad352e99eab3da185a380da3198fe2c15c435081965c5bf82534dd03d6
 zulu-jre-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jre8.0.212-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jre8.0.212-macosx_x64.tar.gz	b74705189adf33c4984a4810c2c0c89529bd22cb1daa68580c6a28262218d72f
 zulu-jre-javafx-8.40.0.25	zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.tar.gz	93c23b581699edbc8b079c16ad1f4e9b6c452333fa42cd9458f8f41804e0661a
 zulu-jre-javafx-8.40.0.25	zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.zip	e6f5d903f5fd10edcbecab54a359c2ff56b2907854a980aa73dbdd92e939fc16
@@ -3482,3 +3489,5 @@ zulu-jre-javafx-19.30.11	zulu19.30.11-ca-fx-jre19.0.1-macosx_x64.tar.gz	https://
 zulu-jre-javafx-19.30.11	zulu19.30.11-ca-fx-jre19.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu19.30.11-ca-fx-jre19.0.1-macosx_x64.zip	7eaf5270b60ed902e8aae5489e1683a64446d6c0f0ba3f2f4f0040aa860318e8
 zulu-jre-javafx-19.32.15	zulu19.32.15-ca-fx-jre19.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu19.32.15-ca-fx-jre19.0.2-macosx_x64.tar.gz	94d0857d04d477d4b52c2946a2b57693c83c3474925d724108b42c610d9bfbd6
 zulu-jre-javafx-19.32.15	zulu19.32.15-ca-fx-jre19.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu19.32.15-ca-fx-jre19.0.2-macosx_x64.zip	7f382d1ff2ce3b4f50162a93a5452841aaa1f4a3800b2a753056691dc10d6e99
+zulu-jre-javafx-20.28.85	zulu20.28.85-ca-fx-jre20.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu20.28.85-ca-fx-jre20.0.0-macosx_x64.tar.gz	01b0b95bb0865f03a2a151a29fea064e4411e20c5a97f157fdcf11b8e8a0f734
+zulu-jre-javafx-20.28.85	zulu20.28.85-ca-fx-jre20.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu20.28.85-ca-fx-jre20.0.0-macosx_x64.zip	c404d87a0e25387b53ed96dd0d786531ced4abc639e294751909307cbae8faa9
