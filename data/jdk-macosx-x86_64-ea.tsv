@@ -1287,6 +1287,8 @@ zulu-21.0.27	zulu21.0.27-ea-jdk21.0.0-ea.8-macosx_x64.tar.gz	https://static.azul
 zulu-21.0.27	zulu21.0.27-ea-jdk21.0.0-ea.8-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.27-ea-jdk21.0.0-ea.8-macosx_x64.zip	ec2d8f09d59996d6767e34278bb3c5fe4900a49663feb92923e8bbc2a5fab595
 zulu-21.0.29	zulu21.0.29-ea-jdk21.0.0-ea.9-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.29-ea-jdk21.0.0-ea.9-macosx_x64.tar.gz	e81e03daa280ab8bbb554bf3d8d4c2139f372acec073d53d65e04c05bde58728
 zulu-21.0.29	zulu21.0.29-ea-jdk21.0.0-ea.9-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.29-ea-jdk21.0.0-ea.9-macosx_x64.zip	30e30682d0a7d656e8769352b06c2ea02453c7e1bff4aec55c4080b305a392f9
+zulu-21.0.31	zulu21.0.31-ea-jdk21.0.0-ea.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.31-ea-jdk21.0.0-ea.10-macosx_x64.tar.gz	2f031416e8a6702cd223c52f21d8fac4fad09f8575bc7004ec403660ae072e0b
+zulu-21.0.31	zulu21.0.31-ea-jdk21.0.0-ea.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.31-ea-jdk21.0.0-ea.10-macosx_x64.zip	50d657a9254abe7843e4846f48ea2a7fef9f86c0eff644ad061368a16f9b1eb8
 zulu-21.0.33	zulu21.0.33-ea-jdk21.0.0-ea.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.33-ea-jdk21.0.0-ea.10-macosx_x64.tar.gz	edaddaf5568b0d8209333d1108baf95fa3f9e623cf47385b769c025f9cfcead8
 zulu-21.0.33	zulu21.0.33-ea-jdk21.0.0-ea.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.33-ea-jdk21.0.0-ea.10-macosx_x64.zip	4d65b930643b9b53a6888c303ab6e2430d1b0738c6eb3559c6487d7501ffb8ae
 zulu-21.0.35	zulu21.0.35-ea-jdk21.0.0-ea.11-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.35-ea-jdk21.0.0-ea.11-macosx_x64.tar.gz	530eff0da0cbdee554c8b6e9c616909471adc9e9dc9d143c95379bc539d95d6a
@@ -1295,6 +1297,8 @@ zulu-21.0.37	zulu21.0.37-ea-jdk21.0.0-ea.12-macosx_x64.tar.gz	https://static.azu
 zulu-21.0.37	zulu21.0.37-ea-jdk21.0.0-ea.12-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.37-ea-jdk21.0.0-ea.12-macosx_x64.zip	6f42c4707b70198cf37033355a80b20a38f2aa6439e29c36bd2ad8083544b029
 zulu-21.0.39	zulu21.0.39-ea-jdk21.0.0-ea.13-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.39-ea-jdk21.0.0-ea.13-macosx_x64.tar.gz	f8b806427c3c5dcaa6ffa6f0d58af0c3d078734edf8e260c7b7255ed1c2341cf
 zulu-21.0.39	zulu21.0.39-ea-jdk21.0.0-ea.13-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.39-ea-jdk21.0.0-ea.13-macosx_x64.zip	dde46d62d5f2bfa3bdc6fd21fe58988df233bcb92a610836fe1e186183de2589
+zulu-21.0.41	zulu21.0.41-ea-jdk21.0.0-ea.14-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.41-ea-jdk21.0.0-ea.14-macosx_x64.tar.gz	d6023cdd30ee11bb5af31e764a584395a0f94f025b6fa0bf85daad05f7ed68b2
+zulu-21.0.41	zulu21.0.41-ea-jdk21.0.0-ea.14-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.41-ea-jdk21.0.0-ea.14-macosx_x64.zip	f1a1baa486780aee1e07e79249c2c80c4993f4696c8b564eeecd1f611aeddfe9
 zulu-21.0.43	zulu21.0.43-ea-jdk21.0.0-ea.15-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.43-ea-jdk21.0.0-ea.15-macosx_x64.tar.gz	2cdac17807fef9ef5cc4fa2695042f95b3c72f15b0d48dbde124027d2bea282a
 zulu-21.0.43	zulu21.0.43-ea-jdk21.0.0-ea.15-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.0.43-ea-jdk21.0.0-ea.15-macosx_x64.zip	48a43fd01ede4e723f4dea4f4557d4c4bb762f605579c05397d6cf0f1a0b2f9a
 zulu-21.0.45	zulu21.0.45-ea-jdk21.0.0-ea.16-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.0.45-ea-jdk21.0.0-ea.16-macosx_x64.tar.gz	bde2acfc0f35f3770f19c8cbbb8c611028205a2d431e80dbaa3a238c032ea2e0
