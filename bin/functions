@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck source=/dev/null
-source "${ASDF_DIR:-$HOME/.asdf}/lib/utils.bash"
+source "${ASDF_DIR:-$(dirname $(dirname $(cut -d ' ' -f 2 "$(which asdf)" | tail -n 1 | sed -e 's/"//g')))}/lib/utils.bash"
 CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache"
 
 if [ ! -d "${CACHE_DIR}" ]
