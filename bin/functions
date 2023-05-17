@@ -120,7 +120,7 @@ function retrieve-release-data() {
         case "$(get_asdf_config_value "java_release_type")" in
             ga) url="$base_url-ga.tsv" ;;
             ea) url="$base_url-ea.tsv" ;;
-            all) url="$base_url.tsv" ;;
+            all) url="$base_url-all.tsv" ;;
             *) url="$base_url-ga.tsv" ;;
         esac
 
