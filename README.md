@@ -25,15 +25,44 @@ Check [asdf](https://asdf-vm.github.io/asdf/) for instructions on how to install
 
 List candidate JDKs:
 
-`asdf list-all java`
+```
+asdf list-all java
+```
 
 Install a candidate listed from the previous command like this:
 
-`asdf install java adopt-openjdk-12.0.2+10.2`
+```
+asdf install java adoptopenjdk-11.0.16+8
+```
+
+### Setting a version
 
 Select an installed candidate for use like this:
 
-`asdf global java adopt-openjdk-12.0.2+10.2`
+```
+asdf global java adoptopenjdk-11.0.16+8
+```
+or just for the local directory
+```
+asdf local java adoptopenjdk-11.0.16+8
+```
+
+### Latest
+
+If you just want the latest of a major version (without worrying about the patch number), install it like this:
+
+```
+asdf install java latest:adoptopenjdk-11
+```
+
+Similarly, you can set the global/local version. The latest tag will resolve to the most recent version.
+
+Running `asdf local java latest:adoptopenjdk-11` will result in the following:
+
+```
+$ cat .tool-versions
+java adoptopenjdk-11.0.16+8
+```
 
 ## JAVA_HOME
 To set JAVA_HOME in your shell's initialization add the following:
