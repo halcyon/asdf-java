@@ -2077,8 +2077,10 @@ zulu-17.38.21	zulu17.38.21-ca-jdk17.0.5-linux_x64.tar.gz	https://static.azul.com
 zulu-17.38.21	zulu17.38.21-ca-jdk17.0.5-linux_x64.zip	https://static.azul.com/zulu/bin/zulu17.38.21-ca-jdk17.0.5-linux_x64.zip	f1bcff35e5a90ad793988a7e828cc7bd9dd01dba541b99720953af248ac923e0
 zulu-17.40.19	zulu17.40.19-ca-jdk17.0.6-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.40.19-ca-jdk17.0.6-linux_x64.tar.gz	2867572c5af67d7bf4c53bf9d96c35977eebdfdbf26202c2dc7a1acbbea3f6b7
 zulu-17.40.19	zulu17.40.19-ca-jdk17.0.6-linux_x64.zip	https://static.azul.com/zulu/bin/zulu17.40.19-ca-jdk17.0.6-linux_x64.zip	54fe4ad012a25f4c86b69692ee3aa0650e8a944b71d55dfcfc85a8dddd3a9081
+zulu-17.42.19	zulu17.42.19-ca-crac-jdk17.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.42.19-ca-crac-jdk17.0.7-linux_x64.tar.gz	13adcee408b22a054c0735ca94af1347073ccf432a45e534b0f0aaa9e69a3ba1
 zulu-17.42.19	zulu17.42.19-ca-jdk17.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.42.19-ca-jdk17.0.7-linux_x64.tar.gz	28861f8292eab43290109c33e1ba7ff3776c44d043e7c8462d6c9702bf9fffe0
 zulu-17.42.19	zulu17.42.19-ca-jdk17.0.7-linux_x64.zip	https://static.azul.com/zulu/bin/zulu17.42.19-ca-jdk17.0.7-linux_x64.zip	6fa5f6ea71db229638e0374d6d2beb707576315ec3a199c43eebe6c2851e5ed6
+zulu-17.42.21	zulu17.42.21-ca-crac-jdk17.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.42.21-ca-crac-jdk17.0.7-linux_x64.tar.gz	8ccf6574afd80eb022a0e0416338e26225f7c803a19c75940daa8718de0693e5
 zulu-18.28.13	zulu18.28.13-ca-jdk18.0.0-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.28.13-ca-jdk18.0.0-linux_x64.tar.gz	959a94ca4097dcaabc7886784cec10dfdf2b0a3bff890ea8943cc09c5fff29cb
 zulu-18.28.13	zulu18.28.13-ca-jdk18.0.0-linux_x64.zip	https://static.azul.com/zulu/bin/zulu18.28.13-ca-jdk18.0.0-linux_x64.zip	2ca1e6100ebe08931af6dc127d5a303c164379f42532603c803f205f9517b1e1
 zulu-18.30.11	zulu18.30.11-ca-jdk18.0.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.30.11-ca-jdk18.0.1-linux_x64.tar.gz	975417f06145d3af06cb9b83fee2032f80fdae80766b1397157527c125bf00c1

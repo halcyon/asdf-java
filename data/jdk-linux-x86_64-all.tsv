@@ -3313,8 +3313,10 @@ zulu-17.38.21	zulu17.38.21-ca-jdk17.0.5-linux_x64.tar.gz	https://static.azul.com
 zulu-17.38.21	zulu17.38.21-ca-jdk17.0.5-linux_x64.zip	https://static.azul.com/zulu/bin/zulu17.38.21-ca-jdk17.0.5-linux_x64.zip	f1bcff35e5a90ad793988a7e828cc7bd9dd01dba541b99720953af248ac923e0
 zulu-17.40.19	zulu17.40.19-ca-jdk17.0.6-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.40.19-ca-jdk17.0.6-linux_x64.tar.gz	2867572c5af67d7bf4c53bf9d96c35977eebdfdbf26202c2dc7a1acbbea3f6b7
 zulu-17.40.19	zulu17.40.19-ca-jdk17.0.6-linux_x64.zip	https://static.azul.com/zulu/bin/zulu17.40.19-ca-jdk17.0.6-linux_x64.zip	54fe4ad012a25f4c86b69692ee3aa0650e8a944b71d55dfcfc85a8dddd3a9081
+zulu-17.42.19	zulu17.42.19-ca-crac-jdk17.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.42.19-ca-crac-jdk17.0.7-linux_x64.tar.gz	13adcee408b22a054c0735ca94af1347073ccf432a45e534b0f0aaa9e69a3ba1
 zulu-17.42.19	zulu17.42.19-ca-jdk17.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.42.19-ca-jdk17.0.7-linux_x64.tar.gz	28861f8292eab43290109c33e1ba7ff3776c44d043e7c8462d6c9702bf9fffe0
 zulu-17.42.19	zulu17.42.19-ca-jdk17.0.7-linux_x64.zip	https://static.azul.com/zulu/bin/zulu17.42.19-ca-jdk17.0.7-linux_x64.zip	6fa5f6ea71db229638e0374d6d2beb707576315ec3a199c43eebe6c2851e5ed6
+zulu-17.42.21	zulu17.42.21-ca-crac-jdk17.0.7-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.42.21-ca-crac-jdk17.0.7-linux_x64.tar.gz	8ccf6574afd80eb022a0e0416338e26225f7c803a19c75940daa8718de0693e5
 zulu-18.0.11	zulu18.0.11-ea-jdk18.0.0-ea.1-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.0.11-ea-jdk18.0.0-ea.1-linux_x64.tar.gz	c2c145dc6173f7191aa5de5be9fca2dac6793baf785243723f06f373ad5cb7d3
 zulu-18.0.13	zulu18.0.13-ea-jdk18.0.0-ea.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.0.13-ea-jdk18.0.0-ea.2-linux_x64.tar.gz	8d92b23da9511dc1de7b3d05310fbd2e14122f57c0f1d2e241f61e6d8353c7dc
 zulu-18.0.15	zulu18.0.15-ea-jdk18.0.0-ea.3-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.0.15-ea-jdk18.0.0-ea.3-linux_x64.tar.gz	aa0ce6c323bb01c857d8446e51a85f6627796b639a82d741043b15e92877fe71
