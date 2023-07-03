@@ -59,13 +59,13 @@ Similarly, you can set the global/local version. The latest tag will resolve to 
 
 Running `asdf local java latest:adoptopenjdk-11` will result in the following:
 
-```
+```shell
 $ cat .tool-versions
 java adoptopenjdk-11.0.16+8
 ```
 
 ## JAVA_HOME
-To set JAVA_HOME in your shell's initialization add the following:
+To set `JAVA_HOME` in your shell's initialization add the following:
 
 `. ~/.asdf/plugins/java/set-java-home.bash`
 
@@ -87,10 +87,10 @@ For xonsh shell, instead use:
 
 Some applications in macOS use `/usr/libexec/java_home` to set java home.
 
-Setting java_macos_integration_enable to yes on `.asdfrc` file enables this integration.
+Setting `java_macos_integration_enable` to yes on `.asdfrc` file enables this integration.
 
 ```
-java_macos_integration_enable = yes
+java_macos_integration_enable=yes
 ```
 
 _Note: Not all distributions of Java JDK packages offer this integration (e.g. liberica). This option only works for packages that **do offer** that integration._
