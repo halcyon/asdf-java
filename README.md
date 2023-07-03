@@ -64,6 +64,22 @@ $ cat .tool-versions
 java adoptopenjdk-11.0.16+8
 ```
 
+### Early Access builds
+
+If you want to use Early Access builds (they allow you to prepare for the next version of the JDK but they are not stable releases), you can set `java_release_type` in `.asdfrc`, the supported values are:
+- `ga`: You can only install GA (General Availability / stable) releases (default)
+- `ea`: You can only install EA (Early Access / unstable) builds
+- `all`: You can install both GA and EA builds
+
+After you set the value (e.g.: `java_release_type=all`), you need to prune the cache of asdf-java so that asdf will refresh the available versions to install:
+```shell
+export ASDF_JAVA_CACHE_DIR="${TMPDIR:-/tmp}/asdf-java.cache/"
+ls -al "$ASDF_JAVA_CACHE_DIR"
+rm -rf "$ASDF_JAVA_CACHE_DIR"
+```
+
+After these steps, `asdf list-all java` should show you the type of builds you set and you can install them.
+
 ## JAVA_HOME
 To set JAVA_HOME in your shell's initialization add the following:
 
