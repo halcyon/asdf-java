@@ -1175,6 +1175,7 @@ openjdk-19.0.2	openjdk-19.0.2_macos-x64_bin.tar.gz	https://download.java.net/jav
 openjdk-20	openjdk-20_macos-x64_bin.tar.gz	https://download.java.net/java/GA/jdk20/bdc68b4b9cbc4ebcb30745c85038d91d/36/GPL/openjdk-20_macos-x64_bin.tar.gz	47cf960d9bb89dbe987535a389f7e26c42de7c984ef5108612d77c81aa8cc6a4
 openjdk-20.0.1	openjdk-20.0.1_macos-x64_bin.tar.gz	https://download.java.net/java/GA/jdk20.0.1/b4887098932d415489976708ad6d1a4b/9/GPL/openjdk-20.0.1_macos-x64_bin.tar.gz	215a181fda2ac9f33d8262476eba6c9beb0ae20d2b592e03411fe71a7d89bb24
 openjdk-20.0.2	openjdk-20.0.2_macos-x64_bin.tar.gz	https://download.java.net/java/GA/jdk20.0.2/6e380f22cbe7469fa75fb448bd903d8e/9/GPL/openjdk-20.0.2_macos-x64_bin.tar.gz	c65ba92b73d8076e2a10029a0674d40ce45c3e0183a8063dd51281e92c9f43fc
+openjdk-21	openjdk-21_macos-x64_bin.tar.gz	https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_macos-x64_bin.tar.gz	af32e84c11009f72f783fdcdc9917efc277893988f097e198e2576875d1e88c1
 oracle-17	jdk-17_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_macos-x64_bin.tar.gz	3db8b885883c5867c80cd39333ff6bfb7042a8035907adc5a57fac8355cc33bd
 oracle-17.0.1	jdk-17.0.1_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_macos-x64_bin.tar.gz	b8905d88a14e60f873064a8b25737e2ec2e3688611adbf21f3a5dd5c8742797d
 oracle-17.0.2	jdk-17.0.2_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.2_macos-x64_bin.tar.gz	fe5a855542a743238556d852e386369f3f11217d888c8f9ea044c7137d5dbedb
