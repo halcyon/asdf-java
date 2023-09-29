@@ -1502,6 +1502,7 @@ microsoft-17.0.7	microsoft-jdk-17.0.7-linux-x64.tar.gz	https://aka.ms/download-j
 microsoft-17.0.8	microsoft-jdk-17.0.8-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.8-linux-x64.tar.gz	7fac02529c57525ee8fed6ea699df9122e12fb3092745d2ce6a461290129e1f6
 microsoft-17.0.8.1	microsoft-jdk-17.0.8.1-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.8.1-linux-x64.tar.gz	6d923554717e281cd0b2e13b11de90dab34e5fc4026f5661e9bbf42ce415d9fe
 microsoft-17.35.1	microsoft-jdk-17.35.1-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.35.1-linux-x64.tar.gz	52b3ecf32efb86af8881097871a38132994a833ca87746caee18ea1a5acc35c9
+microsoft-21.0.0	microsoft-jdk-21.0.0-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.0-linux-x64.tar.gz	3f48b178830779363706e5f786c0f4b02d520708fa75c6669046b516078b6d73
 openjdk-9	openjdk-9_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz	f908e31b6185e11b322825809172dcbb7ac0dce64061c9cf154cb1b0df884480
 openjdk-9.0.1	openjdk-9.0.1_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9.0.1/binaries/openjdk-9.0.1_linux-x64_bin.tar.gz	a312ea3c51940361af738fda809e08e16972ae9dd314cb087e0d31e251b416a3
 openjdk-9.0.4	openjdk-9.0.4_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz	39362fb9bfb341fcc802e55e8ea59f4664ca58fd821ce956d48e1aa4fb3d2dec
@@ -1605,6 +1606,7 @@ openjdk-22-ea+13	openjdk-22-ea+13_linux-x64_bin.tar.gz	https://download.java.net
 openjdk-22-ea+14	openjdk-22-ea+14_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/14/GPL/openjdk-22-ea+14_linux-x64_bin.tar.gz	2d6b271eaaecdedb8eee2e64b7cca4f36000039d3bdfe618460424fb8e449fcc
 openjdk-22-ea+15	openjdk-22-ea+15_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/15/GPL/openjdk-22-ea+15_linux-x64_bin.tar.gz	86b3ab4e12d302e039dc65fc4700ffd572d072d6d822c983a6d74b569b9186ef
 openjdk-22-ea+16	openjdk-22-ea+16_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/16/GPL/openjdk-22-ea+16_linux-x64_bin.tar.gz	4bea3daa0a5dc0234dad8381ffb3322598e7f88d6190b21ebef4d01327b266ab
+openjdk-22-ea+17	openjdk-22-ea+17_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/17/GPL/openjdk-22-ea+17_linux-x64_bin.tar.gz	2e079b8de8557b2bfdf2c548f69cf0c8ed9a94e7a0460dfebbebb4bf936dea8b
 openjdk-musl-17-ea+14	openjdk-17-ea+14_linux-x64-musl_bin.tar.gz	https://download.java.net/java/early_access/alpine/14/binaries/openjdk-17-ea+14_linux-x64-musl_bin.tar.gz	f07a1ac921333dafac1cd886ad49600ce143be7efebd32e1a02599a8a0829dd4
 oracle-17	jdk-17_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_linux-x64_bin.tar.gz	106e3fc31b9fe4d0fd76c6c92b1931bdd1b0ac4d788747951de0f92cc73b1ffe
 oracle-17.0.1	jdk-17.0.1_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_linux-x64_bin.tar.gz	6f25bcb94d3e22fb52a4632c74e03b403834e81b68701ab7ecd900fb9cd89f43
