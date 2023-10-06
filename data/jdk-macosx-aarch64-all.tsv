@@ -747,6 +747,7 @@ openjdk-22-ea+14	openjdk-22-ea+14_macos-aarch64_bin.tar.gz	https://download.java
 openjdk-22-ea+15	openjdk-22-ea+15_macos-aarch64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/15/GPL/openjdk-22-ea+15_macos-aarch64_bin.tar.gz	9221d4db172054a3fa3f8dc98d9f1b217c8621c485ee728291be8b1ce97f53fd
 openjdk-22-ea+16	openjdk-22-ea+16_macos-aarch64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/16/GPL/openjdk-22-ea+16_macos-aarch64_bin.tar.gz	732e7e30d33ce55d7ef9c67036ccf27a876bc9d45e61f103df7d874ce39e9f58
 openjdk-22-ea+17	openjdk-22-ea+17_macos-aarch64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/17/GPL/openjdk-22-ea+17_macos-aarch64_bin.tar.gz	4057d263fe057527b052ad5f60e0ae962b9f1379fedd7fd62d773b0b800c3581
+openjdk-22-ea+18	openjdk-22-ea+18_macos-aarch64_bin.tar.gz	https://download.java.net/java/early_access/jdk22/18/GPL/openjdk-22-ea+18_macos-aarch64_bin.tar.gz	84bc3ad8fd9a42584dd8af1a648d51b15405de1d28ecada033ded49f7d6de861
 oracle-17	jdk-17_macos-aarch64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_macos-aarch64_bin.tar.gz	b1dfa482045d871f7b4a7f64b44b6284b8bb01077c1cc3b0047061e901ffe7d3
 oracle-17.0.1	jdk-17.0.1_macos-aarch64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_macos-aarch64_bin.tar.gz	8e5f240705bdf37ed831abc8c52cc05afe71721a6bc26dd977b6efd01b5ebef7
 oracle-17.0.2	jdk-17.0.2_macos-aarch64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.2_macos-aarch64_bin.tar.gz	265b8ec9279bf91bb4fd5b4cb69acadce42e80f3462254fbb7300e4e8a1e0657
