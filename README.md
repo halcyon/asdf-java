@@ -77,6 +77,10 @@ For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
 
+For nushell shell, instead use:
+
+`source ~/.asdf/plugins/java/set-java-home.nu`
+
 For xonsh shell, instead use:
 
 `source ~/.asdf/plugins/java/set-java-home.xsh`
