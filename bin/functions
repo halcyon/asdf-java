@@ -64,7 +64,7 @@ get_asdf_config_value() {
 }
 ### <<<<<<
 
-CACHE_DIR="${TMPDIR:-/tmp}/asdf-java-${whoami}.cache"
+CACHE_DIR="${TMPDIR:-/tmp}/asdf-java-$(whoami).cache"
 
 if [ ! -d "${CACHE_DIR}" ]
 then
@@ -184,7 +184,7 @@ function install {
         macosx)
             case ${ASDF_INSTALL_VERSION} in
                 zulu*)
-                    mv ./* "${ASDF_INSTALL_PATH}" 
+                    mv ./* "${ASDF_INSTALL_PATH}"
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
                         macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
@@ -198,7 +198,7 @@ function install {
                     fi
                     ;;
                 *)
-                    mv Contents/Home/* "${ASDF_INSTALL_PATH}" 
+                    mv Contents/Home/* "${ASDF_INSTALL_PATH}"
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
                         macOS_integration_path="$(absolute_dir_path ".")"
@@ -213,9 +213,9 @@ function install {
 function uninstall {
     case ${OS} in
         macosx)
-        if [ -z "${ASDF_INSTALL_VERSION}" ]; then 
+        if [ -z "${ASDF_INSTALL_VERSION}" ]; then
                 true
-        else 
+        else
             if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                     java_macos_integration_remove
             fi
