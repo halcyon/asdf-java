@@ -174,7 +174,7 @@ function install {
            ;;
     esac
 
-    read -r -a dirs <<<"$(ls -d ./*/)"
+    read -r -a dirs <<<"$(ls --color=none -d ./*/)"
     cd "${dirs[0]}" || return 1
     if [ ! -d "${ASDF_INSTALL_PATH}" ]; then
         mkdir -p "${ASDF_INSTALL_PATH}"
