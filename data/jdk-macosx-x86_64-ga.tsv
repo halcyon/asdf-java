@@ -1914,6 +1914,8 @@ zulu-8.42.0.21	zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.tar.gz	https://static.azul
 zulu-8.42.0.21	zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.42.0.21-ca-jdk8.0.232-macosx_x64.zip	98a25cdb7b65aa4fd2f918e8e66882493e42dffbb68dff14937a22adbe68be95
 zulu-8.42.0.23	zulu8.42.0.23-ca-jdk8.0.232-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.42.0.23-ca-jdk8.0.232-macosx_x64.tar.gz	7f6a554df83d4043744443534284216ffeae3d9907b5adedc8cf23dd36ab70fa
 zulu-8.42.0.23	zulu8.42.0.23-ca-jdk8.0.232-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.42.0.23-ca-jdk8.0.232-macosx_x64.zip	3b6c84a8ec4f4f6138d9ffefa0e1102b15dca28cc8c787419ca6ad3b956ff054
+zulu-8.44.0.9	zulu8.44.0.9-ca-jdk8.0.242-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.44.0.9-ca-jdk8.0.242-macosx_x64.tar.gz	5855443780e71f3b74cdd6f644010abb9c3be7c185474f0ecaedd5271be46f63
+zulu-8.44.0.9	zulu8.44.0.9-ca-jdk8.0.242-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.44.0.9-ca-jdk8.0.242-macosx_x64.zip	9dddb2c88947f7a9ab42899588a5a0241c3cca520368d1fbe9d0086750f66fd5
 zulu-8.44.0.11	zulu8.44.0.11-ca-jdk8.0.242-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.44.0.11-ca-jdk8.0.242-macosx_x64.tar.gz	6146b7fa7552a1853b7b0f228b1f4802d4ffb704f83eb0b1a74b1649d10194cd
 zulu-8.44.0.11	zulu8.44.0.11-ca-jdk8.0.242-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.44.0.11-ca-jdk8.0.242-macosx_x64.zip	85ef6bd246e324a7d2191d464ee7d7609bef6216118e215c1881299b75fd3726
 zulu-8.46.0.19	zulu8.46.0.19-ca-jdk8.0.252-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.46.0.19-ca-jdk8.0.252-macosx_x64.tar.gz	43570b0a6455a02d25b0c4937164560fdb0a9478f9010c583f510fa80881ce0b
@@ -1960,6 +1962,8 @@ zulu-8.72.0.17	zulu8.72.0.17-ca-jdk8.0.382-macosx_x64.tar.gz	https://static.azul
 zulu-8.72.0.17	zulu8.72.0.17-ca-jdk8.0.382-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.72.0.17-ca-jdk8.0.382-macosx_x64.zip	25bfd1f71562695eda921231fbb2b957d84969afcb814efb299fda85f9d3af51
 zulu-8.74.0.17	zulu8.74.0.17-ca-jdk8.0.392-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-jdk8.0.392-macosx_x64.tar.gz	ab29ecd51033c8804cd0711c225266c3b757518c90040cb279e329bf1eb9b387
 zulu-8.74.0.17	zulu8.74.0.17-ca-jdk8.0.392-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-jdk8.0.392-macosx_x64.zip	0586c5235cea16f9d14d7b7743a56275b064467006b0f4607268a3976817873e
+zulu-8.76.0.17	zulu8.76.0.17-ca-jdk8.0.402-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-jdk8.0.402-macosx_x64.tar.gz	79d66a0c4b327500831300b56420c5fcc8d65539ee40d59c291da4fd18da2042
+zulu-8.76.0.17	zulu8.76.0.17-ca-jdk8.0.402-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-jdk8.0.402-macosx_x64.zip	d4ee1d19003ed6c3590257261de4e99cc914beb84223453f755424538f982372
 zulu-9.0.0.15	zulu9.0.0.15-ca-jdk9.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu9.0.0.15-ca-jdk9.0.0-macosx_x64.tar.gz	99c43bd0c84678f1cd16ebe3c4b715e50b1328598558e5a82ec1813a4296564b
 zulu-9.0.0.15	zulu9.0.0.15-ca-jdk9.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu9.0.0.15-ca-jdk9.0.0-macosx_x64.zip	8bd82ee91755e198f16f37caffbcf987c4736d94b0183b76434e469e750d9c80
 zulu-9.0.0.15	zulu9.0.0.15-jdk9.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu9.0.0.15-jdk9.0.0-macosx_x64.tar.gz	99c43bd0c84678f1cd16ebe3c4b715e50b1328598558e5a82ec1813a4296564b
@@ -2048,6 +2052,8 @@ zulu-11.66.19	zulu11.66.19-ca-jdk11.0.20.1-macosx_x64.tar.gz	https://static.azul
 zulu-11.66.19	zulu11.66.19-ca-jdk11.0.20.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.66.19-ca-jdk11.0.20.1-macosx_x64.zip	e59c425af4ef0aa38cf4475a6ca33e059e1f4b4f3f69ae85ba2f44b9cf9f0991
 zulu-11.68.17	zulu11.68.17-ca-jdk11.0.21-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.68.17-ca-jdk11.0.21-macosx_x64.tar.gz	d1ddcac4ef96a2ad921538e2934324561c3a0b4bf770bd958e55a998f9587856
 zulu-11.68.17	zulu11.68.17-ca-jdk11.0.21-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.68.17-ca-jdk11.0.21-macosx_x64.zip	b61ddc8b3661620b413445a82c083172f4e3eec1af4437ceddca783998daf4b7
+zulu-11.70.15	zulu11.70.15-ca-jdk11.0.22-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.70.15-ca-jdk11.0.22-macosx_x64.tar.gz	71afedb643dedad6dc9b5aee82e0e03ecc4a59b11d29c202b0a0835daba9f4de
+zulu-11.70.15	zulu11.70.15-ca-jdk11.0.22-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.70.15-ca-jdk11.0.22-macosx_x64.zip	b682809c250052a4f43b2c02acc3b6650ccba5c29892fa8e12b9368170f9e7d2
 zulu-12.1.3	zulu12.1.3-ca-jdk12-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu12.1.3-ca-jdk12-macosx_x64.tar.gz	be57408fdd9f5883225ad741dd6e2e1876d2cb8df4af203286fd34c937d90317
 zulu-12.1.3	zulu12.1.3-ca-jdk12-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu12.1.3-ca-jdk12-macosx_x64.zip	e601efb625063cd8170fa3e41d26a2f3c79c255f20310c520724bed763e9f7b7
 zulu-12.1.3	zulu12.1.3-ca-jdk12.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu12.1.3-ca-jdk12.0.0-macosx_x64.tar.gz	be57408fdd9f5883225ad741dd6e2e1876d2cb8df4af203286fd34c937d90317
@@ -2160,6 +2166,10 @@ zulu-17.44.53	zulu17.44.53-ca-jdk17.0.8.1-macosx_x64.tar.gz	https://static.azul.
 zulu-17.44.53	zulu17.44.53-ca-jdk17.0.8.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.44.53-ca-jdk17.0.8.1-macosx_x64.zip	9c363a6e54a6c2ce6a4bd0ea030e65e36312780b1e53c835dd2be8bc6cadf9e5
 zulu-17.46.19	zulu17.46.19-ca-jdk17.0.9-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.46.19-ca-jdk17.0.9-macosx_x64.tar.gz	19271b74c3f3b21f4978eda8f09908c063c456cea57265d71475ceefef5aa0ac
 zulu-17.46.19	zulu17.46.19-ca-jdk17.0.9-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.46.19-ca-jdk17.0.9-macosx_x64.zip	1969198870028308358a9368d27fa3c3bc0d76104dc1a7644e0b7510e7a96559
+zulu-17.48.15	zulu17.48.15-ca-crac-jdk17.0.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.48.15-ca-crac-jdk17.0.10-macosx_x64.tar.gz	ea1f3db5c0a875d256ba7122507132f6ed38b6c66aa7811bfdeb376aab44acbd
+zulu-17.48.15	zulu17.48.15-ca-crac-jdk17.0.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.48.15-ca-crac-jdk17.0.10-macosx_x64.zip	beb09ac042f98fc21199262dd260bd55cc55519ba749a9dbf19cfa0c3ad75f93
+zulu-17.48.15	zulu17.48.15-ca-jdk17.0.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.48.15-ca-jdk17.0.10-macosx_x64.tar.gz	86e48a1af3a7ac4500884d8c25b7475ad176b1a78b19a424665957cc3a3ca3e8
+zulu-17.48.15	zulu17.48.15-ca-jdk17.0.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.48.15-ca-jdk17.0.10-macosx_x64.zip	fb58ac32e6e75082fa2ec9d047d3bfba91de4fd6437947210c37f13c65f8bc18
 zulu-18.28.13	zulu18.28.13-ca-jdk18.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.28.13-ca-jdk18.0.0-macosx_x64.tar.gz	780a9aa4bda95a6793bf41d13f837c59ef915e9bfd0e0c5fd4c70e4cdaa88541
 zulu-18.28.13	zulu18.28.13-ca-jdk18.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu18.28.13-ca-jdk18.0.0-macosx_x64.zip	cc3630cb1b99e6a3b1b5c7b72269206cffa7d718c412ad37cd4ac9a323faa57b
 zulu-18.30.11	zulu18.30.11-ca-jdk18.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.30.11-ca-jdk18.0.1-macosx_x64.tar.gz	c7215afec89b7fd5773cba86db6b6c048021b6c15451fa3292fab859de6146f4
@@ -2186,6 +2196,10 @@ zulu-21.28.85	zulu21.28.85-ca-jdk21.0.0-macosx_x64.tar.gz	https://static.azul.co
 zulu-21.28.85	zulu21.28.85-ca-jdk21.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.28.85-ca-jdk21.0.0-macosx_x64.zip	db3514d9f93f6d07311980fc871c32934fd1c2ca822abd373644d086d4f237f6
 zulu-21.30.15	zulu21.30.15-ca-jdk21.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.30.15-ca-jdk21.0.1-macosx_x64.tar.gz	667e3945ffd394317b5faf1f5bd4847d1f1d091f76543df27d9b3a2ee7bf7a7e
 zulu-21.30.15	zulu21.30.15-ca-jdk21.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.30.15-ca-jdk21.0.1-macosx_x64.zip	cd8495f68bc0c2021e96490eaec4bcd98baf7fa48525ea913dbadc9d1396d28a
+zulu-21.32.17	zulu21.32.17-ca-crac-jdk21.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.32.17-ca-crac-jdk21.0.2-macosx_x64.tar.gz	429d76b07afbb0262c787de9669af800a8c242e0452108ece82565d187b7271e
+zulu-21.32.17	zulu21.32.17-ca-crac-jdk21.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.32.17-ca-crac-jdk21.0.2-macosx_x64.zip	1323913150277cab97d062de34c3f0c25a8e36a02cdfd3f21a3a6062360beccc
+zulu-21.32.17	zulu21.32.17-ca-jdk21.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.32.17-ca-jdk21.0.2-macosx_x64.tar.gz	3ad8fe288eb57d975c2786ae453a036aa46e47ab2ac3d81538ebae2a54d3c025
+zulu-21.32.17	zulu21.32.17-ca-jdk21.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.32.17-ca-jdk21.0.2-macosx_x64.zip	1fde3ae20ad28f9a1820524d7699f4a349382af1dc7d339f27acc75ca0dd27ab
 zulu-javafx-8.33.0.1	zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	9c191562160b0b4b77dad5fe0c29ed9c39b4bd1e27df6986c1d665eb538524fa
 zulu-javafx-8.36.0.1	zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	162eb8befcab27be58bc3fa9f7ac21c0bcf4b48c9c39e9ebb4ffe0f3c9b54335
 zulu-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	61c7e2b570af1b222c8451434d7d6a48d53563d87720025806ac4d665785496c
@@ -2233,6 +2247,8 @@ zulu-javafx-8.72.0.17	zulu8.72.0.17-ca-fx-jdk8.0.382-macosx_x64.tar.gz	https://s
 zulu-javafx-8.72.0.17	zulu8.72.0.17-ca-fx-jdk8.0.382-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.72.0.17-ca-fx-jdk8.0.382-macosx_x64.zip	09bb5323dafa22fa1e02c7714401ac613d8efb0b72bfef3dcde9b4a92e952760
 zulu-javafx-8.74.0.17	zulu8.74.0.17-ca-fx-jdk8.0.392-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-fx-jdk8.0.392-macosx_x64.tar.gz	019a48d0b8992a18bd2910eac011aaef9d9ba163948a3407015c034bfe5bcf27
 zulu-javafx-8.74.0.17	zulu8.74.0.17-ca-fx-jdk8.0.392-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-fx-jdk8.0.392-macosx_x64.zip	62463c5192186f3134f54a8a87e6e0cc15fac574e6ddc96ac719f9c1bb0c9f88
+zulu-javafx-8.76.0.17	zulu8.76.0.17-ca-fx-jdk8.0.402-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-fx-jdk8.0.402-macosx_x64.tar.gz	a2a16929e5b07e25ebde85fbf0b1af0320c60004b618e3768009ba7c7187ecec
+zulu-javafx-8.76.0.17	zulu8.76.0.17-ca-fx-jdk8.0.402-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-fx-jdk8.0.402-macosx_x64.zip	c22cf877d07e65a18bfa20f7392257571cb4e5bba97ecefb928afa32a54e9e97
 zulu-javafx-11.2.5	zulu11.2.5-ca-fx-jdk11.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.2.5-ca-fx-jdk11.0.1-macosx_x64.tar.gz	0b276af4c0611bc3a435725acc84703e545cc7726f4c8be637601e3203730c8e
 zulu-javafx-11.2.5	zulu11.2.5-ca-fx-jdk11.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.2.5-ca-fx-jdk11.0.1-macosx_x64.zip	f0152f18505b6ea1ca247e163ea747ce3b7a51b6466ff514a181524a65124d61
 zulu-javafx-11.29.3	zulu11.29.3-ca-fx-jdk11.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.29.3-ca-fx-jdk11.0.2-macosx_x64.tar.gz	ad51258b8e83187bcca8fa0f0e8c1d7545a5f15b70ca09a66b612d759a14ea7c
@@ -2289,6 +2305,8 @@ zulu-javafx-11.66.19	zulu11.66.19-ca-fx-jdk11.0.20.1-macosx_x64.tar.gz	https://s
 zulu-javafx-11.66.19	zulu11.66.19-ca-fx-jdk11.0.20.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.66.19-ca-fx-jdk11.0.20.1-macosx_x64.zip	cad3ed9bf0973ff6205afd1e1aa71bceaf2fcdb7b4eb0429d04c2144e1cddee3
 zulu-javafx-11.68.17	zulu11.68.17-ca-fx-jdk11.0.21-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.68.17-ca-fx-jdk11.0.21-macosx_x64.tar.gz	7707d37ef56e31676bbfed8c31518e0cf3e9fec70babfd356372a57211c1cf48
 zulu-javafx-11.68.17	zulu11.68.17-ca-fx-jdk11.0.21-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.68.17-ca-fx-jdk11.0.21-macosx_x64.zip	33980cf469d14d9443cbc24a40d7b875b67bb44551d70608acd56f6f64c2640b
+zulu-javafx-11.70.15	zulu11.70.15-ca-fx-jdk11.0.22-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.70.15-ca-fx-jdk11.0.22-macosx_x64.tar.gz	264259c24f83dbcc075aac14a0ba3b596e72a704eb4f96e24a83feef4608dde4
+zulu-javafx-11.70.15	zulu11.70.15-ca-fx-jdk11.0.22-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.70.15-ca-fx-jdk11.0.22-macosx_x64.zip	ad6027a2a955bfb208c50f251705f0b756a382a491a53e954cc46a6e01e2226e
 zulu-javafx-13.29.11	zulu13.29.11-ca-fx-jdk13.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu13.29.11-ca-fx-jdk13.0.2-macosx_x64.zip	66ff5457cda1ff2f844bde143705ee6a4c78ad8b1a9b126804689f6e8913e31a
 zulu-javafx-13.31.11	zulu13.31.11-ca-fx-jdk13.0.3-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.31.11-ca-fx-jdk13.0.3-macosx_x64.tar.gz	7f05b5c4eb81500995e770aab84a83c37281dcb1a6bf7d1289136632f75ca534
 zulu-javafx-13.31.11	zulu13.31.11-ca-fx-jdk13.0.3-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu13.31.11-ca-fx-jdk13.0.3-macosx_x64.zip	8a9c3fe1b033ef6ffe06a7092c1bac4cdfc9b8070bdf63cc6486f2f0a90cdeea
@@ -2363,6 +2381,8 @@ zulu-javafx-17.44.53	zulu17.44.53-ca-fx-jdk17.0.8.1-macosx_x64.tar.gz	https://st
 zulu-javafx-17.44.53	zulu17.44.53-ca-fx-jdk17.0.8.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.44.53-ca-fx-jdk17.0.8.1-macosx_x64.zip	34d143942e7f7a682b12a521a3920126e6bb55f2cfe16d74028c7726134e0ebd
 zulu-javafx-17.46.19	zulu17.46.19-ca-fx-jdk17.0.9-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.46.19-ca-fx-jdk17.0.9-macosx_x64.tar.gz	4f4bf770148a2a0cb32e6bd6ef7d2d579099e9d2abba908c3317a283312ad410
 zulu-javafx-17.46.19	zulu17.46.19-ca-fx-jdk17.0.9-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.46.19-ca-fx-jdk17.0.9-macosx_x64.zip	3c4345b5c7bd561588fc063d7875f72e14dd06629b85b4e7e9c517d1a0df5686
+zulu-javafx-17.48.15	zulu17.48.15-ca-fx-jdk17.0.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.48.15-ca-fx-jdk17.0.10-macosx_x64.tar.gz	54e21c16d8d0898b00e0088fd5309ad10efa130e4575e242202c2c60653e0e7c
+zulu-javafx-17.48.15	zulu17.48.15-ca-fx-jdk17.0.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.48.15-ca-fx-jdk17.0.10-macosx_x64.zip	b8a1706c8cb9e077ebec99203739cb91c829d6e9909f60b2dd784ecaf2900918
 zulu-javafx-18.28.13	zulu18.28.13-ca-fx-jdk18.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.28.13-ca-fx-jdk18.0.0-macosx_x64.tar.gz	76dd490bf739ee172e5c060dbd2fbbcfec86c0f49011511a30e3c35e8ef93777
 zulu-javafx-18.28.13	zulu18.28.13-ca-fx-jdk18.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu18.28.13-ca-fx-jdk18.0.0-macosx_x64.zip	5b754d029a99ed48dbd6717d675c40572169c8ad8fee1436040a7215dff5c20a
 zulu-javafx-18.30.11	zulu18.30.11-ca-fx-jdk18.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.30.11-ca-fx-jdk18.0.1-macosx_x64.tar.gz	5d895597952a34b1eb67d11dbfd47f83d8ae06d83f08af76c95dd73c1900e685
@@ -2388,6 +2408,8 @@ zulu-javafx-21.28.85	zulu21.28.85-ca-fx-jdk21.0.0-macosx_x64.tar.gz	https://stat
 zulu-javafx-21.28.85	zulu21.28.85-ca-fx-jdk21.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.28.85-ca-fx-jdk21.0.0-macosx_x64.zip	9a1d5414905f7d0c8569c81f6e6a5e5e75d55a6b13e4ddcb69e54eddfb053b36
 zulu-javafx-21.30.15	zulu21.30.15-ca-fx-jdk21.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.30.15-ca-fx-jdk21.0.1-macosx_x64.tar.gz	e663b717dcf25b95debd0b2c6b9c64c2d0ffbf64f0f5872b3f8893b196b4f7c4
 zulu-javafx-21.30.15	zulu21.30.15-ca-fx-jdk21.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.30.15-ca-fx-jdk21.0.1-macosx_x64.zip	d9fbea18215f033d82e284e8ff443803661e58b73a509d48707ee4cf348e2070
+zulu-javafx-21.32.17	zulu21.32.17-ca-fx-jdk21.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.32.17-ca-fx-jdk21.0.2-macosx_x64.tar.gz	09b10a6bd67f22d16a54ce01aac597c917f97a34195cf2bc3aa9142ebf42a6a9
+zulu-javafx-21.32.17	zulu21.32.17-ca-fx-jdk21.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.32.17-ca-fx-jdk21.0.2-macosx_x64.zip	ca3feb7c9ec0fde87e685f116549767bbfb41cad96a493d7dfeaa628aa06aa39
 zulu-jre-7.36.0.5	zulu7.36.0.5-ca-jre7.0.252-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.36.0.5-ca-jre7.0.252-macosx_x64.tar.gz	66b81970f20ec37f0979e37b4aa578142a3312a5b2de20eb362d160d80584b14
 zulu-jre-7.38.0.11	zulu7.38.0.11-ca-jre7.0.262-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.38.0.11-ca-jre7.0.262-macosx_x64.tar.gz	b65769b14ef89d8220a9d2c36d9ff9a2da148d95d4301117d833bfa3c5adefd5
 zulu-jre-7.40.0.15	zulu7.40.0.15-ca-jre7.0.272-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu7.40.0.15-ca-jre7.0.272-macosx_x64.tar.gz	7d93d45197eb2c8913d82f3cd53535ca4cd484adee1b55cbd9c160677265d521
@@ -2408,6 +2430,7 @@ zulu-jre-8.42.0.21	zulu8.42.0.21-ca-jre8.0.232-macosx_x64.tar.gz	https://static.
 zulu-jre-8.42.0.21	zulu8.42.0.21-ca-jre8.0.232-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.42.0.21-ca-jre8.0.232-macosx_x64.zip	b50b1ac2c355e8608c48e649ac25b747b93a1ac2fc22896a37a9b30b65254027
 zulu-jre-8.42.0.23	zulu8.42.0.23-ca-jre8.0.232-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.42.0.23-ca-jre8.0.232-macosx_x64.tar.gz	312aecf66812237be8ef80e13138aa16e54c28bddadbc632715b182cd6b57d78
 zulu-jre-8.42.0.23	zulu8.42.0.23-ca-jre8.0.232-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.42.0.23-ca-jre8.0.232-macosx_x64.zip	92006c1b1865bdad2939f1dbf48ec6ed1f264935b6cde06e6998f3f48c2c2104
+zulu-jre-8.44.0.9	zulu8.44.0.9-ca-jre8.0.242-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.44.0.9-ca-jre8.0.242-macosx_x64.zip	2c6eeae1655beada47ba71e7939679afe1e334b9316cdc609c878d034ef7c6fa
 zulu-jre-8.44.0.11	zulu8.44.0.11-ca-jre8.0.242-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.44.0.11-ca-jre8.0.242-macosx_x64.tar.gz	e3708b1a83a21404190d0c2d2da10748b844f315043d8af178b049b020d3ff30
 zulu-jre-8.44.0.11	zulu8.44.0.11-ca-jre8.0.242-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.44.0.11-ca-jre8.0.242-macosx_x64.zip	7ec5cf45e490bf83fd7162d618ef344d967cf2223fe21d62f5a25fb083d11f72
 zulu-jre-8.46.0.19	zulu8.46.0.19-ca-jre8.0.252-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.46.0.19-ca-jre8.0.252-macosx_x64.tar.gz	c5bd0d2c99ee60b582f27c4187ab8503bd01e66cbe1256209f22407ad7fc3356
@@ -2449,6 +2472,8 @@ zulu-jre-8.72.0.17	zulu8.72.0.17-ca-jre8.0.382-macosx_x64.tar.gz	https://static.
 zulu-jre-8.72.0.17	zulu8.72.0.17-ca-jre8.0.382-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.72.0.17-ca-jre8.0.382-macosx_x64.zip	abdcbd053a4d7c53149ac6213b302386451cca80445ebcfd69d8b61a938ddcc7
 zulu-jre-8.74.0.17	zulu8.74.0.17-ca-jre8.0.392-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-jre8.0.392-macosx_x64.tar.gz	bf37d1a8b4e66eccbbc2363f56452675177ad8369029c2ca020e66d46b9b28f4
 zulu-jre-8.74.0.17	zulu8.74.0.17-ca-jre8.0.392-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-jre8.0.392-macosx_x64.zip	31f149d1def091c8789c94c04f19583ed63c271b4c73bf0418b1e6b9d1cb8ea1
+zulu-jre-8.76.0.17	zulu8.76.0.17-ca-jre8.0.402-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-jre8.0.402-macosx_x64.tar.gz	1218c0b531a301b2c58fdfdd1194ffbedf799fbf7b66c5d214ba10a4a1f945af
+zulu-jre-8.76.0.17	zulu8.76.0.17-ca-jre8.0.402-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-jre8.0.402-macosx_x64.zip	ed85fc541db4c05ccd7a01ae0e4e755e4e92f61fae243bb1ee092b44046f6f32
 zulu-jre-9.0.0.15	zulu9.0.0.15-ca-jre9.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu9.0.0.15-ca-jre9.0.0-macosx_x64.tar.gz	f01c15b2a7cdc4a5161bf4f18c6cf627132f7209a19652880a11d95cd47476ca
 zulu-jre-9.0.0.15	zulu9.0.0.15-ca-jre9.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu9.0.0.15-ca-jre9.0.0-macosx_x64.zip	3bf435e5f87249d0023d6348acf60e4f869297d6e324ec47ca479ebb4650d5b3
 zulu-jre-11.31.11	zulu11.31.11-ca-jre11.0.3-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.31.11-ca-jre11.0.3-macosx_x64.tar.gz	ffe6d2f2c1518af717b0e28495f124176326666e575f601b3f65c3110dab5a82
@@ -2500,6 +2525,8 @@ zulu-jre-11.66.19	zulu11.66.19-ca-jre11.0.20.1-macosx_x64.tar.gz	https://static.
 zulu-jre-11.66.19	zulu11.66.19-ca-jre11.0.20.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.66.19-ca-jre11.0.20.1-macosx_x64.zip	dd141b8be49b6bbb7f60c6513cd80d739946433d9a0395ae0b5829aff193765d
 zulu-jre-11.68.17	zulu11.68.17-ca-jre11.0.21-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.68.17-ca-jre11.0.21-macosx_x64.tar.gz	c5dc011be94044491106b008b79ea7db7e53dacb9a46835dafc51fc5c87279f4
 zulu-jre-11.68.17	zulu11.68.17-ca-jre11.0.21-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.68.17-ca-jre11.0.21-macosx_x64.zip	4580795c897096bf5ecaab20470327a7da0f18350f0ec7fc81dbc2236dc593c5
+zulu-jre-11.70.15	zulu11.70.15-ca-jre11.0.22-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.70.15-ca-jre11.0.22-macosx_x64.tar.gz	53bc5389157a92873a7a7cb121fa7432d78be1fde565f8081482e3296c2fcf6b
+zulu-jre-11.70.15	zulu11.70.15-ca-jre11.0.22-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.70.15-ca-jre11.0.22-macosx_x64.zip	6bf0e6bd8d81f8335dc6d9919e4b3988d10bd9bfa77de2012f7e6addb6d3e0d7
 zulu-jre-13.28.11	zulu13.28.11-ca-jre13.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.28.11-ca-jre13.0.1-macosx_x64.tar.gz	ed9c32de909cbe73d608907b33ae806b5354056cd7f09fff77d0180fac69332b
 zulu-jre-13.28.11	zulu13.28.11-ca-jre13.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu13.28.11-ca-jre13.0.1-macosx_x64.zip	7d300463c2d94c7a814c46a5dcb1df3b0d5b15ad8db3061e8f81d1457069538a
 zulu-jre-13.29.9	zulu13.29.9-ca-jre13.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.29.9-ca-jre13.0.2-macosx_x64.tar.gz	5542232e7edc721fcca04e4e734f8545e931172a2db68aee9e4cdc4c670079a6
@@ -2589,6 +2616,8 @@ zulu-jre-17.44.53	zulu17.44.53-ca-jre17.0.8.1-macosx_x64.tar.gz	https://static.a
 zulu-jre-17.44.53	zulu17.44.53-ca-jre17.0.8.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.44.53-ca-jre17.0.8.1-macosx_x64.zip	c3b3b034a6840450fe76c184fba39cde7708203388cc524e9baed00ab305b4c8
 zulu-jre-17.46.19	zulu17.46.19-ca-jre17.0.9-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.46.19-ca-jre17.0.9-macosx_x64.tar.gz	54ba8773f827b3267a1c2f0ae5812ec0c9cbf7800609ce1620e33dfcf93d1d5e
 zulu-jre-17.46.19	zulu17.46.19-ca-jre17.0.9-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.46.19-ca-jre17.0.9-macosx_x64.zip	4ee8020500e268756b6ef4fd8f64a8a994ac1b770cbc79eccceb7965bdc30242
+zulu-jre-17.48.15	zulu17.48.15-ca-jre17.0.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.48.15-ca-jre17.0.10-macosx_x64.tar.gz	4a6e68ff0390404dfe74207784bb8a9d72efe20eb8949f5318880c6acd796938
+zulu-jre-17.48.15	zulu17.48.15-ca-jre17.0.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.48.15-ca-jre17.0.10-macosx_x64.zip	30312904b9382b3481d1603ece3d4281aa92653d22d8349e62ce12f8ede805e6
 zulu-jre-18.28.13	zulu18.28.13-ca-jre18.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.28.13-ca-jre18.0.0-macosx_x64.tar.gz	4895d9a702441c0d017a3d3a8e7a1c780d625919449d6e8d9652efe35fdc6042
 zulu-jre-18.28.13	zulu18.28.13-ca-jre18.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu18.28.13-ca-jre18.0.0-macosx_x64.zip	61b6cb0ad71bf0a7d681ca14cfea904837d0ed72d0fb95c1cd1a6ba251854cae
 zulu-jre-18.30.11	zulu18.30.11-ca-jre18.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.30.11-ca-jre18.0.1-macosx_x64.tar.gz	e0752d006cb1f7dd75d2bda94e35554fb8e939a4b560c3b59b966bc702c6403b
@@ -2615,6 +2644,8 @@ zulu-jre-21.28.85	zulu21.28.85-ca-jre21.0.0-macosx_x64.tar.gz	https://static.azu
 zulu-jre-21.28.85	zulu21.28.85-ca-jre21.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.28.85-ca-jre21.0.0-macosx_x64.zip	7b23df764be97e84d48d9c7b7a9270b002bbfb45d52006f7c9d27cb15b20e650
 zulu-jre-21.30.15	zulu21.30.15-ca-jre21.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.30.15-ca-jre21.0.1-macosx_x64.tar.gz	506e80f781a0f4ea4ad0f1ce3e02a175448dc66b343e9f597f63580522567abb
 zulu-jre-21.30.15	zulu21.30.15-ca-jre21.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.30.15-ca-jre21.0.1-macosx_x64.zip	6c7943bcbc9054329c71fa3f3448f4c66c7f00c192de241fa17194887d88b7bd
+zulu-jre-21.32.17	zulu21.32.17-ca-jre21.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.32.17-ca-jre21.0.2-macosx_x64.tar.gz	0cbfdc7729aa6761992bc9ca53810a09aef1440b7560cf7c9a693e3d39e1941d
+zulu-jre-21.32.17	zulu21.32.17-ca-jre21.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.32.17-ca-jre21.0.2-macosx_x64.zip	ccf83016bf5bd261c4ab61ca8369e1297505afea1d737c6df49081e728ff3631
 zulu-jre-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jre8.0.212-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jre8.0.212-macosx_x64.tar.gz	b74705189adf33c4984a4810c2c0c89529bd22cb1daa68580c6a28262218d72f
 zulu-jre-javafx-8.40.0.25	zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.tar.gz	93c23b581699edbc8b079c16ad1f4e9b6c452333fa42cd9458f8f41804e0661a
 zulu-jre-javafx-8.40.0.25	zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.40.0.25-ca-fx-jre8.0.222-macosx_x64.zip	e6f5d903f5fd10edcbecab54a359c2ff56b2907854a980aa73dbdd92e939fc16
@@ -2660,6 +2691,8 @@ zulu-jre-javafx-8.72.0.17	zulu8.72.0.17-ca-fx-jre8.0.382-macosx_x64.tar.gz	https
 zulu-jre-javafx-8.72.0.17	zulu8.72.0.17-ca-fx-jre8.0.382-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.72.0.17-ca-fx-jre8.0.382-macosx_x64.zip	67ad0ca79aec358f09830fa45d09ab830915c9ab22ecc8c72d3ff6ebda31a57b
 zulu-jre-javafx-8.74.0.17	zulu8.74.0.17-ca-fx-jre8.0.392-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-fx-jre8.0.392-macosx_x64.tar.gz	1e29e1e7e23d04903e8e30c317468fa9158439da511d3f398d72921e8f8920d8
 zulu-jre-javafx-8.74.0.17	zulu8.74.0.17-ca-fx-jre8.0.392-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.74.0.17-ca-fx-jre8.0.392-macosx_x64.zip	ffc4229f68a761aed3032b4bc68e32066f83aa2d902d0a22fbb3f0192f75736a
+zulu-jre-javafx-8.76.0.17	zulu8.76.0.17-ca-fx-jre8.0.402-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-fx-jre8.0.402-macosx_x64.tar.gz	a42ce92e56eb754ac2ae560e4e57081f8dc1ec69d04d04a29c3518a1cf703c37
+zulu-jre-javafx-8.76.0.17	zulu8.76.0.17-ca-fx-jre8.0.402-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu8.76.0.17-ca-fx-jre8.0.402-macosx_x64.zip	858c80467a22d5beea6ab8771c258717aa61540e2b4cf112ec96ea28c7e8cd78
 zulu-jre-javafx-11.31.11	zulu11.31.11-ca-fx-jre11.0.3-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.31.11-ca-fx-jre11.0.3-macosx_x64.tar.gz	cb6b1be3eecaf604477aecd89d3af54f8cda734e54f10854266d95c0de630000
 zulu-jre-javafx-11.31.11	zulu11.31.11-ca-fx-jre11.0.3-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.31.11-ca-fx-jre11.0.3-macosx_x64.zip	a011ec84aa2a7348971f5f97c83029e3dc5a1d359beb169d29f278f2384e6657
 zulu-jre-javafx-11.33.15	zulu11.33.15-ca-fx-jre11.0.4-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.33.15-ca-fx-jre11.0.4-macosx_x64.tar.gz	615331dad137ae11e7bec689a2dcf861837652829bf4714d932b72a573700f4d
@@ -2712,6 +2745,8 @@ zulu-jre-javafx-11.66.19	zulu11.66.19-ca-fx-jre11.0.20.1-macosx_x64.tar.gz	https
 zulu-jre-javafx-11.66.19	zulu11.66.19-ca-fx-jre11.0.20.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.66.19-ca-fx-jre11.0.20.1-macosx_x64.zip	8bb93587e5278d416f83cccf19e97a1d8b6a2b44104dd5f76b13a241d3ad3219
 zulu-jre-javafx-11.68.17	zulu11.68.17-ca-fx-jre11.0.21-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.68.17-ca-fx-jre11.0.21-macosx_x64.tar.gz	ea98f683b153708908f08e42d105d741d85c511d1a95438c6a83435bc7274869
 zulu-jre-javafx-11.68.17	zulu11.68.17-ca-fx-jre11.0.21-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.68.17-ca-fx-jre11.0.21-macosx_x64.zip	f280bafaa48964520b3e052be0d9678568bb7a1eb88020645f072abd90e9c3ca
+zulu-jre-javafx-11.70.15	zulu11.70.15-ca-fx-jre11.0.22-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu11.70.15-ca-fx-jre11.0.22-macosx_x64.tar.gz	c55804d0449fcd796d6a3d5433655ff1315906c11d685f7943301c44a1834394
+zulu-jre-javafx-11.70.15	zulu11.70.15-ca-fx-jre11.0.22-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu11.70.15-ca-fx-jre11.0.22-macosx_x64.zip	90de6938e3438e94eee1bb75eb056c3b6af7d1c3496b40d48f7438ec876fe7f9
 zulu-jre-javafx-13.29.11	zulu13.29.11-ca-fx-jre13.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu13.29.11-ca-fx-jre13.0.2-macosx_x64.zip	bae363e1d71e1db7d61cea89250d7d636a0789c67970a0f6f59c40da49047ba4
 zulu-jre-javafx-13.31.11	zulu13.31.11-ca-fx-jre13.0.3-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu13.31.11-ca-fx-jre13.0.3-macosx_x64.tar.gz	4bb074e60c277f3e7e20c3072924a571670436449c24ec707cf23c05887640b0
 zulu-jre-javafx-13.31.11	zulu13.31.11-ca-fx-jre13.0.3-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu13.31.11-ca-fx-jre13.0.3-macosx_x64.zip	151863114bf8a066f00a17ffa45ceb1775f57249e0d993b684c3c820cce36dea
@@ -2779,6 +2814,8 @@ zulu-jre-javafx-17.44.53	zulu17.44.53-ca-fx-jre17.0.8.1-macosx_x64.tar.gz	https:
 zulu-jre-javafx-17.44.53	zulu17.44.53-ca-fx-jre17.0.8.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.44.53-ca-fx-jre17.0.8.1-macosx_x64.zip	8d88dc528a76322b4f049a806efa04f38be8e5de5e0328b6257a577a7fd921e0
 zulu-jre-javafx-17.46.19	zulu17.46.19-ca-fx-jre17.0.9-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.46.19-ca-fx-jre17.0.9-macosx_x64.tar.gz	5e135e17de12e43d7da59cc6e1d98f2d78b835d60fdd0fc35f50e78415cb51ab
 zulu-jre-javafx-17.46.19	zulu17.46.19-ca-fx-jre17.0.9-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.46.19-ca-fx-jre17.0.9-macosx_x64.zip	023d70f27aaf6860a9823b9451e7c5de26effa75e3dcb2eacedda7e25e8fbb4e
+zulu-jre-javafx-17.48.15	zulu17.48.15-ca-fx-jre17.0.10-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu17.48.15-ca-fx-jre17.0.10-macosx_x64.tar.gz	1c9ac8c5b277ba05163427018c92c45a3cc15a9ddc075758b79c7a20081e5e60
+zulu-jre-javafx-17.48.15	zulu17.48.15-ca-fx-jre17.0.10-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu17.48.15-ca-fx-jre17.0.10-macosx_x64.zip	5d71199a070c79ec38e90c4a3902eab7b10ebe8ece7b8842172f3a0af9803d1d
 zulu-jre-javafx-18.28.13	zulu18.28.13-ca-fx-jre18.0.0-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.28.13-ca-fx-jre18.0.0-macosx_x64.tar.gz	246ba620473457ab4ef69b3a29b56d1b5c3896c39adab05319703e44f3f77d73
 zulu-jre-javafx-18.28.13	zulu18.28.13-ca-fx-jre18.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu18.28.13-ca-fx-jre18.0.0-macosx_x64.zip	5d7225ebacbcf2e28eb0572402fb1c71eecd71a2ffdf62027a39f02469654cd7
 zulu-jre-javafx-18.30.11	zulu18.30.11-ca-fx-jre18.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu18.30.11-ca-fx-jre18.0.1-macosx_x64.tar.gz	10c8a923d5a09ed944cdffb8ca1b449bb56956980e09a2e1349e4ab7534b4f48
@@ -2805,3 +2842,5 @@ zulu-jre-javafx-21.28.85	zulu21.28.85-ca-fx-jre21.0.0-macosx_x64.tar.gz	https://
 zulu-jre-javafx-21.28.85	zulu21.28.85-ca-fx-jre21.0.0-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.28.85-ca-fx-jre21.0.0-macosx_x64.zip	f35dd27e745c66106dd9f334c491d967c1b967777c13d3489e82f2c30723ce0d
 zulu-jre-javafx-21.30.15	zulu21.30.15-ca-fx-jre21.0.1-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.30.15-ca-fx-jre21.0.1-macosx_x64.tar.gz	74770c250cf1d169b4b207bbdbb58d739ef0624f9b4b65a0894ff0d721ddf147
 zulu-jre-javafx-21.30.15	zulu21.30.15-ca-fx-jre21.0.1-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.30.15-ca-fx-jre21.0.1-macosx_x64.zip	9037bb73117f2c0f8d9809d0bce171de43a7f6f552c26f8b56ec1f8156c2c755
+zulu-jre-javafx-21.32.17	zulu21.32.17-ca-fx-jre21.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu21.32.17-ca-fx-jre21.0.2-macosx_x64.tar.gz	3254f3e9f2789d73584d4df0ae74584bc1f84b87717a354d9eb685fd90d4d7d2
+zulu-jre-javafx-21.32.17	zulu21.32.17-ca-fx-jre21.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu21.32.17-ca-fx-jre21.0.2-macosx_x64.zip	49c9ab085278660c7f3236a70be07a9d15077ce6815f97239d3d3a066c6ad1dd
