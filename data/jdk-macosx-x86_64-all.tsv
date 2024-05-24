@@ -1575,6 +1575,7 @@ openjdk-23-ea+18	openjdk-23-ea+18_macos-x64_bin.tar.gz	https://download.java.net
 openjdk-23-ea+21	openjdk-23-ea+21_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk23/21/GPL/openjdk-23-ea+21_macos-x64_bin.tar.gz	662667be37ebad0a2d52b7eccb38dc156eb8b2c685985459778ad2924f6af0c1
 openjdk-23-ea+22	openjdk-23-ea+22_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk23/22/GPL/openjdk-23-ea+22_macos-x64_bin.tar.gz	1c980de2db4b5eb55d650cac319d368a789e7a449e22b084c76ac9bf536713f7
 openjdk-23-ea+23	openjdk-23-ea+23_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk23/23/GPL/openjdk-23-ea+23_macos-x64_bin.tar.gz	4fc285a4e61971b1b10584b95e5274e04dcc8f281d71df8972db8cc4760c6fdd
+openjdk-23-ea+24	openjdk-23-ea+24_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk23/24/GPL/openjdk-23-ea+24_macos-x64_bin.tar.gz	a835daad844610f6790df0a3ae3bc2caa8e344aadb86b663702943bb8050b254
 openjdk-23-loom+2-48	openjdk-23-loom+2-48_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/2/openjdk-23-loom+2-48_macos-x64_bin.tar.gz	953afbf4000bbcdcaa01b073f1af6b31fdd866f36373ccb43ea095b44d493857
 oracle-17	jdk-17_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_macos-x64_bin.tar.gz	3db8b885883c5867c80cd39333ff6bfb7042a8035907adc5a57fac8355cc33bd
 oracle-17.0.1	jdk-17.0.1_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_macos-x64_bin.tar.gz	b8905d88a14e60f873064a8b25737e2ec2e3688611adbf21f3a5dd5c8742797d
