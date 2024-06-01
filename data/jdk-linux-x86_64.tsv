@@ -1866,6 +1866,7 @@ openjdk-21.0.2	openjdk-21.0.2_linux-x64_bin.tar.gz	https://download.java.net/jav
 openjdk-22	openjdk-22_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk22/830ec9fcccef480bb3e73fb7ecafe059/35/GPL/openjdk-22_linux-x64_bin.tar.gz	37b0e1d93e9b6478824c21753f2e8445c8caad885a2245f393b35658be1695b3
 openjdk-22.0.1	openjdk-22.0.1_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk22.0.1/c7ec1332f7bb44aeba2eb341ae18aca4/8/GPL/openjdk-22.0.1_linux-x64_bin.tar.gz	133c8b65113304904cdef7c9103274d141cfb64b191ff48ceb6528aca25c67b1
 openjdk-23-loom+2-48	openjdk-23-loom+2-48_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/2/openjdk-23-loom+2-48_linux-x64_bin.tar.gz	30c65e1b07ec27ec7a8ea9ac3dd228ae0570862fe643bae0ad2ff62673bdbd46
+openjdk-23-loom+4-102	openjdk-23-loom+4-102_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/4/openjdk-23-loom+4-102_linux-x64_bin.tar.gz	fdd2f67d19f8ce20bcc84edbbfdfaeb23149b7689132c815b7e25e48f32c806b
 oracle-17	jdk-17_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_linux-x64_bin.tar.gz	106e3fc31b9fe4d0fd76c6c92b1931bdd1b0ac4d788747951de0f92cc73b1ffe
 oracle-17.0.1	jdk-17.0.1_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_linux-x64_bin.tar.gz	6f25bcb94d3e22fb52a4632c74e03b403834e81b68701ab7ecd900fb9cd89f43
 oracle-17.0.2	jdk-17.0.2_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.2_linux-x64_bin.tar.gz	342e76bb9ded80aa1edd566efbae42f8f1c2366e19b9189e5941b45893b9861f
