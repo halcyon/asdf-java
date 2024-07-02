@@ -225,18 +225,29 @@ function uninstall {
 }
 
 function java_macos_integration_remove {
-    printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
-    sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+    if [ "$(get_asdf_config_value "java_macos_integration_in_home")" = "yes" ]; then
+        rm -rf "$HOME/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+    else
+        printf "Removing the integration with /usr/libexec/java_home needs root permission to delete the folder at /Library/Java/JavaVirtualMachines/%s\n" "${ASDF_INSTALL_VERSION}"
+        sudo rm -rf "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}"
+    fi
 }
 
 function java_macos_integration_install {
     local macOS_files_path
     macOS_files_path="$1"
-    printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
-    sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
-    sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
-    sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
-    sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
+    if [ "$(get_asdf_config_value "java_macos_integration_in_home")" = "yes" ]; then
+        mkdir -p "$HOME/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
+        cp -R "${macOS_files_path}/Contents/MacOS" "$HOME/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+        cp -R "${macOS_files_path}/Contents/Info.plist" "$HOME/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+        ln -s "${ASDF_INSTALL_PATH}" "$HOME/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
+    else
+        printf "Integrating with /usr/libexec/java_home needs root permission for it to create folders under /Library/Java/JavaVirtualMachines\n"
+        sudo mkdir -p "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents"
+        sudo cp -R "${macOS_files_path}/Contents/MacOS" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+        sudo cp -R "${macOS_files_path}/Contents/Info.plist" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/"
+        sudo ln -s "${ASDF_INSTALL_PATH}" "/Library/Java/JavaVirtualMachines/${ASDF_INSTALL_VERSION}/Contents/Home"
+    fi
 }
 
 function absolute_dir_path {
