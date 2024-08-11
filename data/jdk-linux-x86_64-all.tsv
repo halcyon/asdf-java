@@ -936,6 +936,8 @@ java-se-ri-17+35	openjdk-17+35_linux-x64_bin.tar.gz	https://download.java.net/op
 java-se-ri-18+36	openjdk-18+36_linux-x64_bin.tar.gz	https://download.java.net/openjdk/jdk18/ri/openjdk-18+36_linux-x64_bin.tar.gz	0f60aef7b8504983d6e374fe94d09a7bedcf05ec559e812d801a33bd4ebd23d0
 java-se-ri-19+36	openjdk-19+36_linux-x64_bin.tar.gz	https://download.java.net/openjdk/jdk19/ri/openjdk-19+36_linux-x64_bin.tar.gz	f47aba585cfc9ecff1ed8e023524e8309f4315ed8b80100b40c7dcc232c12f96
 java-se-ri-20+36	openjdk-20+36_linux-x64_bin.tar.gz	https://download.java.net/openjdk/jdk20/ri/openjdk-20+36_linux-x64_bin.tar.gz	bb863b2d542976d1ae4b7b81af3e78b1e4247a64644350b552d298d8dc5980dc
+java-se-ri-21+35	openjdk-21+35_linux-x64_bin.tar.gz	https://download.java.net/openjdk/jdk21/ri/openjdk-21+35_linux-x64_bin.tar.gz	a30c454a9bef8f46d5f1bf3122830014a8fbe7ac03b5f8729bc3add4b92a1d0a
+java-se-ri-22+36	openjdk-22+36_linux-x64_bin.tar.gz	https://download.java.net/openjdk/jdk22/ri/openjdk-22+36_linux-x64_bin.tar.gz	4d65cc6ed28711768fd72c2043a7925f7c83f5f51bb64970bd9d52f7791fc6ac
 kona-8.0.0-232	TencentKona-8.0.0-232.x86_64.tar.gz	https://github.com/Tencent/TencentKona-8/releases/download/v8.0.0-GA/TencentKona-8.0.0-232.x86_64.tar.gz	262548cdde598eedff63f043d5638e1094d294fa8956fb107fcaffa4863ef759
 kona-8.0.1-242	TencentKona-8.0.1-242.x86_64.tar.gz	https://github.com/Tencent/TencentKona-8/releases/download/v8.0.1-GA/TencentKona-8.0.1-242.x86_64.tar.gz	8b63cfe1b22d4ae29b8d2f9dcc335feaa63231d18eaaba7be82892ed049c523b
 kona-8.0.2.b1	TencentKona8.0.2.b1_jdk_linux-x86_64_8u252.tar.gz	https://github.com/Tencent/TencentKona-8/releases/download/v8.0.2-GA/TencentKona8.0.2.b1_jdk_linux-x86_64_8u252.tar.gz	7b30e9606e12fd9b9f03ac3ab8ab35105dd5af8ca610ad18c9f11d4095b4563c
