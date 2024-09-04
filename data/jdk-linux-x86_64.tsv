@@ -1969,6 +1969,7 @@ openjdk-24-loom+2-24	openjdk-24-loom+2-24_linux-x64_bin.tar.gz	https://download.
 openjdk-24-loom+3-33	openjdk-24-loom+3-33_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/3/openjdk-24-loom+3-33_linux-x64_bin.tar.gz	50b0e7b0a2144409154b87012ab8be61b7d2fa6eb8bdeb4536603adfa9a34763
 openjdk-24-loom+4-42	openjdk-24-loom+4-42_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/4/openjdk-24-loom+4-42_linux-x64_bin.tar.gz	30ee6a46e22201e5b905b2cb1caca6adbb7826ef5264ca35ed8f2c830999f829
 openjdk-24-loom+5-48	openjdk-24-loom+5-48_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/5/openjdk-24-loom+5-48_linux-x64_bin.tar.gz	be6a17ad19247f2d633a8e1991563d0b459f58cf6ef2e92c278d1c00e4d89c74
+openjdk-24-loom+7-60	openjdk-24-loom+7-60_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/loom/7/openjdk-24-loom+7-60_linux-x64_bin.tar.gz	ee305da5d451172d11ba7690839d085dd49bc425ecd2481a1e9d7d321c3d076d
 oracle-17	jdk-17_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_linux-x64_bin.tar.gz	106e3fc31b9fe4d0fd76c6c92b1931bdd1b0ac4d788747951de0f92cc73b1ffe
 oracle-17.0.1	jdk-17.0.1_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_linux-x64_bin.tar.gz	6f25bcb94d3e22fb52a4632c74e03b403834e81b68701ab7ecd900fb9cd89f43
 oracle-17.0.2	jdk-17.0.2_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.2_linux-x64_bin.tar.gz	342e76bb9ded80aa1edd566efbae42f8f1c2366e19b9189e5941b45893b9861f
@@ -3085,6 +3086,7 @@ zulu-22.30.13	zulu22.30.13-ca-jdk22.0.1-linux_x64.zip	https://static.azul.com/zu
 zulu-22.32.15	zulu22.32.15-ca-jdk22.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jdk22.0.2-linux_x64.tar.gz	d48c661239200f9507480f91f99285794f9e484786c605015bc5bf0e19eb6613
 zulu-22.32.15	zulu22.32.15-ca-jdk22.0.2-linux_x64.zip	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jdk22.0.2-linux_x64.zip	ba8a7ba22ada1ebda1b93a547d449a3b23c1d309ae876a5897cd53d28804c3f5
 zulu-22.32.17	zulu22.32.17-ca-crac-jdk22.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.17-ca-crac-jdk22.0.2-linux_x64.tar.gz	8a8d8c3d62dcf509487b95e351cb56ad3d0bff638d8306bef8cf46f9b9826cd7
+zulu-22.32.21	zulu22.32.21-ca-crac-jdk22.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.21-ca-crac-jdk22.0.2-linux_x64.tar.gz	f1fbedc0e73f6971e7b9fc23353beff6207d6481515a116674b8b1f4db6d8441
 zulu-javafx-8.33.0.1	zulu8.33.0.1-ca-fx-jdk8.0.192-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-ca-fx-jdk8.0.192-linux_x64.tar.gz	2a83aabecc1c57ea995dd80b16978bfba328d56eb32e6a6f5b336044c39fce9c
 zulu-javafx-8.36.0.1	zulu8.36.0.1-ca-fx-jdk8.0.202-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.36.0.1-ca-fx-jdk8.0.202-linux_x64.tar.gz	f14edaceb426206a8a6a0ed36491183b6c17886efb03a42683301b495bbd6231
 zulu-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jdk8.0.212-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jdk8.0.212-linux_x64.tar.gz	b6385c83dbdfe2d474d31c3e6221022b58500327697722ecba080df10fc76e01
@@ -3441,6 +3443,7 @@ zulu-jre-22.30.15	zulu22.30.15-ca-crac-jre22.0.1-linux_x64.tar.gz	https://static
 zulu-jre-22.32.15	zulu22.32.15-ca-jre22.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jre22.0.2-linux_x64.tar.gz	be4330eb8522ff02bfe5b8c7a7ec67affb7919d628f292b1f3bacb465a2086c6
 zulu-jre-22.32.15	zulu22.32.15-ca-jre22.0.2-linux_x64.zip	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jre22.0.2-linux_x64.zip	4280f2f5993424a701c80eccc07debba4575e680622246a4bed65da1a0eff513
 zulu-jre-22.32.17	zulu22.32.17-ca-crac-jre22.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.17-ca-crac-jre22.0.2-linux_x64.tar.gz	8914a1ea6f4846c73e36a7723395d7cded0eb14ac9c949f8589719a04c6bb34d
+zulu-jre-22.32.21	zulu22.32.21-ca-crac-jre22.0.2-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.21-ca-crac-jre22.0.2-linux_x64.tar.gz	32284cad0d02271fbe0fd46277ab9412fe481b1501727c603d8c3c7ed6d5c5a5
 zulu-jre-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jre8.0.212-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jre8.0.212-linux_x64.tar.gz	00b75e258b2633b504a874347b38d58fac810af651dd6926b4c4afacda1b4ebb
 zulu-jre-javafx-8.40.0.25	zulu8.40.0.25-ca-fx-jre8.0.222-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.40.0.25-ca-fx-jre8.0.222-linux_x64.tar.gz	0c56f71cbb152898a85c8acbcd2f5637977691f3fef2694c2795e75d78240c04
 zulu-jre-javafx-8.42.0.23	zulu8.42.0.23-ca-fx-jre8.0.232-linux_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.42.0.23-ca-fx-jre8.0.232-linux_x64.tar.gz	49a09c4f642b60390c23ea8d6393224a90b6bfecdab61b3b2aef68bd23d4a614
@@ -3685,6 +3688,7 @@ zulu-jre-musl-22.30.13	zulu22.30.13-ca-jre22.0.1-linux_musl_x64.tar.gz	https://s
 zulu-jre-musl-22.30.15	zulu22.30.15-ca-crac-jre22.0.1-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.30.15-ca-crac-jre22.0.1-linux_musl_x64.tar.gz	47cbe21edaae9c2af83b72a7aae7b6140c1ec6c1d5fec12e80466743b61b1e91
 zulu-jre-musl-22.32.15	zulu22.32.15-ca-jre22.0.2-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jre22.0.2-linux_musl_x64.tar.gz	2fb06314ebeee55b1b9151f297e83fc4f4f082caac67b020cc3987c308f4c30e
 zulu-jre-musl-22.32.17	zulu22.32.17-ca-crac-jre22.0.2-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.17-ca-crac-jre22.0.2-linux_musl_x64.tar.gz	7883e9c358cd836662ea990f5055ed7c3cda9f14e1fc2a1fb7032d4876824962
+zulu-jre-musl-22.32.21	zulu22.32.21-ca-crac-jre22.0.2-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.21-ca-crac-jre22.0.2-linux_musl_x64.tar.gz	77137b6aa7d5c09abe9c52fe4b622e14c090c4d5f5418036e292e24961276e6f
 zulu-musl-8.33.0.1	zulu8.33.0.1-ca-jdk8.0.192-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-ca-jdk8.0.192-linux_musl_x64.tar.gz	c4db136324def61e1554faaa27ae23cab158084a34c57e88cab28859c52714a1
 zulu-musl-8.33.0.1	zulu8.33.0.1-jdk8.0.192-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-jdk8.0.192-linux_musl_x64.tar.gz	c4db136324def61e1554faaa27ae23cab158084a34c57e88cab28859c52714a1
 zulu-musl-8.34.0.1	zulu8.34.0.1-ca-jdk8.0.201-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.34.0.1-ca-jdk8.0.201-linux_musl_x64.tar.gz	9a8008b31891bcbac1442a06bc1a62b36453067cd02812613156d853559d0678
@@ -3839,3 +3843,4 @@ zulu-musl-22.30.13	zulu22.30.13-ca-crac-jdk22.0.1-linux_musl_x64.tar.gz	https://
 zulu-musl-22.30.13	zulu22.30.13-ca-jdk22.0.1-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.30.13-ca-jdk22.0.1-linux_musl_x64.tar.gz	b12494be8c84da4da14056390db08561a665cba45f34b17956461c43960876e1
 zulu-musl-22.32.15	zulu22.32.15-ca-jdk22.0.2-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jdk22.0.2-linux_musl_x64.tar.gz	60c24b46728561d0af1ea670145de16be11a4c8ebce0fc0e6413659df81cef09
 zulu-musl-22.32.17	zulu22.32.17-ca-crac-jdk22.0.2-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.17-ca-crac-jdk22.0.2-linux_musl_x64.tar.gz	0f6a4c6dafebdaf2937b9436db98b32d12603b778b3bce6faf3ddfce59810d00
+zulu-musl-22.32.21	zulu22.32.21-ca-crac-jdk22.0.2-linux_musl_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.21-ca-crac-jdk22.0.2-linux_musl_x64.tar.gz	f7a5e26f5a4aeeabdf1cf7dd0b9e5793c1a8e7e383a547ff14f208d747605c4f
