@@ -2510,6 +2510,8 @@ zulu-22.32.15	zulu22.32.15-ca-jdk22.0.2-macosx_x64.tar.gz	https://static.azul.co
 zulu-22.32.15	zulu22.32.15-ca-jdk22.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu22.32.15-ca-jdk22.0.2-macosx_x64.zip	539e081f7fffe47aa2e987112da6b40d8a5ba73bd967d1c2204a92a6ec067d15
 zulu-22.32.17	zulu22.32.17-ca-crac-jdk22.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.17-ca-crac-jdk22.0.2-macosx_x64.tar.gz	de36df1c7f893981b338e58a5ac4c7c48c28c210e6987fefa57b0434a8c22b32
 zulu-22.32.17	zulu22.32.17-ca-crac-jdk22.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu22.32.17-ca-crac-jdk22.0.2-macosx_x64.zip	13ae3aba81027b2f8c0b6ef1f896adcc63eaaba75521f8d8f311a1abbf14b218
+zulu-22.32.21	zulu22.32.21-ca-crac-jdk22.0.2-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu22.32.21-ca-crac-jdk22.0.2-macosx_x64.tar.gz	bfb105bcd35293cb2647a8fb13e5a50a1b791c9f1270802a9992597352b18fec
+zulu-22.32.21	zulu22.32.21-ca-crac-jdk22.0.2-macosx_x64.zip	https://static.azul.com/zulu/bin/zulu22.32.21-ca-crac-jdk22.0.2-macosx_x64.zip	b6c1a89c7c014ffe29efe94ae588e41984de3c0befebd0dbb986bed61b00575a
 zulu-javafx-8.33.0.1	zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.33.0.1-ca-fx-jdk8.0.192-macosx_x64.tar.gz	9c191562160b0b4b77dad5fe0c29ed9c39b4bd1e27df6986c1d665eb538524fa
 zulu-javafx-8.36.0.1	zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.36.0.1-ca-fx-jdk8.0.202-macosx_x64.tar.gz	162eb8befcab27be58bc3fa9f7ac21c0bcf4b48c9c39e9ebb4ffe0f3c9b54335
 zulu-javafx-8.38.0.13	zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	https://static.azul.com/zulu/bin/zulu8.38.0.13-ca-fx-jdk8.0.212-macosx_x64.tar.gz	61c7e2b570af1b222c8451434d7d6a48d53563d87720025806ac4d665785496c
