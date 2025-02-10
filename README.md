@@ -14,7 +14,7 @@
 ## Install
 
 ```
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin add java https://github.com/halcyon/asdf-java.git
 ```
 
 ## Use
@@ -26,7 +26,7 @@ Check [asdf](https://asdf-vm.github.io/asdf/) for instructions on how to install
 List candidate JDKs:
 
 ```
-asdf list-all java
+asdf list all java
 ```
 
 Install a candidate listed from the previous command like this:
