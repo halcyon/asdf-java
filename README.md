@@ -14,7 +14,7 @@
 ## Install
 
 ```
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin add java https://github.com/halcyon/asdf-java.git
 ```
 
 ## Use
