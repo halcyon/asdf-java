@@ -14,7 +14,7 @@
 ## Install
 
 ```
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin add java https://github.com/halcyon/asdf-java.git
 ```
 
 ## Use
@@ -26,7 +26,7 @@ Check [asdf](https://asdf-vm.github.io/asdf/) for instructions on how to install
 List candidate JDKs:
 
 ```
-asdf list-all java
+asdf list all java
 ```
 
 Install a candidate listed from the previous command like this:
@@ -40,11 +40,11 @@ asdf install java adoptopenjdk-11.0.16+8
 Select an installed candidate for use like this:
 
 ```
-asdf global java adoptopenjdk-11.0.16+8
+asdf set -u java adoptopenjdk-11.0.16+8
 ```
 or just for the local directory
 ```
-asdf local java adoptopenjdk-11.0.16+8
+asdf set java adoptopenjdk-11.0.16+8
 ```
 
 ### Latest
