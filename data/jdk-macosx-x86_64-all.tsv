@@ -2936,6 +2936,7 @@ oracle-22.0.2	jdk-22.0.2_macos-x64_bin.tar.gz	https://download.oracle.com/java/2
 oracle-23	jdk-23_macos-x64_bin.tar.gz	https://download.oracle.com/java/23/archive/jdk-23_macos-x64_bin.tar.gz	924de84fd5a5978ddcf1ce5176ff1b5f3c75460ab0215b29954bce95bb065a24
 oracle-23.0.1	jdk-23.0.1_macos-x64_bin.tar.gz	https://download.oracle.com/java/23/archive/jdk-23.0.1_macos-x64_bin.tar.gz	deee028d44aa76c506624bc21886543bd1948283234237f7a40d4b8a8fb73bd2
 oracle-23.0.2	jdk-23.0.2_macos-x64_bin.tar.gz	https://download.oracle.com/java/23/archive/jdk-23.0.2_macos-x64_bin.tar.gz	01e53b35eb2d0c69d1d0e67a040586477e584a2777a206381ccef6aaf2398198
+oracle-24	jdk-24_macos-x64_bin.tar.gz	https://javamanagementservice-download.us-ashburn-1.oci.oraclecloud.com/java/24/archive/jdk-24_macos-x64_bin.tar.gz	1867374b8ffafdfeafa31a4da8c1785544df96007d7ef3694bb0a394fccc65cd
 oracle-graalvm-17.0.7	graalvm-jdk-17.0.7_macos-x64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.7_macos-x64_bin.tar.gz	905255762546c69e3bb8d815a5d20e2e3cfa5332b868ab90af7aa0afe21e74ea
 oracle-graalvm-17.0.8	graalvm-jdk-17.0.8_macos-x64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.8_macos-x64_bin.tar.gz	325c1c5adce1e8b569e87f1e4dffe852f73e7c25e720ea15977f2ca1d7dba1bb
 oracle-graalvm-17.0.9	graalvm-jdk-17.0.9_macos-x64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.9_macos-x64_bin.tar.gz	29dc9855874e6633df21fd00902ca99ae4a6527add708cee58c84ac61e78c626

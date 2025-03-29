@@ -3504,6 +3504,7 @@ oracle-22.0.2	jdk-22.0.2_linux-x64_bin.tar.gz	https://download.oracle.com/java/2
 oracle-23	jdk-23_linux-x64_bin.tar.gz	https://download.oracle.com/java/23/archive/jdk-23_linux-x64_bin.tar.gz	6e35269e6f31ef80246045f704b41ff5b4ecf9811ba1f6c8ff54a25c84afaa27
 oracle-23.0.1	jdk-23.0.1_linux-x64_bin.tar.gz	https://download.oracle.com/java/23/archive/jdk-23.0.1_linux-x64_bin.tar.gz	2bda38cd0f31d593b56ee5a607401bc6f245aafe07535b6525572861c2d15d6f
 oracle-23.0.2	jdk-23.0.2_linux-x64_bin.tar.gz	https://download.oracle.com/java/23/archive/jdk-23.0.2_linux-x64_bin.tar.gz	12d7553d06b5cacf88b26cad4a8ba83cabe79646f1defb1b7fd029f3356d0922
+oracle-24	jdk-24_linux-x64_bin.tar.gz	https://javamanagementservice-download.us-ashburn-1.oci.oraclecloud.com/java/24/archive/jdk-24_linux-x64_bin.tar.gz	f04a4421519b9719ac96078e16af1ff0bbbfdbda7481b8ad573d75b5b6cd50b1
 oracle-graalvm-17.0.7	graalvm-jdk-17.0.7_linux-x64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.7_linux-x64_bin.tar.gz	93db5fd373fc8eb5a5578387f7646cfd414b82e8cfaf9dbcd0145ceae0137398
 oracle-graalvm-17.0.8	graalvm-jdk-17.0.8_linux-x64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.8_linux-x64_bin.tar.gz	2d6696aa209daa098c51fefc51906aa7bf0dbe28dcc560ef738328352564181b
 oracle-graalvm-17.0.9	graalvm-jdk-17.0.9_linux-x64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.9_linux-x64_bin.tar.gz	1f4e6dcf1f7fc2e289f92c98fc13e1de4c59b0622a039ae4d55904692392c538
