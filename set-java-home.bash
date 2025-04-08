@@ -11,6 +11,9 @@ function _asdf_java_update_java_home() {
     export JAVA_HOME
     JAVA_HOME="$(dirname "$(_asdf_java_absolute_dir_path "${java_path}")")"
     export JDK_HOME=${JAVA_HOME}
+  else
+    unset JAVA_HOME
+    unset JDK_HOME
   fi
 }
 
