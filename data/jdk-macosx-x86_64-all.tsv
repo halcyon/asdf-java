@@ -2759,6 +2759,7 @@ microsoft-11.0.23	microsoft-jdk-11.0.23-macos-x64.tar.gz	https://aka.ms/download
 microsoft-11.0.24	microsoft-jdk-11.0.24-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.24-macos-x64.tar.gz	21f6535dc01fb8915e2c485c2cd6cdd979021b79ba1a9afc747aa56a92fe90e4
 microsoft-11.0.25	microsoft-jdk-11.0.25-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.25-macos-x64.tar.gz	8a8be7a59c7a9d44bffc8e96a6bbc5e3e7c2c743b277e991df1803326f10f051
 microsoft-11.0.26	microsoft-jdk-11.0.26-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.26-macos-x64.tar.gz	9411b7efa62aa7c222489c18353d2031ebd6a04296cd5f77f6c4803cdedf5c8a
+microsoft-11.0.27	microsoft-jdk-11.0.27-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.27-macos-x64.tar.gz	d5547c30f914d60be45db0ea9807da30931e82855b805e8d49b5d6d08923c4c0
 microsoft-16.0.1.9.1	microsoft-jdk-16.0.1.9.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.1.9.1-macOS-x64.tar.gz	21530b843ba3ac7524cb77af725e5f3a607a94f04cc2e9176901a30073a18c38
 microsoft-16.0.2.7.1	microsoft-jdk-16.0.2.7.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.2.7.1-macOS-x64.tar.gz	902ce95b3175ebe7bce52f8a2b6c1e291c6f688bd6da225e079e2ee84b98f7d2
 microsoft-17.0.1.12.1	microsoft-jdk-17.0.1.12.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.1.12.1-macOS-x64.tar.gz	55e1141d01d47b3f486b1ae79e6bcc0406b6696525f7334394d428376fc0d3ee
@@ -2777,6 +2778,7 @@ microsoft-17.0.11	microsoft-jdk-17.0.11-macos-x64.tar.gz	https://aka.ms/download
 microsoft-17.0.12	microsoft-jdk-17.0.12-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.12-macos-x64.tar.gz	c4a44fbbf4c17282662856c44e97ec0ff0ebff44a7fc90a857204ccb8528d30c
 microsoft-17.0.13	microsoft-jdk-17.0.13-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.13-macos-x64.tar.gz	ce87d4110d61922ae3ee6d61d4c0ee48d7a98dcda38cffb8abc8299c47b5a730
 microsoft-17.0.14	microsoft-jdk-17.0.14-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.14-macos-x64.tar.gz	c0d677165073b08f765982d8bb20c08db03933c79ab269103150f88805c93e6e
+microsoft-17.0.15	microsoft-jdk-17.0.15-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.15-macos-x64.tar.gz	72ffaaf9efdb1cbcaa4d0033674f8f589f4d71c67a79396c09960c0e0ecdb509
 microsoft-17.35.1	microsoft-jdk-17.35.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.35.1-macOS-x64.tar.gz	c0f2d4c9b66bd3f73095afe16ae0571dcb479cbc04ce471fe4bb38c037baf1b1
 microsoft-21.0.0	microsoft-jdk-21.0.0-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.0-macOS-x64.tar.gz	6c9935d16f0f4c0a37097b378eff9a6b64114a8426b08c9d55b6bce577fcfe70
 microsoft-21.0.1	microsoft-jdk-21.0.1-macOS-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.1-macOS-x64.tar.gz	1853c84eb8bc3b4f3077eaaa88b51b005232b151c662ba29429eb7b2984cf43c
@@ -2785,6 +2787,7 @@ microsoft-21.0.3	microsoft-jdk-21.0.3-macos-x64.tar.gz	https://aka.ms/download-j
 microsoft-21.0.4	microsoft-jdk-21.0.4-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.4-macos-x64.tar.gz	8bf2a7b24746af5a802bafd29adee6dccd1337a03d508776fa847c0b2d998bf3
 microsoft-21.0.5	microsoft-jdk-21.0.5-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.5-macos-x64.tar.gz	3e2317348141b28203fac39eaa60c14a1b3f1fdb9cfdbcb793eaa4dd5828da6e
 microsoft-21.0.6	microsoft-jdk-21.0.6-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.6-macos-x64.tar.gz	72a4be9114ff8fb1830aeccd9dc2cde5eaad685aef9b3869f5d8a1dc9ce40eee
+microsoft-21.0.7	microsoft-jdk-21.0.7-macos-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.7-macos-x64.tar.gz	862435de8c6ecd10ddce544ff2cbc7f6d95f41476b5536757554c806568b7522
 openjdk-9.0.4	openjdk-9.0.4_osx-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_osx-x64_bin.tar.gz	66415406716fc42cff36e2d74ae991d46c42b3cf317b0425c7bf67697c616716
 openjdk-10	openjdk-10_osx-x64_bin.tar.gz	https://download.java.net/java/GA/jdk10/10/binaries/openjdk-10_osx-x64_bin.tar.gz	ce356672f5432a515438ed4e2b7513003f4be3cc3361019360cefd5137692b77
 openjdk-10.0.1	openjdk-10.0.1_osx-x64_bin.tar.gz	https://download.java.net/java/GA/jdk10/10.0.1/fb4372174a714e6b8c52526dc134031e/10/openjdk-10.0.1_osx-x64_bin.tar.gz	650e06c203a9d2752d686dc62206580afdc909af924b7ea8573b1c671e182ab0
