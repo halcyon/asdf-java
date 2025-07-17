@@ -1,6 +1,8 @@
 # asdf-java
 
-[![Build status](https://github.com/halcyon/asdf-java/workflows/asdf-java%20Tests/badge.svg?branch=master)](https://github.com/halcyon/asdf-java/actions?query=workflow%3A%22asdf-java+Tests%22+branch%3Amaster) [![travis ci](https://travis-ci.org/halcyon/asdf-java.svg?branch=master)](https://travis-ci.org/halcyon/asdf-java) [![Join the chat at https://gitter.im/asdf-java/community](https://badges.gitter.im/asdf-java/community.svg)](https://gitter.im/asdf-java/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Update Java release data](https://github.com/halcyon/asdf-java/actions/workflows/update-data.yaml/badge.svg)](https://github.com/halcyon/asdf-java/actions/workflows/update-data.yaml)
+[![asdf-java Tests](https://github.com/halcyon/asdf-java/actions/workflows/tests.yml/badge.svg)](https://github.com/halcyon/asdf-java/actions/workflows/tests.yml)
+[![Join the chat at https://gitter.im/asdf-java/community](https://badges.gitter.im/asdf-java/community.svg)](https://gitter.im/asdf-java/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [Java](https://www.java.com/en/) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
@@ -14,7 +16,7 @@
 ## Install
 
 ```
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin add java https://github.com/halcyon/asdf-java.git
 ```
 
 ## Use
@@ -26,7 +28,7 @@ Check [asdf](https://asdf-vm.github.io/asdf/) for instructions on how to install
 List candidate JDKs:
 
 ```
-asdf list-all java
+asdf list all java
 ```
 
 Install a candidate listed from the previous command like this:
@@ -40,11 +42,11 @@ asdf install java adoptopenjdk-11.0.16+8
 Select an installed candidate for use like this:
 
 ```
-asdf global java adoptopenjdk-11.0.16+8
+asdf set -u java adoptopenjdk-11.0.16+8
 ```
 or just for the local directory
 ```
-asdf local java adoptopenjdk-11.0.16+8
+asdf set java adoptopenjdk-11.0.16+8
 ```
 
 ### Latest
