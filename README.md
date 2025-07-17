@@ -1,6 +1,8 @@
 # asdf-java
 
-[![Build status](https://github.com/halcyon/asdf-java/workflows/asdf-java%20Tests/badge.svg?branch=master)](https://github.com/halcyon/asdf-java/actions?query=workflow%3A%22asdf-java+Tests%22+branch%3Amaster) [![travis ci](https://travis-ci.org/halcyon/asdf-java.svg?branch=master)](https://travis-ci.org/halcyon/asdf-java) [![Join the chat at https://gitter.im/asdf-java/community](https://badges.gitter.im/asdf-java/community.svg)](https://gitter.im/asdf-java/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Update Java release data](https://github.com/halcyon/asdf-java/actions/workflows/update-data.yaml/badge.svg)](https://github.com/halcyon/asdf-java/actions/workflows/update-data.yaml)
+[![asdf-java Tests](https://github.com/halcyon/asdf-java/actions/workflows/tests.yml/badge.svg)](https://github.com/halcyon/asdf-java/actions/workflows/tests.yml)
+[![Join the chat at https://gitter.im/asdf-java/community](https://badges.gitter.im/asdf-java/community.svg)](https://gitter.im/asdf-java/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [Java](https://www.java.com/en/) plugin for the [asdf](https://github.com/asdf-vm/asdf) version manager.
 
