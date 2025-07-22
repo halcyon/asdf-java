@@ -3200,6 +3200,7 @@ microsoft-11.0.24	microsoft-jdk-11.0.24-linux-aarch64.tar.gz	https://aka.ms/down
 microsoft-11.0.25	microsoft-jdk-11.0.25-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.25-linux-aarch64.tar.gz	a0bac052e41d483e945ca88b263252bb32e5dd24c122f85ad3177f1fad7281ae
 microsoft-11.0.26	microsoft-jdk-11.0.26-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.26-linux-aarch64.tar.gz	74f98722b120540744ca71d109b9b294d77c5e1b50c85fbfd71259736e396bd2
 microsoft-11.0.27	microsoft-jdk-11.0.27-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.27-linux-aarch64.tar.gz	6367ed58c41e9135ccad10cbfaf4586a9a4baa186336cea4d47b25e322d929e6
+microsoft-11.0.28	microsoft-jdk-11.0.28-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-11.0.28-linux-aarch64.tar.gz	7aff4aa763fc4c00899e48ab0fc8e059c969463fd9857915ce30931b2df5cbb3
 microsoft-16.0.1.9.1	microsoft-jdk-16.0.1.9.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.1.9.1-linux-aarch64.tar.gz	72a80321714888de6bdbf60ac321eaf3f4f199c195895a268a501409be826a62
 microsoft-16.0.2.7.1	microsoft-jdk-16.0.2.7.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-16.0.2.7.1-linux-aarch64.tar.gz	d5636f05a9664bcc04ebffaa694548a74d95ce3ff6e4c56930d15de76ae1ed23
 microsoft-17.0.1.12.1	microsoft-jdk-17.0.1.12.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.1.12.1-linux-aarch64.tar.gz	cd802f8c3a6f230692c56530a2b662bc60252c87ddf2aba2effe5b8d311699a3
@@ -3219,6 +3220,7 @@ microsoft-17.0.12	microsoft-jdk-17.0.12-linux-aarch64.tar.gz	https://aka.ms/down
 microsoft-17.0.13	microsoft-jdk-17.0.13-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.13-linux-aarch64.tar.gz	859c993dff29f87e49ce96ac01eb338a8a51ac75a49e841ac74160a1217f7489
 microsoft-17.0.14	microsoft-jdk-17.0.14-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.14-linux-aarch64.tar.gz	a5598ed24660ab7fa632535e4d7fdfb88438b962b76ee90813efdf355348dc79
 microsoft-17.0.15	microsoft-jdk-17.0.15-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.15-linux-aarch64.tar.gz	d14cd033bf8f69a5ecdc922f99acac2fbbfcf7bffeea453c844ecf59882c8aa4
+microsoft-17.0.16	microsoft-jdk-17.0.16-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.0.16-linux-aarch64.tar.gz	54bbc1873710d8ecd993af23b4122410fa532bffa40271b227bdf15861414ab3
 microsoft-17.35.1	microsoft-jdk-17.35.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-17.35.1-linux-aarch64.tar.gz	0f5e987c7a3b48d8180436128e46ba0b9627b62c2c28079217d65f28811a6b1c
 microsoft-21.0.0	microsoft-jdk-21.0.0-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.0-linux-aarch64.tar.gz	4280a7869c9a5e029e20ad97674a052a2265dbcc5bc6dbeef3e2983e8bc6d559
 microsoft-21.0.1	microsoft-jdk-21.0.1-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.1-linux-aarch64.tar.gz	6ed023b384a4a3cb04e25ed03d07e7d928e6bc0a677770d760d01191f54eec6f
@@ -3228,6 +3230,7 @@ microsoft-21.0.4	microsoft-jdk-21.0.4-linux-aarch64.tar.gz	https://aka.ms/downlo
 microsoft-21.0.5	microsoft-jdk-21.0.5-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.5-linux-aarch64.tar.gz	356844fe544085b00cd73935e0c7a4c534f286799728fa6d6e996d1cb8b1a682
 microsoft-21.0.6	microsoft-jdk-21.0.6-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.6-linux-aarch64.tar.gz	136096968e2ae1c937d26be2436e829ec6375a744e96caffb442a758fafae92d
 microsoft-21.0.7	microsoft-jdk-21.0.7-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.7-linux-aarch64.tar.gz	183e6a47a44b978c5f85a6c548a7978f4bca767a3a2d91c9addb3883fc5ef1b2
+microsoft-21.0.8	microsoft-jdk-21.0.8-linux-aarch64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.8-linux-aarch64.tar.gz	1ac838ffca60f719f95a8751746c5e4594eca108f2ef27709a80edeef955a1dc
 openjdk-15	openjdk-15_linux-aarch64_bin.tar.gz	https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_linux-aarch64_bin.tar.gz	01e7e07dd8a67a65b32fdcaff75ba3f21cd9cfc749287e7c9b1c6037f96a3537
 openjdk-15.0.1	openjdk-15.0.1_linux-aarch64_bin.tar.gz	https://download.java.net/java/GA/jdk15.0.1/51f4f36ad4ef43e39d0dfdbaf6549e32/9/GPL/openjdk-15.0.1_linux-aarch64_bin.tar.gz	6a62b7ec065280bad978a3322733a089153dec5ebf5ba81fd2fa361382dbc7b0
 openjdk-15.0.2	openjdk-15.0.2_linux-aarch64_bin.tar.gz	https://download.java.net/java/GA/jdk15.0.2/0d1cfde4252546c6931946de8db48ee2/7/GPL/openjdk-15.0.2_linux-aarch64_bin.tar.gz	3958f01858f9290c48c23e7804a0af3624e8eca6749b085c425df4c4f2f7dcbc
