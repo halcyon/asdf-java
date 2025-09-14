@@ -165,21 +165,17 @@ function install {
     ${SHA256SUM} -c <<<"${checksum}  ${package_filename}"
 
     case "${package_filename}" in
-        *zip) unzip "${package_filename}"
-              ;;
-        *tar.gz) tar xf "${package_filename}"
-                 ;;
-        *tgz) tar xf "${package_filename}"
-                 ;;
-        *) echo "Cannot extract ${package_filename}"
-           exit 1
-           ;;
-    esac
-
-    if [ $? -ne 0 ]; then
-        echo "Failed to extract ${package_filename}"
+    *zip)
+        unzip "${package_filename}" || { echo "Failed to extract ${package_filename}" >&2; exit 1; }
+        ;;
+    *tar.gz|*tgz)
+        tar xf "${package_filename}" || { echo "Failed to extract ${package_filename}" >&2; exit 1; }
+        ;;
+    *)
+        echo "Cannot extract ${package_filename}: unsupported file type." >&2
         exit 1
-    fi
+        ;;
+    esac
 
     read -r -a dirs <<<"$(ls -d ./*/)"
     cd "${dirs[0]}" || return 1
