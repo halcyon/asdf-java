@@ -3958,6 +3958,7 @@ microsoft-21.0.5	microsoft-jdk-21.0.5-linux-x64.tar.gz	https://aka.ms/download-j
 microsoft-21.0.6	microsoft-jdk-21.0.6-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.6-linux-x64.tar.gz	701b98a494a220ee5ff144f507b1c820726d9fac4e4a1ac5f30b1ab91deb2a3a
 microsoft-21.0.7	microsoft-jdk-21.0.7-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.7-linux-x64.tar.gz	b5427bc4fe284de34f1fa20b1ee5677db8ef05e6209d8db0009a3d286b12b840
 microsoft-21.0.8	microsoft-jdk-21.0.8-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-21.0.8-linux-x64.tar.gz	da1cae7d08d41f32e87712bd3feac73faf7646a30476164c9e62a598dbd30aac
+microsoft-25.0.0	microsoft-jdk-25.0.0-linux-x64.tar.gz	https://aka.ms/download-jdk/microsoft-jdk-25.0.0-linux-x64.tar.gz	58a1136a24577b9ed3e09c0b65ce0e41c2a4d2b0802a7a2080057d5a8962aeed
 openjdk-9	openjdk-9_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz	f908e31b6185e11b322825809172dcbb7ac0dce64061c9cf154cb1b0df884480
 openjdk-9.0.1	openjdk-9.0.1_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9.0.1/binaries/openjdk-9.0.1_linux-x64_bin.tar.gz	a312ea3c51940361af738fda809e08e16972ae9dd314cb087e0d31e251b416a3
 openjdk-9.0.4	openjdk-9.0.4_linux-x64_bin.tar.gz	https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz	39362fb9bfb341fcc802e55e8ea59f4664ca58fd821ce956d48e1aa4fb3d2dec
