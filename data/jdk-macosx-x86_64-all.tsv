@@ -3473,6 +3473,7 @@ openjdk-26	openjdk-26_macos-x64_bin.tar.gz	https://download.java.net/java/GA/jdk
 openjdk-26-jep401ea2+1-1	openjdk-26-jep401ea2+1-1_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/valhalla/26/1/openjdk-26-jep401ea2+1-1_macos-x64_bin.tar.gz	0aa98bba51f82fc6170515d4c900ed92b345632d8baae74aa9a0ac9c5d3b26b1
 openjdk-27-ea+14	openjdk-27-ea+14_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk27/14/GPL/openjdk-27-ea+14_macos-x64_bin.tar.gz	3fe28564c6ac445790a5f6d07bfa69a727312ea8d4b2483bbf49dc009f3b0363
 openjdk-27-ea+15	openjdk-27-ea+15_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk27/15/GPL/openjdk-27-ea+15_macos-x64_bin.tar.gz	913f29aaeca07f3f55e42ff7538c7f4adaab2ebc2e3bf0fa408c20c283b01529
+openjdk-27-ea+16	openjdk-27-ea+16_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk27/16/GPL/openjdk-27-ea+16_macos-x64_bin.tar.gz	c0744f9fe392d0dcfd95e38d2a8788195c7ce9ae8b00efe2dea134ac5488c3fb
 openjdk-27-jep401ea3+1-1	openjdk-27-jep401ea3+1-1_macos-x64_bin.tar.gz	https://download.java.net/java/early_access/valhalla/27/1/openjdk-27-jep401ea3+1-1_macos-x64_bin.tar.gz	64d2deee65c221b7fbdfb936d42981987c1505a6057a1847e5fdb37afabb103a
 oracle-17	jdk-17_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_macos-x64_bin.tar.gz	3db8b885883c5867c80cd39333ff6bfb7042a8035907adc5a57fac8355cc33bd
 oracle-17.0.1	jdk-17.0.1_macos-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_macos-x64_bin.tar.gz	b8905d88a14e60f873064a8b25737e2ec2e3688611adbf21f3a5dd5c8742797d
