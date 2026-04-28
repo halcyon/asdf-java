@@ -5,6 +5,9 @@ asdf_update_java_home() {
     export JAVA_HOME
     JAVA_HOME="$(dirname "$(dirname "${java_path:A}")")"
     export JDK_HOME=${JAVA_HOME}
+  else
+    unset JAVA_HOME
+    unset JDK_HOME
   fi
 }
 
