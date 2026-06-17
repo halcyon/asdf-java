@@ -6,8 +6,7 @@ function _asdf_java_absolute_dir_path {
 
 function _asdf_java_update_java_home() {
   local java_path
-  java_path="$(asdf which java)"
-  if [[ -n "${java_path}" ]]; then
+  if java_path="$(asdf which java 2>/dev/null)" && [[ -n "${java_path}" ]]; then
     export JAVA_HOME
     JAVA_HOME="$(dirname "$(_asdf_java_absolute_dir_path "${java_path}")")"
     export JDK_HOME=${JAVA_HOME}
