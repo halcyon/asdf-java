@@ -192,6 +192,17 @@ function install {
             case ${ASDF_INSTALL_VERSION} in
                 zulu*)
                     mv ./* "${ASDF_INSTALL_PATH}"
+                    # Recent Zulu macOS archives ship only `Contents/` at the root.
+                    # Older archives also included top-level convenience symlinks
+                    # (`bin`, `conf`, ...) pointing into `Contents/Home/`. asdf shims
+                    # expect `${ASDF_INSTALL_PATH}/bin/java`, so create them when missing.
+                    if [ ! -e "${ASDF_INSTALL_PATH}/bin" ] && [ -d "${ASDF_INSTALL_PATH}/Contents/Home" ]; then
+                        local entry name
+                        for entry in "${ASDF_INSTALL_PATH}/Contents/Home"/*; do
+                            name="$(basename "${entry}")"
+                            ln -s "Contents/Home/${name}" "${ASDF_INSTALL_PATH}/${name}"
+                        done
+                    fi
                     if [ "$(get_asdf_config_value "java_macos_integration_enable")" = "yes" ]; then
                         local macOS_integration_path
                         macOS_integration_path="$(dirname "$(dirname "$(dirname "$(absolute_dir_path "${ASDF_INSTALL_PATH}/bin/..")")")")"
