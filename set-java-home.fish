@@ -1,5 +1,5 @@
 function asdf_update_java_home --on-event fish_prompt
-  set --local java_path (asdf which java)
+  set --local java_path (asdf which java 2>/dev/null)
   if test -n "$java_path"
     set --local full_path (builtin realpath "$java_path")
     
