@@ -95,7 +95,7 @@ For fish shell, instead use:
 
 `. ~/.asdf/plugins/java/set-java-home.fish`
 
-For nushell shell, instead use:
+For nushell shell, add the following to `config.nu`:
 
 `source ~/.asdf/plugins/java/set-java-home.nu`
 
