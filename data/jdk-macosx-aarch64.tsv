@@ -2931,6 +2931,7 @@ openjdk-26.0.2	openjdk-26.0.2_macos-aarch64_bin.tar.gz	https://download.java.net
 openjdk-26.0.2.1	openjdk-26.0.2.1_macos-aarch64_bin.tar.gz	https://download.java.net/java/GA/jdk26.0.2.1/3b8e6c7ec6274148a7aa15e7e7dfb53c/1/GPL/openjdk-26.0.2.1_macos-aarch64_bin.tar.gz	3a61f9bbfbf2e09308aa4b1a5c044fcbc82f6ba49e074be49a7b7911e1f00efd
 openjdk-27	openjdk-27_macos-aarch64_bin.tar.gz	https://download.java.net/java/GA/jdk27/55ce5470a6294008af0057ff4626d0e5/35/GPL/openjdk-27_macos-aarch64_bin.tar.gz	ff42134c1bc5ac81c5a91a95fd4df87479db5d0499ba875d6adb5bda5626c3e8
 openjdk-27-jep401ea3+1-1	openjdk-27-jep401ea3+1-1_macos-aarch64_bin.tar.gz	https://download.java.net/java/early_access/valhalla/27/1/openjdk-27-jep401ea3+1-1_macos-aarch64_bin.tar.gz	d97c8e0d90d95b81bf99cfef0b1e1edebeb07655fc84c42e6ed99d882aebe76b
+openjdk-27.0.1	openjdk-27.0.1_macos-aarch64_bin.tar.gz	https://download.java.net/java/GA/jdk27.0.1/cb858dd9ef0246e1847750bdb65252fe/9/GPL/openjdk-27.0.1_macos-aarch64_bin.tar.gz	338f6eff7c500d2103e4464867422235238dda844bfd10d4e3979f6b0fbf2ca2
 oracle-17	jdk-17_macos-aarch64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_macos-aarch64_bin.tar.gz	b1dfa482045d871f7b4a7f64b44b6284b8bb01077c1cc3b0047061e901ffe7d3
 oracle-17.0.1	jdk-17.0.1_macos-aarch64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_macos-aarch64_bin.tar.gz	8e5f240705bdf37ed831abc8c52cc05afe71721a6bc26dd977b6efd01b5ebef7
 oracle-17.0.2	jdk-17.0.2_macos-aarch64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.2_macos-aarch64_bin.tar.gz	265b8ec9279bf91bb4fd5b4cb69acadce42e80f3462254fbb7300e4e8a1e0657
@@ -2986,11 +2987,13 @@ oracle-25.0.2	jdk-25.0.2_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/j
 oracle-25.0.3	jdk-25.0.3_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/25/archive/jdk-25.0.3_macos-aarch64_bin.tar.gz	09464324facd6bcf4520725f442bed048a0d946f50b67088d2e7ecae5bc2b935
 oracle-25.0.4	jdk-25.0.4_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/25/archive/jdk-25.0.4_macos-aarch64_bin.tar.gz	1e4f84d6af2f465ad87db05af22a92d3a7fba5dbe51632955a96bcae77b3319e
 oracle-25.0.4.1	jdk-25.0.4.1_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/25/archive/jdk-25.0.4.1_macos-aarch64_bin.tar.gz	616fbcd6c68e4451c3ab12c0d4c5095deab67a2603125e63b0d8a46b41615e6a
+oracle-25.0.5	jdk-25.0.5_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/25/archive/jdk-25.0.5_macos-aarch64_bin.tar.gz	510120e30e0be1d62547112d545fe9a1820eff8e9b19262877e60aad05bf2abf
 oracle-26	jdk-26_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/26/archive/jdk-26_macos-aarch64_bin.tar.gz	1c479e6ae6669b6b5742d63d9c4036c2a96b2060477c396425fbf60e541c05ec
 oracle-26.0.1	jdk-26.0.1_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/26/archive/jdk-26.0.1_macos-aarch64_bin.tar.gz	368bdb70170a1f802b7629850500b8691a0885fdce867c38caa100db2a708a91
 oracle-26.0.2	jdk-26.0.2_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/26/archive/jdk-26.0.2_macos-aarch64_bin.tar.gz	067a024d52f1e1f22b1ad72fb592051961818de098ad56cd4146e03254e9f520
 oracle-26.0.2.1	jdk-26.0.2.1_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/26/archive/jdk-26.0.2.1_macos-aarch64_bin.tar.gz	6fcae2fb2cd30fb69863bf3a4ba5a34ed0a94db5e1c90b43495a50c172d14496
 oracle-27	jdk-27_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/27/archive/jdk-27_macos-aarch64_bin.tar.gz	6cb6d94d1bacb75d31357212cdd28e601fe15588fcb00c15cbe8b7c2be68990c
+oracle-27.0.1	jdk-27.0.1_macos-aarch64_bin.tar.gz	https://java.oraclecloud.com/java/27/archive/jdk-27.0.1_macos-aarch64_bin.tar.gz	890e7833aca8f383763f0319a3acf7547075068f5746480fd7e1471713989ff6
 oracle-graalvm-17.0.7	graalvm-jdk-17.0.7_macos-aarch64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.7_macos-aarch64_bin.tar.gz	cb45f6585ef02134a6a6ffb6de20db96197486ffef8821ad97b11fe2fc0c23b8
 oracle-graalvm-17.0.8	graalvm-jdk-17.0.8_macos-aarch64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.8_macos-aarch64_bin.tar.gz	c73d2917c1b681679d90a7e3851b553c328e4028137e19adb301040fe0d43cfd
 oracle-graalvm-17.0.9	graalvm-jdk-17.0.9_macos-aarch64_bin.tar.gz	https://download.oracle.com/graalvm/17/archive/graalvm-jdk-17.0.9_macos-aarch64_bin.tar.gz	2214b6ecb32faacc84dffcbfae930450abe77c31730c4b6310e22d8f743959a5
