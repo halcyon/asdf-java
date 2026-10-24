@@ -5206,6 +5206,7 @@ openjdk-28-ea+17	openjdk-28-ea+17_linux-x64_bin.tar.gz	https://download.java.net
 openjdk-28-ea+18	openjdk-28-ea+18_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk28/18/GPL/openjdk-28-ea+18_linux-x64_bin.tar.gz	9901071672629d07caff1d5d50db34cecabf36aa3336e9fad4dbed5e8876fa40
 openjdk-28-ea+19	openjdk-28-ea+19_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk28/19/GPL/openjdk-28-ea+19_linux-x64_bin.tar.gz	f885d924e3a7a9847572aef6a99561f93b31680951c8bdcc1b29b67bc4bc74e3
 openjdk-28-ea+20	openjdk-28-ea+20_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk28/20/GPL/openjdk-28-ea+20_linux-x64_bin.tar.gz	fd0b94162fede0e2f7a31106a38d0105b23e96521d8c61c0f1a0967e1383b59d
+openjdk-28-ea+21	openjdk-28-ea+21_linux-x64_bin.tar.gz	https://download.java.net/java/early_access/jdk28/21/GPL/openjdk-28-ea+21_linux-x64_bin.tar.gz	b32bf773d02fff73d4a2da78cf590459879963b3dbffd18dcc9d6c6756ee4549
 openjdk-musl-17-ea+14	openjdk-17-ea+14_linux-x64-musl_bin.tar.gz	https://download.java.net/java/early_access/alpine/14/binaries/openjdk-17-ea+14_linux-x64-musl_bin.tar.gz	f07a1ac921333dafac1cd886ad49600ce143be7efebd32e1a02599a8a0829dd4
 oracle-17	jdk-17_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17_linux-x64_bin.tar.gz	106e3fc31b9fe4d0fd76c6c92b1931bdd1b0ac4d788747951de0f92cc73b1ffe
 oracle-17.0.1	jdk-17.0.1_linux-x64_bin.tar.gz	https://download.oracle.com/java/17/archive/jdk-17.0.1_linux-x64_bin.tar.gz	6f25bcb94d3e22fb52a4632c74e03b403834e81b68701ab7ecd900fb9cd89f43
