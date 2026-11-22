@@ -25,6 +25,7 @@ jobs:
         shellcheck -V
         shellcheck ./bin/functions
         shellcheck ./update_data.bash
+        shellcheck ./run_tests.bash
     - name: Install asdf
       uses: actions/checkout@v2
       with:
@@ -40,19 +41,8 @@ jobs:
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        ./update_data.bash
-        grep -q adoptopenjdk-openj9-11 data/jdk-linux-x86_64.tsv
-        echo "Found adoptopenjdk-openj9-11"
-        grep -q adoptopenjdk-openj9-large_heap-11 data/jdk-macosx-x86_64.tsv
-        echo "Found adoptopenjdk-openj9-large_heap-11"
-        grep -q zulu-musl-11 data/jdk-linux-x86_64.tsv
-        echo "Found zulu-musl-11 "
-        grep -q liberica-javafx-16 data/jdk-linux-arm32-vfp-hflt.tsv
-        echo "Found liberica-javafx-16"
-        grep -q liberica-lite-11 data/jdk-macosx-x86_64.tsv
-        echo "Found liberica-lite-11"
-        grep "graalvm-21" data/jdk-linux-aarch64.tsv | grep -q -v "graalvm-graalvm-21"
-        echo "Found graalvm-21"
+        ./update_data.bash       
+        ./run_tests.bash
     - name: macOS Check java_home integration
       env:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
