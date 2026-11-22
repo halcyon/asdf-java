@@ -59,7 +59,7 @@ asdf install java latest:adoptopenjdk-11
 
 Similarly, you can set the global/local version. The latest tag will resolve to the most recent version.
 
-Running `asdf local java latest:adoptopenjdk-11` will result in the following:
+Running `asdf set java latest:adoptopenjdk-11` will result in the following:
 
 ```shell
 $ cat .tool-versions
