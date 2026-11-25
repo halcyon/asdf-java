@@ -1,4 +1,9 @@
 asdf_update_java_home() {
+  if [[ $L_PWD == $PWD ]]; then
+    return
+  fi
+  export L_PWD=$PWD
+  
   local java_path
   if java_path=$(asdf which java 2>&1) && [[ -n $java_path ]]; then
     export JAVA_HOME
